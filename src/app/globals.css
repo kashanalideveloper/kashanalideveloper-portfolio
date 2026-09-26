@@ -39,6 +39,42 @@
   --foreground: var(--color-ink);
 }
 
+.dark {
+  --bg-brand: #090d16;
+  --bg-card: #111827;
+  --bg-soft: #1f2937;
+  --color-primary: #22d3ee;
+  --color-secondary: #38bdf8;
+  --color-ink: #f8fafc;
+  --color-muted: #94a3b8;
+  --color-line: #1e293b;
+  --background: #090d16;
+  --foreground: #f8fafc;
+}
+
+.dark body {
+  background-color: #090d16;
+  color: #f8fafc;
+}
+
+.dark .bg-white {
+  background-color: #111827 !important;
+  color: #f8fafc !important;
+  border-color: #1e293b !important;
+}
+
+.dark .bg-brandBg {
+  background-color: #090d16 !important;
+}
+
+.dark .bg-brandSoft {
+  background-color: #1f2937 !important;
+}
+
+.dark .border-brandLine {
+  border-color: #1e293b !important;
+}
+
 @theme inline {
   /* Tailwind v4 utility class maps */
   --color-brandBg: var(--bg-brand);

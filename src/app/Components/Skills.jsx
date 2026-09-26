@@ -103,7 +103,7 @@ export default function Skills() {
             id={`${componentId}-heading`}
             className="text-2xl sm:text-4xl font-extrabold text-brandInk leading-tight uppercase tracking-tight"
           >
-            Skills <span className="text-brandPrimary">&amp; Expertise.</span>
+            Skills <span className="text-brandPrimary">& Expertise.</span>
           </h2>
         </div>
 

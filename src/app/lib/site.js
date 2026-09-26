@@ -22,8 +22,8 @@ export const SITE = {
 
 // Pre-filled message used for every WhatsApp link on the site.
 export const WHATSAPP_MESSAGE =
-  "Assalam-o-Alaikum! I visited your portfolio and I'm really impressed by your work. I think you are the right fit for my frontend project and I want to build it with you. Could you please share your availability, pricing and estimated timeline so we can take this forward? Looking forward to hearing from you soon. JazakAllah Khair!";
+  "Hello Kashan, I found your portfolio and I'm interested in discussing a website/web development project. I'd like to know more about your services and discuss my requirements. Let's talk!";
 
-// Opens WhatsApp Web directly (desktop) instead of the mobile app.
+// Opens WhatsApp universally across mobile and desktop.
 export const whatsappLink = (text = WHATSAPP_MESSAGE) =>
-  `https://web.whatsapp.com/send?phone=${SITE.whatsappNumber}&text=${encodeURIComponent(text)}`;
+  `https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(text)}`;

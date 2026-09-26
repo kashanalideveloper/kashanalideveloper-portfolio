@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, useSyncExternalStore } from "react";
 import { SITE, whatsappLink } from "../lib/site";
+import { useLanguage } from "./LanguageContext";
 
 const roles = [
   "Frontend Developer",

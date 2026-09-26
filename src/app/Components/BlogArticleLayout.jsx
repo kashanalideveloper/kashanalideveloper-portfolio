@@ -1,5 +1,6 @@
 // src/app/Components/BlogArticleLayout.jsx
 import Link from "next/link";
+import Image from "next/image";
 import { SITE } from "../lib/site";
 import { ARTICLES } from "../lib/blog";
 

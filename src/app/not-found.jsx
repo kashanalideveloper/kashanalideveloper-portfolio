@@ -59,7 +59,7 @@ export default function NotFound() {
         </div>
 
         <p className="mt-12 font-mono text-[10px] tracking-widest text-brandMuted/50 uppercase">
-          Malik Kashan // Frontend &amp; WordPress Developer
+          Malik Kashan // Frontend & WordPress Developer
         </p>
       </div>
     </main>

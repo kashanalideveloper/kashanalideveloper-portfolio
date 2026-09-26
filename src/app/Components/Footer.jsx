@@ -4,54 +4,56 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { SITE, whatsappLink } from "../lib/site";
 import Logo from "./Logo";
-
-const quickLinks = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Services", href: "/services" },
-  { name: "Projects", href: "/projects" },
-  { name: "Blog", href: "/blog" },
-  { name: "FAQ", href: "/faq" },
-  { name: "Contact", href: "/contact" },
-];
-
-const serviceLinks = [
-  {
-    name: "Custom Web Development",
-    href: "/blog/custom-web-development",
-  },
-  {
-    name: "WordPress Development",
-    href: "/blog/wordpress-development",
-  },
-  {
-    name: "React.js Applications",
-    href: "/blog/react-js-applications",
-  },
-  {
-    name: "UI/UX Design",
-    href: "/blog/ui-ux-design",
-  },
-  {
-    name: "Performance Optimization",
-    href: "/blog/performance-optimization",
-  },
-  {
-    name: "Website Maintenance",
-    href: "/blog/website-maintenance",
-  },
-];
-
-const legalLinks = [
-  { name: "Privacy Policy", href: "/privacy-policy" },
-  { name: "Terms & Conditions", href: "/terms-conditions" },
-];
+import { useLanguage } from "./LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
+  const quickLinks = [
+    { name: t("navHome"), href: "/" },
+    { name: t("navAbout"), href: "/about" },
+    { name: t("navServices"), href: "/services" },
+    { name: t("navWork"), href: "/projects" },
+    { name: t("navBlog"), href: "/blog" },
+    { name: t("navFaq"), href: "/faq" },
+    { name: t("navContact"), href: "/contact" },
+  ];
+
+  const serviceLinks = [
+    {
+      name: "Custom Web Development",
+      href: "/services/web-development",
+    },
+    {
+      name: "WordPress Development",
+      href: "/services/wordpress-development",
+    },
+    {
+      name: "React.js Applications",
+      href: "/services/react-development",
+    },
+    {
+      name: "UI/UX Design",
+      href: "/services/website-redesign",
+    },
+    {
+      name: "Performance Optimization",
+      href: "/services/performance-optimization",
+    },
+    {
+      name: "Website Maintenance",
+      href: "/services/web-development",
+    },
+  ];
+
+  const legalLinks = [
+    { name: "Privacy Policy", href: "/privacy-policy" },
+    { name: "Terms & Conditions", href: "/terms-conditions" },
+  ];
+
   return (
-    <footer className="relative bg-white w-full border-t border-brandLine overflow-hidden clear-both z-20">
+    <footer className="relative bg-white dark:bg-slate-900 w-full border-t border-brandLine overflow-hidden clear-both z-20">
       {/* Ambient Glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-72 h-16 bg-brandPrimary/10 blur-[80px] pointer-events-none -z-10 transform-gpu" />
 
@@ -68,7 +70,7 @@ export default function Footer() {
             <div className="flex items-center gap-3.5 text-left mb-4">
               <Logo size={44} />
               <div className="flex flex-col justify-center leading-none">
-                <span className="text-base font-extrabold tracking-[0.14em] text-brandInk uppercase leading-none mb-1">
+                <span className="text-base font-extrabold tracking-[0.14em] text-brandInk dark:text-white uppercase leading-none mb-1">
                   Malik Kashan
                 </span>
                 <span className="text-[9px] font-semibold tracking-[0.32em] text-brandPrimary uppercase leading-none">
@@ -77,7 +79,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <p className="text-brandMuted text-sm leading-relaxed font-light mb-5">
+            <p className="text-brandMuted dark:text-slate-300 text-sm leading-relaxed font-light mb-5">
               Frontend & WordPress developer based in {SITE.location.label},
               building high-performance websites, web apps and dashboards for
               businesses worldwide.
@@ -89,7 +91,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit Malik Kashan GitHub profile"
-                className="w-9 h-9 rounded-full border border-brandLine bg-brandSoft flex items-center justify-center text-brandMuted hover:border-brandPrimary hover:text-brandPrimary transition-all duration-300"
+                className="w-9 h-9 rounded-full border border-brandLine bg-brandSoft dark:bg-slate-800 flex items-center justify-center text-brandMuted hover:border-brandPrimary hover:text-brandPrimary transition-all duration-300"
               >
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M12 .5C5.7.5.5 5.7.5 12c0 5.08 3.29 9.4 7.86 10.92.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.7 1.25 3.35.95.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.8 1.19 1.83 1.19 3.08 0 4.41-2.69 5.38-5.25 5.66.41.35.77 1.04.77 2.1 0 1.52-.01 2.74-.01 3.11 0 .31.21.68.8.56A10.5 10.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z" />
@@ -109,7 +111,7 @@ export default function Footer() {
               <a
                 href={`mailto:${SITE.email}`}
                 aria-label="Send an email to Malik Kashan"
-                className="w-9 h-9 rounded-full border border-brandLine bg-brandSoft flex items-center justify-center text-brandMuted hover:border-brandPrimary hover:text-brandPrimary transition-all duration-300"
+                className="w-9 h-9 rounded-full border border-brandLine bg-brandSoft dark:bg-slate-800 flex items-center justify-center text-brandMuted hover:border-brandPrimary hover:text-brandPrimary transition-all duration-300"
               >
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <rect x="2" y="4" width="20" height="16" rx="2" />
@@ -127,15 +129,15 @@ export default function Footer() {
             transition={{ duration: 0.4, delay: 0.05, ease: "easeOut" }}
             aria-label="Footer navigation"
           >
-            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-brandInk mb-5">
-              Quick Links
+            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-brandInk dark:text-white mb-5">
+              {t("quickLinks")}
             </h3>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="inline-block text-sm text-brandMuted hover:text-brandPrimary transition-colors duration-200"
+                    className="inline-block text-sm text-brandMuted dark:text-slate-300 hover:text-brandPrimary transition-colors duration-200"
                   >
                     {link.name}
                   </Link>
@@ -152,15 +154,15 @@ export default function Footer() {
             transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
             aria-label="Services links"
           >
-            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-brandInk mb-5">
-              Services
+            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-brandInk dark:text-white mb-5">
+              {t("navServices")}
             </h3>
             <ul className="space-y-3">
               {serviceLinks.map((service) => (
                 <li key={service.name}>
                   <Link
                     href={service.href}
-                    className="inline-block text-sm text-brandMuted hover:text-brandPrimary transition-colors duration-200"
+                    className="inline-block text-sm text-brandMuted dark:text-slate-300 hover:text-brandPrimary transition-colors duration-200"
                   >
                     {service.name}
                   </Link>
@@ -176,14 +178,14 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.15, ease: "easeOut" }}
           >
-            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-brandInk mb-5">
-              Contact
+            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-brandInk dark:text-white mb-5">
+              {t("navContact")}
             </h3>
             <ul className="space-y-3 text-sm">
               <li>
                 <a
                   href={`mailto:${SITE.email}`}
-                  className="flex items-start gap-2.5 text-brandMuted hover:text-brandPrimary transition-colors duration-200"
+                  className="flex items-start gap-2.5 text-brandMuted dark:text-slate-300 hover:text-brandPrimary transition-colors duration-200"
                 >
                   <svg className="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <rect x="2" y="4" width="20" height="16" rx="2" />
@@ -195,7 +197,7 @@ export default function Footer() {
               <li>
                 <a
                   href={`tel:${SITE.phoneIntl}`}
-                  className="flex items-start gap-2.5 text-brandMuted hover:text-brandPrimary transition-colors duration-200"
+                  className="flex items-start gap-2.5 text-brandMuted dark:text-slate-300 hover:text-brandPrimary transition-colors duration-200"
                 >
                   <svg className="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
@@ -208,7 +210,7 @@ export default function Footer() {
                   href={SITE.location.mapUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-start gap-2.5 text-brandMuted hover:text-brandPrimary transition-colors duration-200"
+                  className="flex items-start gap-2.5 text-brandMuted dark:text-slate-300 hover:text-brandPrimary transition-colors duration-200"
                 >
                   <svg className="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" />
@@ -224,7 +226,7 @@ export default function Footer() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="block text-xs font-mono uppercase tracking-wider text-brandMuted hover:text-brandPrimary transition-colors duration-200"
+                  className="block text-xs font-mono uppercase tracking-wider text-brandMuted dark:text-slate-400 hover:text-brandPrimary transition-colors duration-200"
                 >
                   {link.name}
                 </Link>
@@ -235,16 +237,16 @@ export default function Footer() {
 
         {/* BOTTOM BAR */}
         <div className="mt-12 pt-6 border-t border-brandLine flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs font-mono text-brandMuted/70 tracking-wide text-center">
-            &copy; {currentYear} {SITE.name}. All Rights Reserved. Built with
-            Next.js &amp; Tailwind CSS in {SITE.location.label}.
+          <p className="text-xs font-mono text-brandMuted/70 dark:text-slate-400 tracking-wide text-center">
+            &copy; {currentYear} {SITE.name}. {t("allRightsReserved")}. Built with
+            Next.js & Tailwind CSS in {SITE.location.label}.
           </p>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             aria-label="Scroll back to the top of the page"
-            className="text-xs font-mono tracking-wider uppercase text-brandPrimary hover:text-brandInk font-bold transition-colors duration-200 cursor-pointer bg-transparent border-none p-0"
+            className="text-xs font-mono tracking-wider uppercase text-brandPrimary hover:text-brandInk dark:hover:text-white font-bold transition-colors duration-200 cursor-pointer bg-transparent border-none p-0"
           >
-            Back To Top ↑
+            {t("backToTop")}
           </button>
         </div>
       </div>

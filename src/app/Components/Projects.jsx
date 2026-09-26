@@ -1,6 +1,7 @@
 "use client";
 
 import { useId } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { PROJECT_DATA, LIVE_DEMO_URL_PLACEHOLDER } from "../lib/projects";
@@ -106,7 +107,11 @@ export function ProjectCard({ project, index }) {
             </span>
           </a>
         ) : (
-          <div className="group/image relative block w-full aspect-16/10 overflow-hidden bg-brandSoft">
+          <Link
+            href={`/projects/${project.slug}`}
+            aria-label={`View details of ${project.title}`}
+            className={`group/image relative block w-full aspect-16/10 overflow-hidden bg-brandSoft cursor-pointer ${focusRing}`}
+          >
             <Image
               src={project.image}
               alt={`Interface preview of the ${project.title} project showing its main dashboard layout`}
@@ -130,7 +135,16 @@ export function ProjectCard({ project, index }) {
             >
               {`//0${index + 1}`}
             </span>
-          </div>
+
+            <span className="absolute inset-x-0 bottom-0 flex justify-center pb-4 translate-y-2 opacity-0 transition-all duration-300 group-hover/image:translate-y-0 group-hover/image:opacity-100 group-focus-visible/image:translate-y-0 group-focus-visible/image:opacity-100">
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brandInk/90 border border-brandPrimary/30 backdrop-blur-md text-[10px] font-mono uppercase tracking-widest text-white">
+                View Details
+                <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </span>
+            </span>
+          </Link>
         )}
 
         {/* 2. Content Info Text & Action Buttons */}
@@ -140,7 +154,13 @@ export function ProjectCard({ project, index }) {
               className="text-base sm:text-lg font-bold text-brandInk tracking-wide mb-2 group-hover:text-brandPrimary transition-colors duration-200 uppercase"
               itemProp="name"
             >
-              {project.title}
+              {hasLiveDemo ? (
+                project.title
+              ) : (
+                <Link href={`/projects/${project.slug}`} className="hover:text-brandPrimary cursor-pointer">
+                  {project.title}
+                </Link>
+              )}
             </h3>
 
             <p
@@ -151,52 +171,65 @@ export function ProjectCard({ project, index }) {
             </p>
 
             <div className="flex items-center gap-2.5 mb-6">
-              {hasLiveDemo && (
-                <a
-                  href={project.liveDemo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`View live demonstration of ${project.title} in a new tab`}
-                  className={`inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-brandPrimary text-white font-bold text-[11px] tracking-wide uppercase shadow-[0_4px_16px_rgba(8,145,178,0.25)] hover:bg-brandSecondary active:scale-[0.98] transition-all duration-200 ${focusRing}`}
-                >
-                  Live Demo
-                  <svg
-                    className="w-3 h-3"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2.5}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
+              {hasLiveDemo ? (
+                <>
+                  <a
+                    href={project.liveDemo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`View live demonstration of ${project.title} in a new tab`}
+                    className={`inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-brandPrimary text-white font-bold text-[11px] tracking-wide uppercase shadow-[0_4px_16px_rgba(8,145,178,0.25)] hover:bg-brandSecondary active:scale-[0.98] transition-all duration-200 ${focusRing}`}
                   >
-                    <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
-              )}
+                    Live Demo
+                    <svg
+                      className="w-3 h-3"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2.5}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
 
-              {project.github && (
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`View source code for ${project.title} on GitHub in a new tab`}
-                  className={`inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-transparent border border-brandLine text-brandMuted font-semibold text-[11px] tracking-wide uppercase hover:bg-brandPrimary/10 hover:text-brandPrimary hover:border-brandPrimary/30 active:scale-[0.98] transition-all duration-200 ${focusRing}`}
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View source code for ${project.title} on GitHub in a new tab`}
+                      className={`inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-transparent border border-brandLine text-brandMuted font-semibold text-[11px] tracking-wide uppercase hover:bg-brandPrimary/10 hover:text-brandPrimary hover:border-brandPrimary/30 active:scale-[0.98] transition-all duration-200 ${focusRing}`}
+                    >
+                      Code
+                      <svg
+                        className="w-3 h-3"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={2.5}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                      </svg>
+                    </a>
+                  )}
+                </>
+              ) : (
+                <Link
+                  href={`/projects/${project.slug}`}
+                  aria-label={`View details of ${project.title}`}
+                  className={`inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-brandPrimary text-white font-bold text-[11px] tracking-wide uppercase shadow-[0_4px_16px_rgba(8,145,178,0.25)] hover:bg-brandSecondary active:scale-[0.98] transition-all duration-200 cursor-pointer ${focusRing}`}
                 >
-                  Code
-                  <svg
-                    className="w-3 h-3"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2.5}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                  View Details
+                  <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
+                    <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
-                </a>
+                </Link>
               )}
             </div>
           </div>
