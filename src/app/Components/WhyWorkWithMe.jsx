@@ -1,6 +1,12 @@
 // src/app/Components/WhyWorkWithMe.jsx
+"use client";
+
+import { useLanguage } from "./LanguageContext";
+
 export default function WhyWorkWithMe() {
-  const strengths = [
+  const { t } = useLanguage();
+  const rawStrengths = t("strengths");
+  const strengths = Array.isArray(rawStrengths) ? rawStrengths : [
     {
       title: "Business-Focused Development",
       desc: "Every website and web application I build is engineered around your commercial goals — converting visitors into paying clients.",
@@ -33,13 +39,13 @@ export default function WhyWorkWithMe() {
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brandPrimary/10 border border-brandPrimary/20 text-[11px] font-mono tracking-widest text-brandPrimary uppercase mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-brandPrimary" />
-            Core Advantages
+            {t("whyChooseSub")}
           </span>
           <h2 className="text-3xl sm:text-4xl font-black text-brandInk uppercase tracking-tight">
-            Why Businesses <span className="text-brandPrimary">Choose Me</span>
+            {t("whyChooseHeading")}
           </h2>
           <p className="mt-3 text-sm sm:text-base text-brandMuted font-light">
-            Working with a specialized web developer means direct communication, expert execution, and solutions built for your bottom line.
+            {t("whyChooseDesc")}
           </p>
         </div>
 

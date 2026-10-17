@@ -3,13 +3,12 @@
 import { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SITE, whatsappLink } from "../lib/site";
+import { useLanguage } from "./LanguageContext";
 
 const emailjsConfig = {
-  serviceId:
-    process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_w1gazqm",
-  templateId:
-    process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_77bftpf",
-  publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "tCIYv0U2b-QyoNWgq",
+  serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+  templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+  publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
 };
 
 const emailjsEnabled =
@@ -19,6 +18,7 @@ const emailjsEnabled =
   !emailjsConfig.publicKey.startsWith("YOUR_");
 
 export default function Contact({ showHeader = true }) {
+  const { t } = useLanguage();
   const [status, setStatus] = useState("idle"); // 'idle' | 'sending' | 'success' | 'error'
   const [formData, setFormData] = useState({
     name: "",
@@ -145,15 +145,14 @@ export default function Contact({ showHeader = true }) {
           <div className="flex flex-col mb-8 sm:mb-12 text-center items-center">
             <span className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-brandPrimary/10 border border-brandPrimary/20 text-[10px] sm:text-xs font-mono tracking-widest text-brandPrimary uppercase mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-brandPrimary" />
-              Get In Touch
+              {t("contactSub")}
             </span>
 
             <h2
               id="contact-heading"
-              className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-brandInk leading-tight uppercase tracking-tight"
+              className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-brandInk dark:text-white leading-tight uppercase tracking-tight"
             >
-              Connect With <br className="sm:hidden" />
-              <span className="text-brandPrimary">Me</span>
+              {t("contactHeading")}
             </h2>
           </div>
         )}

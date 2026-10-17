@@ -323,4 +323,84 @@ export const ARTICLES = [
     readTime: "8 min read",
     image: "/users-management.webp",
   },
+  {
+    slug: "web-development-cost-pakistan",
+    title: "Website Development Cost in Pakistan: Full 2026 Pricing Guide",
+    excerpt:
+      "How much does a website cost in Pakistan in 2026? Freelancer, agency and custom development pricing compared with what you actually get.",
+    date: "October 2026",
+    category: "Hiring",
+    readTime: "8 min read",
+    image: "/admin-dashboard.webp",
+  },
+  {
+    slug: "hire-freelance-web-developer",
+    title: "How to Hire a Freelance Web Developer: A Business Owner's Guide",
+    excerpt:
+      "A practical framework for evaluating, hiring and managing a freelance developer so your project succeeds on time and on budget.",
+    date: "October 2026",
+    category: "Hiring",
+    readTime: "7 min read",
+    image: "/employer-dashboard.webp",
+  },
+  {
+    slug: "ecommerce-website-development",
+    title: "E-Commerce Website Development: Build an Online Store That Converts",
+    excerpt:
+      "From product pages to checkout flows — how professional e-commerce development turns browsers into buyers.",
+    date: "October 2026",
+    category: "Web Development",
+    readTime: "8 min read",
+    image: "/jobs-management.webp",
+  },
+  {
+    slug: "mobile-responsive-website-design",
+    title: "Mobile Responsive Website Design: Why It's Non-Negotiable in 2026",
+    excerpt:
+      "Over 60% of traffic is mobile. Here is what responsive design really means and how it directly impacts your revenue.",
+    date: "October 2026",
+    category: "UI/UX",
+    readTime: "6 min read",
+    image: "/recruitment-homepage.webp",
+  },
+  {
+    slug: "laravel-vs-wordpress",
+    title: "Laravel vs WordPress: Which Backend Is Right for Your Project?",
+    excerpt:
+      "Laravel gives you full control; WordPress gives you speed. The real decision depends on your business goals and team capacity.",
+    date: "October 2026",
+    category: "Backend",
+    readTime: "7 min read",
+    image: "/roles-permissions-dashboard.webp",
+  },
+  {
+    slug: "web-development-agency-vs-freelancer",
+    title: "Web Development Agency vs Freelancer: Which Should You Hire?",
+    excerpt:
+      "Agency or solo developer — the right choice saves you money and gets better results. Here is how to decide.",
+    date: "October 2026",
+    category: "Hiring",
+    readTime: "6 min read",
+    image: "/job-details-dashboard.webp",
+  },
+  {
+    slug: "seo-friendly-website-design",
+    title: "SEO-Friendly Website Design: What Developers Do That Designers Miss",
+    excerpt:
+      "Beautiful design and high Google rankings are not opposites — here is the engineering layer that connects them.",
+    date: "October 2026",
+    category: "SEO",
+    readTime: "7 min read",
+    image: "/terramore.webp",
+  },
+  {
+    slug: "nextjs-portfolio-website",
+    title: "Next.js Portfolio Website: Build a Developer Portfolio That Gets Hired",
+    excerpt:
+      "Why Next.js is the best technology for a developer portfolio and the exact structure that makes recruiters respond.",
+    date: "October 2026",
+    category: "Next.js",
+    readTime: "7 min read",
+    image: "/company-profile-dashboard.webp",
+  },
 ];

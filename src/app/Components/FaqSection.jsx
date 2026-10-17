@@ -3,6 +3,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useLanguage } from "./LanguageContext";
 
 const faqs = [
   {
@@ -32,6 +33,7 @@ const faqs = [
 ];
 
 export default function FaqSection() {
+  const { t } = useLanguage();
   const [openIdx, setOpenIdx] = useState(null);
 
   return (
@@ -40,14 +42,12 @@ export default function FaqSection() {
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brandPrimary/10 border border-brandPrimary/20 text-[11px] font-mono tracking-widest text-brandPrimary uppercase mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-brandPrimary" />
-            Got Questions?
+            {t("faqSub")}
           </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-brandInk uppercase tracking-tight">
-            Frequently Asked <span className="text-brandPrimary">Questions</span>
+          <h2 className="text-3xl sm:text-4xl font-black text-brandInk dark:text-white uppercase tracking-tight">
+            {t("faqHeading")}
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-brandMuted font-light">
-            Honest, straightforward answers about timelines, pricing, and our development process.
-          </p>
+          <p className="mt-3 text-sm sm:text-base text-brandMuted font-light">{t("faqDesc")}</p>
         </div>
 
         <div className="space-y-4 mb-12">

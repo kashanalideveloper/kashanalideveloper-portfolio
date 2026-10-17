@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Counter from "./Counter";
+import { useLanguage } from "./LanguageContext";
 
 const stats = [
   { value: 50, suffix: "+", label: "Projects Delivered" },
@@ -12,6 +13,7 @@ const stats = [
 ];
 
 export default function About() {
+  const { t } = useLanguage();
   const [selectedCard, setSelectedCard] = useState(null);
 
   // Prevent background scrolling when modal is open

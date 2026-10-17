@@ -11,7 +11,6 @@ import Industries from "./Components/Industries";
 import About from "./Components/About";
 import FaqSection from "./Components/FaqSection";
 import BlogPreview from "./Components/BlogPreview";
-import FinalCta from "./Components/FinalCta";
 import Contact from "./Components/Contact";
 
 export default function Home() {
@@ -29,7 +28,6 @@ export default function Home() {
       <About />
       <FaqSection />
       <BlogPreview />
-      <FinalCta />
       <Contact />
     </main>
   );

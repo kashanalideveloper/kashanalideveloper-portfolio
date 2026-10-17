@@ -2,8 +2,8 @@
 import { SITE } from "./lib/site";
 import { ARTICLES } from "./lib/blog";
 
-// Fixed "last modified" for stable pages — set to the most recent content update.
-const LAST_MODIFIED = "2026-08-01";
+// Dynamic last modified - current date for all routes
+const CURRENT_DATE = new Date().toISOString().split("T")[0];
 
 const MONTH_INDEX = {
   January: "01",
@@ -34,13 +34,8 @@ export default function sitemap() {
   const routes = [
     { path: "", priority: 1.0, frequency: "weekly" },
     { path: "about", priority: 0.9, frequency: "monthly" },
-    { path: "services", priority: 0.9, frequency: "monthly" },
     { path: "projects", priority: 0.9, frequency: "weekly" },
-    { path: "blog", priority: 0.9, frequency: "weekly" },
     { path: "contact", priority: 0.8, frequency: "monthly" },
-    { path: "faq", priority: 0.6, frequency: "monthly" },
-    { path: "privacy-policy", priority: 0.3, frequency: "yearly" },
-    { path: "terms-conditions", priority: 0.3, frequency: "yearly" },
   ];
 
   const blogRoutes = ARTICLES.map((article) => ({
@@ -52,7 +47,7 @@ export default function sitemap() {
 
   return [...routes, ...blogRoutes].map((route) => ({
     url: `${baseUrl}${route.path}`,
-    lastModified: route.lastModified || LAST_MODIFIED,
+    lastModified: route.lastModified || CURRENT_DATE,
     changeFrequency: route.frequency,
     priority: route.priority,
   }));

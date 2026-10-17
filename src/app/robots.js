@@ -7,9 +7,8 @@ export default function robots() {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/"],
       },
     ],
-    sitemap: `${SITE.url}sitemap.xml`,
+    sitemap: "https://malik-kashan-portfolio.vercel.app/sitemap.xml",
   };
 }

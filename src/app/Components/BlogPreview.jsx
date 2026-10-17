@@ -1,10 +1,13 @@
 ﻿// src/app/Components/BlogPreview.jsx
+"use client";
 // Home page blog section — shows the 3 latest articles linking to their detail pages.
 import Link from "next/link";
 import Image from "next/image";
 import { ARTICLES } from "../lib/blog";
+import { useLanguage } from "./LanguageContext";
 
 export default function BlogPreview() {
+  const { t } = useLanguage();
   const latest = ARTICLES.slice(0, 3);
 
   return (
@@ -24,13 +27,13 @@ export default function BlogPreview() {
         <div className="flex flex-col mb-8 sm:mb-12 text-center items-center">
           <span className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-brandPrimary/10 border border-brandPrimary/20 text-[10px] sm:text-xs font-mono tracking-widest text-brandPrimary uppercase mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-brandPrimary" />
-            From The Blog
+            {t("blogSub")}
           </span>
           <h2
             id="blog-preview-heading"
-            className="text-2xl sm:text-4xl font-extrabold text-brandInk leading-tight uppercase tracking-tight"
+            className="text-2xl sm:text-4xl font-extrabold text-brandInk dark:text-white leading-tight uppercase tracking-tight"
           >
-            Latest <span className="text-brandPrimary">Insights.</span>
+            {t("blogHeading")}
           </h2>
         </div>
 
@@ -98,7 +101,7 @@ export default function BlogPreview() {
             href="/blog"
             className="inline-flex items-center justify-center px-8 py-3.5 bg-brandPrimary text-white text-xs font-bold uppercase tracking-widest rounded-xl shadow-lg shadow-brandPrimary/20 hover:bg-brandSecondary hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
           >
-            View All Articles
+            {t("viewAllArticles")}
           </Link>
         </div>
       </div>

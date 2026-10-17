@@ -8,9 +8,11 @@ import ThemeSwitcher from "./ThemeSwitcher";
 import LanguageSwitcher from "./LanguageSwitcher";
 import SearchModal from "./SearchModal";
 import { useLanguage } from "./LanguageContext";
+import { useAuth } from "./AuthContext";
 
 export default function Header() {
   const { t, lang } = useLanguage();
+  const { isLoggedIn } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -54,7 +56,7 @@ export default function Header() {
       <div className="absolute inset-0 bg-linear-to-r from-transparent via-brandPrimary/5 to-transparent rounded-2xl pointer-events-none" />
 
       <nav
-        className="h-20 px-5 sm:px-6 lg:px-8 flex items-center justify-between relative z-10"
+        className="h-[68px] px-5 sm:px-6 lg:px-8 flex items-center justify-between relative z-10"
         aria-label="Main Navigation"
       >
         {/* Logo */}
@@ -63,23 +65,23 @@ export default function Header() {
           className="flex items-center gap-3 group shrink-0 transition-transform duration-300 hover:scale-[1.01]"
           aria-label="Malik Kashan Homepage"
         >
-          <Logo size={40} />
+          <Logo size={38} />
           <div className="flex flex-col justify-center leading-none">
             <span className="text-xs sm:text-sm font-extrabold tracking-[0.14em] text-brandInk dark:text-white uppercase">
               Malik Kashan
             </span>
-            <span className="text-[7px] sm:text-[8px] font-semibold tracking-[0.28em] text-brandPrimary uppercase mt-1">
+            <span className="hidden sm:block text-[7px] sm:text-[8px] font-semibold tracking-[0.28em] text-brandPrimary uppercase mt-1">
               Business Web Specialist
             </span>
           </div>
         </Link>
 
         {/* Desktop Navigation Links */}
-        <ul className="hidden lg:flex items-center gap-6 xl:gap-8">
+        <ul className="hidden lg:flex items-center gap-5 xl:gap-7">
           <li>
             <Link
               href="/"
-              className="text-xs tracking-widest text-brandMuted hover:text-brandPrimary dark:text-slate-300 dark:hover:text-brandPrimary font-semibold uppercase transition-colors py-1 block"
+              className="text-[11px] tracking-widest text-brandMuted hover:text-brandPrimary dark:text-slate-300 dark:hover:text-brandPrimary font-semibold uppercase transition-colors py-1 block"
             >
               {t("navHome")}
             </Link>
@@ -93,17 +95,12 @@ export default function Header() {
           >
             <Link
               href="/services"
-              className="flex items-center gap-1 text-xs tracking-widest text-brandMuted hover:text-brandPrimary dark:text-slate-300 dark:hover:text-brandPrimary font-semibold uppercase transition-colors py-1 cursor-pointer"
+              className="flex items-center gap-1 text-[11px] tracking-widest text-brandMuted hover:text-brandPrimary dark:text-slate-300 dark:hover:text-brandPrimary font-semibold uppercase transition-colors py-1 cursor-pointer"
             >
               {t("navServices")}
               <svg
-                className={`w-3 h-3 transition-transform duration-200 ${
-                  isServicesOpen ? "rotate-180" : ""
-                }`}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2.5}
+                className={`w-3 h-3 transition-transform duration-200 ${isServicesOpen ? "rotate-180" : ""}`}
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}
               >
                 <polyline points="6 9 12 15 18 9" />
               </svg>
@@ -111,38 +108,27 @@ export default function Header() {
 
             {isServicesOpen && (
               <div className="absolute top-full left-0 mt-2 w-80 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-brandLine p-4 z-50 animate-in fade-in zoom-in-95 duration-150">
-                {/* Custom Development Section */}
                 <div className="mb-3 pb-3 border-b border-brandLine">
                   <p className="text-[10px] font-mono tracking-widest text-brandPrimary uppercase mb-2 font-bold">
                     {t("customDevelopment")}
                   </p>
                   <div className="space-y-1">
                     {customServices.map((s) => (
-                      <Link
-                        key={s.name}
-                        href={s.href}
-                        onClick={() => setIsServicesOpen(false)}
-                        className="block px-3 py-1.5 text-xs font-semibold text-brandInk dark:text-slate-200 hover:bg-brandPrimary/10 hover:text-brandPrimary rounded-xl transition-colors"
-                      >
+                      <Link key={s.name} href={s.href} onClick={() => setIsServicesOpen(false)}
+                        className="block px-3 py-1.5 text-xs font-semibold text-brandInk dark:text-slate-200 hover:bg-brandPrimary/10 hover:text-brandPrimary rounded-xl transition-colors">
                         {s.name}
                       </Link>
                     ))}
                   </div>
                 </div>
-
-                {/* Other Services Section */}
                 <div>
                   <p className="text-[10px] font-mono tracking-widest text-brandMuted uppercase mb-2 font-bold">
                     {t("cmsOptimization")}
                   </p>
                   <div className="space-y-1">
                     {otherServices.map((s) => (
-                      <Link
-                        key={s.name}
-                        href={s.href}
-                        onClick={() => setIsServicesOpen(false)}
-                        className="block px-3 py-1.5 text-xs font-semibold text-brandInk dark:text-slate-200 hover:bg-brandPrimary/10 hover:text-brandPrimary rounded-xl transition-colors"
-                      >
+                      <Link key={s.name} href={s.href} onClick={() => setIsServicesOpen(false)}
+                        className="block px-3 py-1.5 text-xs font-semibold text-brandInk dark:text-slate-200 hover:bg-brandPrimary/10 hover:text-brandPrimary rounded-xl transition-colors">
                         {s.name}
                       </Link>
                     ))}
@@ -154,10 +140,8 @@ export default function Header() {
 
           {navLinks.slice(1).map((link) => (
             <li key={link.name}>
-              <Link
-                href={link.href}
-                className="text-xs tracking-widest text-brandMuted hover:text-brandPrimary dark:text-slate-300 dark:hover:text-brandPrimary font-semibold uppercase transition-colors py-1 block"
-              >
+              <Link href={link.href}
+                className="text-[11px] tracking-widest text-brandMuted hover:text-brandPrimary dark:text-slate-300 dark:hover:text-brandPrimary font-semibold uppercase transition-colors py-1 block">
                 {link.name}
               </Link>
             </li>
@@ -165,126 +149,118 @@ export default function Header() {
         </ul>
 
         {/* Right Controls */}
-        <div className="flex items-center gap-3 shrink-0">
-          <button
-            onClick={() => setIsSearchOpen(true)}
-            aria-label={t("searchPlaceholder")}
-            className="flex items-center justify-center w-10 h-10 rounded-xl border border-brandLine bg-white dark:bg-slate-800 hover:border-brandPrimary/50 text-brandInk dark:text-white transition-all cursor-pointer shadow-xs"
-          >
-            <svg
-              className="w-4 h-4 text-brandMuted hover:text-brandPrimary dark:text-slate-300"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2.5}
-            >
-              <circle cx="11" cy="11" r="8" />
-              <path d="M21 21l-4.35-4.35" />
+        <div className="flex items-center gap-2 shrink-0">
+          {/* Search — desktop only */}
+          <button onClick={() => setIsSearchOpen(true)} aria-label={t("searchPlaceholder")}
+            className="hidden lg:flex items-center justify-center w-9 h-9 rounded-xl border border-brandLine bg-white dark:bg-slate-800 hover:border-brandPrimary/50 text-brandInk dark:text-white transition-all cursor-pointer">
+            <svg className="w-4 h-4 text-brandMuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
+              <circle cx="11" cy="11" r="8" /><path d="M21 21l-4.35-4.35" />
             </svg>
           </button>
-          <LanguageSwitcher />
+
+          {/* Language — desktop only */}
+          <div className="hidden lg:block">
+            <LanguageSwitcher />
+          </div>
+
           <ThemeSwitcher />
 
-          <Link
-            href="/contact"
-            className="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-xs font-bold tracking-widest text-white bg-brandPrimary hover:bg-brandSecondary rounded-xl transition-all uppercase shadow-md"
-          >
+          {/* Login / Dashboard — desktop */}
+          {isLoggedIn ? (
+            <Link href="/dashboard"
+              className="hidden lg:inline-flex items-center justify-center gap-1.5 px-4 py-2 text-[11px] font-bold tracking-widest text-brandPrimary border border-brandPrimary/35 hover:border-brandPrimary hover:bg-brandPrimary/8 rounded-xl transition-all uppercase">
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              Dashboard
+            </Link>
+          ) : (
+            <Link href="/login"
+              className="hidden lg:inline-flex items-center justify-center gap-1.5 px-4 py-2 text-[11px] font-bold tracking-widest text-brandPrimary border border-brandPrimary/35 hover:border-brandPrimary hover:bg-brandPrimary/8 rounded-xl transition-all uppercase">
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+              Login
+            </Link>
+          )}
+
+          {/* Let's Talk — desktop */}
+          <Link href="/contact"
+            className="hidden sm:inline-flex items-center justify-center px-4 py-2 text-[11px] font-bold tracking-widest text-white bg-brandPrimary hover:bg-brandSecondary rounded-xl transition-all uppercase shadow-md">
             {t("letsTalk")}
           </Link>
 
-          {/* Mobile Hamburger Trigger */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden flex flex-col justify-center items-center w-10 h-10 rounded-xl border border-brandLine bg-white dark:bg-slate-800 hover:border-brandPrimary/50 transition-all cursor-pointer"
-            aria-label="Toggle navigation menu"
-          >
+          {/* Hamburger — mobile/tablet */}
+          <button onClick={() => setIsOpen(!isOpen)}
+            className="lg:hidden flex flex-col justify-center items-center w-9 h-9 rounded-xl border border-brandLine bg-white dark:bg-slate-800 hover:border-brandPrimary/50 transition-all cursor-pointer"
+            aria-label="Toggle navigation menu">
             <div className="space-y-1.5 w-5">
-              <span
-                className={`block h-0.5 bg-brandInk dark:bg-white transition-all rounded-full ${
-                  isOpen ? "rotate-45 translate-y-2" : ""
-                }`}
-              />
-              <span
-                className={`block h-0.5 bg-brandInk dark:bg-white transition-all rounded-full ${
-                  isOpen ? "opacity-0" : "w-3/4 ml-auto"
-                }`}
-              />
-              <span
-                className={`block h-0.5 bg-brandInk dark:bg-white transition-all rounded-full ${
-                  isOpen ? "-rotate-45 -translate-y-2" : ""
-                }`}
-              />
+              <span className={`block h-0.5 bg-brandInk dark:bg-white transition-all rounded-full ${isOpen ? "rotate-45 translate-y-2" : ""}`} />
+              <span className={`block h-0.5 bg-brandInk dark:bg-white transition-all rounded-full ${isOpen ? "opacity-0" : "w-3/4 ml-auto"}`} />
+              <span className={`block h-0.5 bg-brandInk dark:bg-white transition-all rounded-full ${isOpen ? "-rotate-45 -translate-y-2" : ""}`} />
             </div>
           </button>
         </div>
       </nav>
 
-      {/* Mobile Dropdown */}
-      <div
-        className={`lg:hidden overflow-hidden transition-all duration-300 border-t border-brandLine/60 bg-white/98 dark:bg-slate-900/98 backdrop-blur-xl rounded-b-2xl px-6 py-6 ${
-          isOpen
-            ? "max-h-[700px] opacity-100 py-6"
-            : "max-h-0 opacity-0 pointer-events-none py-0 border-t-0"
-        }`}
-      >
+      {/* Mobile/Tablet Dropdown */}
+      <div className={`lg:hidden overflow-hidden transition-all duration-300 border-t border-brandLine/60 bg-white/98 dark:bg-slate-900/98 backdrop-blur-xl rounded-b-2xl px-6 ${
+        isOpen ? "max-h-[720px] opacity-100 py-6" : "max-h-0 opacity-0 pointer-events-none py-0 border-t-0"
+      }`}>
         <nav className="flex flex-col gap-4">
-          <Link
-            href="/"
-            onClick={() => setIsOpen(false)}
-            className="text-xs font-semibold tracking-widest text-brandInk dark:text-white uppercase py-1 border-b border-brandLine/40"
-          >
+          <Link href="/" onClick={() => setIsOpen(false)}
+            className="text-xs font-semibold tracking-widest text-brandInk dark:text-white uppercase py-1 border-b border-brandLine/40">
             {t("navHome")}
           </Link>
           <div className="py-1 border-b border-brandLine/40">
-            <Link
-              href="/services"
-              onClick={() => setIsOpen(false)}
-              className="text-xs font-semibold tracking-widest text-brandPrimary uppercase mb-2 block"
-            >
+            <Link href="/services" onClick={() => setIsOpen(false)}
+              className="text-xs font-semibold tracking-widest text-brandPrimary uppercase mb-2 block">
               {t("navServices")} →
             </Link>
             <div className="pl-3 space-y-2">
               <p className="text-[10px] font-mono text-brandPrimary uppercase mt-1">{t("customDevelopment")}</p>
               {customServices.map((s) => (
-                <Link
-                  key={s.name}
-                  href={s.href}
-                  onClick={() => setIsOpen(false)}
-                  className="block text-xs text-brandMuted hover:text-brandPrimary dark:text-slate-300 font-medium py-1"
-                >
+                <Link key={s.name} href={s.href} onClick={() => setIsOpen(false)}
+                  className="block text-xs text-brandMuted hover:text-brandPrimary dark:text-slate-300 font-medium py-0.5">
                   {s.name}
                 </Link>
               ))}
               <p className="text-[10px] font-mono text-brandMuted uppercase mt-2">{t("cmsOptimization")}</p>
               {otherServices.map((s) => (
-                <Link
-                  key={s.name}
-                  href={s.href}
-                  onClick={() => setIsOpen(false)}
-                  className="block text-xs text-brandMuted hover:text-brandPrimary dark:text-slate-300 font-medium py-1"
-                >
+                <Link key={s.name} href={s.href} onClick={() => setIsOpen(false)}
+                  className="block text-xs text-brandMuted hover:text-brandPrimary dark:text-slate-300 font-medium py-0.5">
                   {s.name}
                 </Link>
               ))}
             </div>
           </div>
           {navLinks.slice(1).map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              onClick={() => setIsOpen(false)}
-              className="text-xs font-semibold tracking-widest text-brandInk dark:text-white uppercase py-1 border-b border-brandLine/40"
-            >
+            <Link key={link.name} href={link.href} onClick={() => setIsOpen(false)}
+              className="text-xs font-semibold tracking-widest text-brandInk dark:text-white uppercase py-1 border-b border-brandLine/40">
               {link.name}
             </Link>
           ))}
-          <Link
-            href="/contact"
-            onClick={() => setIsOpen(false)}
-            className="block text-center py-3 text-xs font-bold tracking-widest text-white bg-brandPrimary rounded-xl uppercase mt-2 shadow-md"
-          >
-            {t("letsTalk")}
-          </Link>
+
+          {/* Language + Theme */}
+          <div className="flex items-center gap-3 py-1 border-b border-brandLine/40">
+            <LanguageSwitcher />
+            <ThemeSwitcher />
+          </div>
+
+          <div className="flex gap-3 mt-1">
+            {isLoggedIn ? (
+              <Link href="/dashboard" onClick={() => setIsOpen(false)}
+                className="flex-1 text-center py-2.5 text-xs font-bold tracking-widest text-brandPrimary border border-brandPrimary/35 rounded-xl uppercase flex items-center justify-center gap-1.5">
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                Dashboard
+              </Link>
+            ) : (
+              <Link href="/login" onClick={() => setIsOpen(false)}
+                className="flex-1 text-center py-2.5 text-xs font-bold tracking-widest text-brandPrimary border border-brandPrimary/35 rounded-xl uppercase">
+                Login
+              </Link>
+            )}
+            <Link href="/contact" onClick={() => setIsOpen(false)}
+              className="flex-1 text-center py-2.5 text-xs font-bold tracking-widest text-white bg-brandPrimary rounded-xl uppercase shadow-md">
+              {t("letsTalk")}
+            </Link>
+          </div>
         </nav>
       </div>
 
