@@ -20,7 +20,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Services",
     readTime: "6 min read",
-    image: "/Front-EndDevelopmentLearningRoadmap.jpg",
+    image: "/blog/blog-services.svg",
   },
   {
     slug: "front-end-development-services-islamabad",
@@ -30,7 +30,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Services",
     readTime: "6 min read",
-    image: "/Junior-Front-End Developer.webp",
+    image: "/blog/blog-services.svg",
   },
   {
     slug: "front-end-development-services-karachi",
@@ -40,7 +40,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Services",
     readTime: "6 min read",
-    image: "/Senior-Front-End Developer.jpg",
+    image: "/blog/blog-services.svg",
   },
   {
     slug: "front-end-developer-roadmap",
@@ -50,7 +50,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Career",
     readTime: "8 min read",
-    image: "/company-profile-dashboard.webp",
+    image: "/blog/blog-career.svg",
   },
   {
     slug: "junior-frontend-developer",
@@ -60,7 +60,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Career",
     readTime: "6 min read",
-    image: "/oracles.webp",
+    image: "/Junior-Front-End Developer.webp",
   },
   {
     slug: "senior-frontend-developer",
@@ -70,7 +70,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Career",
     readTime: "7 min read",
-    image: "/company-details.webp",
+    image: "/Senior-Front-End Developer.jpg",
   },
   {
     slug: "front-end-developer-interview-questions-freshers",
@@ -80,7 +80,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Interviews",
     readTime: "8 min read",
-    image: "/terramore.webp",
+    image: "/blog/blog-interview.svg",
   },
   {
     slug: "front-end-developer-interview-questions-experienced",
@@ -90,7 +90,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Interviews",
     readTime: "9 min read",
-    image: "/recruitment-homepage.webp",
+    image: "/blog/blog-interview.svg",
   },
   {
     slug: "top-best-developers-in-the-world",
@@ -100,7 +100,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Development",
     readTime: "6 min read",
-    image: "/admin-dashboard.webp",
+    image: "/blog/blog-career.svg",
   },
   {
     slug: "hiring-a-developer-for-website",
@@ -110,7 +110,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Hiring",
     readTime: "7 min read",
-    image: "/jobs-management.webp",
+    image: "/blog/blog-hiring.svg",
   },
   {
     slug: "custom-web-development",
@@ -120,7 +120,7 @@ export const ARTICLES = [
     date: "May 2026",
     category: "Web Development",
     readTime: "7 min read",
-    image: "/employer-dashboard.webp",
+    image: "/blog/blog-webdev.svg",
   },
   {
     slug: "wordpress-development",
@@ -130,7 +130,7 @@ export const ARTICLES = [
     date: "April 2026",
     category: "WordPress",
     readTime: "6 min read",
-    image: "/kofi.webp",
+    image: "/blog/blog-wordpress.svg",
   },
   {
     slug: "react-js-applications",
@@ -140,7 +140,7 @@ export const ARTICLES = [
     date: "March 2026",
     category: "React.js",
     readTime: "6 min read",
-    image: "/users-management.webp",
+    image: "/blog/blog-react.svg",
   },
   {
     slug: "ui-ux-design",
@@ -150,7 +150,7 @@ export const ARTICLES = [
     date: "February 2026",
     category: "UI/UX",
     readTime: "7 min read",
-    image: "/roles-permissions-dashboard.webp",
+    image: "/blog/blog-uiux.svg",
   },
   {
     slug: "performance-optimization",
@@ -160,7 +160,7 @@ export const ARTICLES = [
     date: "January 2026",
     category: "Performance",
     readTime: "8 min read",
-    image: "/job-details-dashboard.webp",
+    image: "/blog/blog-performance.svg",
   },
   {
     slug: "website-maintenance",
@@ -170,7 +170,7 @@ export const ARTICLES = [
     date: "December 2025",
     category: "Maintenance",
     readTime: "6 min read",
-    image: "/og-image.png",
+    image: "/blog/blog-webdev.svg",
   },
   {
     slug: "nextjs-vs-react-which-one-to-choose",
@@ -180,7 +180,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Next.js",
     readTime: "6 min read",
-    image: "/logo.webp",
+    image: "/blog/blog-nextjs.svg",
   },
   {
     slug: "wordpress-vs-custom-development",
@@ -190,7 +190,7 @@ export const ARTICLES = [
     date: "July 2026",
     category: "WordPress",
     readTime: "7 min read",
-    image: "/Front-EndDevelopmentServicesinPakistan.jpg",
+    image: "/blog/blog-wordpress.svg",
   },
   {
     slug: "ai-developers",
@@ -200,7 +200,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "AI",
     readTime: "6 min read",
-    image: "/Front-EndDevelopmentLearningRoadmap.jpg",
+    image: "/blog/blog-ai.svg",
   },
   {
     slug: "how-to-become-ai-developer",
@@ -210,7 +210,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "AI",
     readTime: "7 min read",
-    image: "/Junior-Front-End Developer.webp",
+    image: "/blog/blog-ai.svg",
   },
   {
     slug: "front-end-developer-portfolio-templates",
@@ -220,7 +220,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Portfolio",
     readTime: "6 min read",
-    image: "/Senior-Front-End Developer.jpg",
+    image: "/blog/blog-portfolio.svg",
   },
   {
     slug: "front-end-developer-portfolio-template-free",
@@ -230,7 +230,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Portfolio",
     readTime: "6 min read",
-    image: "/company-profile-dashboard.webp",
+    image: "/blog/blog-portfolio.svg",
   },
   {
     slug: "front-end-developer-portfolio-examples",
@@ -240,7 +240,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Portfolio",
     readTime: "6 min read",
-    image: "/oracles.webp",
+    image: "/blog/blog-portfolio.svg",
   },
   {
     slug: "front-end-developer-projects",
@@ -250,7 +250,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Projects",
     readTime: "7 min read",
-    image: "/company-details.webp",
+    image: "/blog/blog-career.svg",
   },
   {
     slug: "how-to-improve-website-speed-seo",
@@ -260,9 +260,8 @@ export const ARTICLES = [
     date: "August 2026",
     category: "SEO",
     readTime: "7 min read",
-    image: "/terramore.webp",
+    image: "/blog/blog-seo.svg",
   },
-  // NEW BLOGS REQUESTED BY USER
   {
     slug: "javascript-vs-typescript",
     title: "JavaScript vs TypeScript: Which Should You Choose in 2026?",
@@ -271,7 +270,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Development",
     readTime: "7 min read",
-    image: "/recruitment-homepage.webp",
+    image: "/blog/blog-webdev.svg",
   },
   {
     slug: "react-vs-nextjs",
@@ -281,7 +280,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "React.js",
     readTime: "7 min read",
-    image: "/admin-dashboard.webp",
+    image: "/blog/blog-react.svg",
   },
   {
     slug: "bootstrap-vs-tailwind-css",
@@ -291,7 +290,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "UI/UX",
     readTime: "6 min read",
-    image: "/jobs-management.webp",
+    image: "/blog/blog-uiux.svg",
   },
   {
     slug: "html-vs-css",
@@ -301,7 +300,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Web Development",
     readTime: "6 min read",
-    image: "/employer-dashboard.webp",
+    image: "/blog/blog-webdev.svg",
   },
   {
     slug: "benefits-of-using-python",
@@ -311,7 +310,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Backend",
     readTime: "7 min read",
-    image: "/kofi.webp",
+    image: "/blog/blog-backend.svg",
   },
   {
     slug: "nodejs-development-guide",
@@ -321,7 +320,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Backend",
     readTime: "8 min read",
-    image: "/users-management.webp",
+    image: "/blog/blog-backend.svg",
   },
   {
     slug: "web-development-cost-pakistan",
@@ -331,7 +330,7 @@ export const ARTICLES = [
     date: "October 2026",
     category: "Hiring",
     readTime: "8 min read",
-    image: "/admin-dashboard.webp",
+    image: "/blog/blog-hiring.svg",
   },
   {
     slug: "hire-freelance-web-developer",
@@ -341,7 +340,7 @@ export const ARTICLES = [
     date: "October 2026",
     category: "Hiring",
     readTime: "7 min read",
-    image: "/employer-dashboard.webp",
+    image: "/blog/blog-hiring.svg",
   },
   {
     slug: "ecommerce-website-development",
@@ -351,7 +350,7 @@ export const ARTICLES = [
     date: "October 2026",
     category: "Web Development",
     readTime: "8 min read",
-    image: "/jobs-management.webp",
+    image: "/blog/blog-webdev.svg",
   },
   {
     slug: "mobile-responsive-website-design",
@@ -361,7 +360,7 @@ export const ARTICLES = [
     date: "October 2026",
     category: "UI/UX",
     readTime: "6 min read",
-    image: "/recruitment-homepage.webp",
+    image: "/blog/blog-uiux.svg",
   },
   {
     slug: "laravel-vs-wordpress",
@@ -371,7 +370,7 @@ export const ARTICLES = [
     date: "October 2026",
     category: "Backend",
     readTime: "7 min read",
-    image: "/roles-permissions-dashboard.webp",
+    image: "/blog/blog-backend.svg",
   },
   {
     slug: "web-development-agency-vs-freelancer",
@@ -381,7 +380,7 @@ export const ARTICLES = [
     date: "October 2026",
     category: "Hiring",
     readTime: "6 min read",
-    image: "/job-details-dashboard.webp",
+    image: "/blog/blog-hiring.svg",
   },
   {
     slug: "seo-friendly-website-design",
@@ -391,7 +390,7 @@ export const ARTICLES = [
     date: "October 2026",
     category: "SEO",
     readTime: "7 min read",
-    image: "/terramore.webp",
+    image: "/blog/blog-seo.svg",
   },
   {
     slug: "nextjs-portfolio-website",
@@ -401,6 +400,6 @@ export const ARTICLES = [
     date: "October 2026",
     category: "Next.js",
     readTime: "7 min read",
-    image: "/company-profile-dashboard.webp",
+    image: "/blog/blog-nextjs.svg",
   },
 ];

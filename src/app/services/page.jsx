@@ -1,7 +1,9 @@
 // src/app/services/page.jsx
 import Link from "next/link";
+import Image from "next/image";
 import PageHeader from "../Components/PageHeader";
 import { SITE, whatsappLink } from "../lib/site";
+import { ARTICLES } from "../lib/blog";
 
 export const metadata = {
   title:
@@ -152,6 +154,8 @@ export default function ServicesPage() {
     },
   };
 
+  const recentPosts = ARTICLES.slice(0, 5);
+
   return (
     <>
       <script
@@ -166,99 +170,191 @@ export default function ServicesPage() {
       />
 
       <main className="relative bg-brandBg pb-16 sm:pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Services Grid */}
-          <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
-            {services.map((service, idx) => (
-              <article
-                key={idx}
-                className="group relative p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-brandLine shadow-sm flex flex-col justify-between w-full transition-all duration-300 hover:-translate-y-2 hover:border-brandPrimary/30 hover:shadow-[0_14px_28px_-12px_rgba(15,23,42,0.1)]"
-              >
-                <div
-                  className="absolute bottom-0 left-0 h-1 w-0 bg-brandPrimary transition-all duration-300 group-hover:w-[45%]"
-                  aria-hidden="true"
-                />
-                <div className="w-12 h-12 rounded-[14px] bg-brandPrimary/5 border border-brandPrimary/15 flex items-center justify-center mb-6 text-brandPrimary transition-all duration-300 group-hover:scale-110 group-hover:bg-brandPrimary/15">
-                  {service.icon}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+          <div className="flex flex-col lg:flex-row gap-10">
+
+            {/* ── MAIN CONTENT ── */}
+            <div className="flex-1 min-w-0">
+              {/* Services Grid */}
+              <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {services.map((service, idx) => (
+                  <article
+                    key={idx}
+                    className="group relative p-6 sm:p-8 rounded-2xl bg-white border border-brandLine shadow-sm flex flex-col justify-between w-full transition-all duration-300 hover:-translate-y-2 hover:border-brandPrimary/30 hover:shadow-[0_14px_28px_-12px_rgba(15,23,42,0.1)]"
+                  >
+                    <div
+                      className="absolute bottom-0 left-0 h-1 w-0 bg-brandPrimary transition-all duration-300 group-hover:w-[45%]"
+                      aria-hidden="true"
+                    />
+                    <div className="w-12 h-12 rounded-[14px] bg-brandPrimary/5 border border-brandPrimary/15 flex items-center justify-center mb-6 text-brandPrimary transition-all duration-300 group-hover:scale-110 group-hover:bg-brandPrimary/15">
+                      {service.icon}
+                    </div>
+                    <h3 className="text-base sm:text-lg font-bold text-brandInk uppercase tracking-wide mb-3 group-hover:text-brandPrimary transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="text-brandMuted text-xs sm:text-sm leading-relaxed font-light mb-6">
+                      {service.desc}
+                    </p>
+                    <ul className="space-y-2">
+                      {service.features.map((feature) => (
+                        <li
+                          key={feature}
+                          className="flex items-center gap-2 text-[11px] sm:text-xs text-brandMuted"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-brandPrimary/40" aria-hidden="true" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </article>
+                ))}
+              </section>
+
+              {/* Process Steps */}
+              <section className="mt-16">
+                <div className="text-center mb-10">
+                  <span className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-brandPrimary/10 border border-brandPrimary/20 text-[10px] sm:text-xs font-mono tracking-widest text-brandPrimary uppercase mb-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-brandPrimary" />
+                    How I Work
+                  </span>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-brandInk leading-tight uppercase tracking-tight">
+                    Simple Process, <span className="text-brandPrimary">Premium Results</span>
+                  </h2>
                 </div>
-                <h3 className="text-base sm:text-lg font-bold text-brandInk uppercase tracking-wide mb-3 group-hover:text-brandPrimary transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-brandMuted text-xs sm:text-sm leading-relaxed font-light mb-6">
-                  {service.desc}
-                </p>
-                <ul className="space-y-2">
-                  {service.features.map((feature) => (
-                    <li
-                      key={feature}
-                      className="flex items-center gap-2 text-[11px] sm:text-xs text-brandMuted"
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {process.map((item) => (
+                    <div
+                      key={item.step}
+                      className="p-6 rounded-2xl bg-white border border-brandLine shadow-sm"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-brandPrimary/40" aria-hidden="true" />
-                      {feature}
+                      <span className="text-3xl font-black font-mono text-brandPrimary/15">
+                        {item.step}
+                      </span>
+                      <h3 className="text-sm font-bold text-brandInk uppercase tracking-wide mt-4 mb-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-brandMuted text-xs leading-relaxed font-light">
+                        {item.desc}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              {/* CTA */}
+              <section className="mt-12 rounded-3xl bg-white border border-brandLine p-8 text-center shadow-sm">
+                <h2 className="text-xl sm:text-2xl font-extrabold text-brandInk uppercase tracking-tight mb-3">
+                  Need a <span className="text-brandPrimary">Custom Solution?</span>
+                </h2>
+                <p className="text-brandMuted text-sm font-light leading-relaxed max-w-xl mx-auto mb-6">
+                  Tell me about your project and get a free consultation. I&apos;ll respond within 24 hours.
+                </p>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <Link
+                    href="/#contact"
+                    className="inline-flex items-center justify-center px-8 py-3.5 bg-brandPrimary text-white text-xs font-bold uppercase tracking-widest rounded-xl shadow-lg shadow-brandPrimary/20 hover:bg-brandSecondary hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+                  >
+                    Get a Quote
+                  </Link>
+                  <a
+                    href={whatsappLink()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-8 py-3.5 bg-white text-brandInk text-xs font-bold uppercase tracking-widest rounded-xl border border-brandLine hover:border-[#25D366]/50 hover:text-[#25D366] transition-all duration-300"
+                  >
+                    Chat on WhatsApp
+                  </a>
+                </div>
+              </section>
+            </div>
+
+            {/* ── RIGHT SIDEBAR ── */}
+            <aside className="lg:w-72 xl:w-80 shrink-0 space-y-7">
+
+              {/* Quick Contact */}
+              <div className="rounded-2xl bg-brandPrimary p-6 text-center sticky top-28">
+                <p className="text-white font-bold text-sm mb-1">Ready to Start?</p>
+                <p className="text-white/70 text-xs font-light mb-4 leading-relaxed">
+                  Free consultation — I&apos;ll respond within 24 hours.
+                </p>
+                <Link
+                  href="/#contact"
+                  className="block w-full py-2.5 bg-white text-brandPrimary text-[11px] font-bold uppercase tracking-widest rounded-xl hover:bg-brandBg transition-colors mb-3"
+                >
+                  Get a Free Quote
+                </Link>
+                <a
+                  href={whatsappLink()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full py-2.5 bg-white/10 text-white text-[11px] font-bold uppercase tracking-widest rounded-xl hover:bg-white/20 transition-colors border border-white/20"
+                >
+                  Chat on WhatsApp
+                </a>
+              </div>
+
+              {/* Services Quick Links */}
+              <div className="rounded-2xl border border-brandLine bg-brandBg p-5">
+                <h3 className="text-[11px] font-mono tracking-widest text-brandPrimary uppercase mb-4 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brandPrimary" />
+                  All Services
+                </h3>
+                <ul className="space-y-1">
+                  {services.map((s) => (
+                    <li key={s.title}>
+                      <span className="flex items-center gap-2 text-xs text-brandMuted py-1.5 border-b border-brandLine/40 last:border-0">
+                        <span className="text-brandPrimary shrink-0">→</span>
+                        <span className="font-medium">{s.title}</span>
+                      </span>
                     </li>
                   ))}
                 </ul>
-              </article>
-            ))}
-          </section>
+              </div>
 
-          {/* Process Steps */}
-          <section className="mt-16 sm:mt-20">
-            <div className="text-center mb-10">
-              <span className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-brandPrimary/10 border border-brandPrimary/20 text-[10px] sm:text-xs font-mono tracking-widest text-brandPrimary uppercase mb-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-brandPrimary" />
-                How I Work
-              </span>
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-brandInk leading-tight uppercase tracking-tight">
-                Simple Process, <span className="text-brandPrimary">Premium Results</span>
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {process.map((item) => (
-                <div
-                  key={item.step}
-                  className="p-6 sm:p-8 rounded-2xl bg-white border border-brandLine shadow-sm"
-                >
-                  <span className="text-3xl sm:text-4xl font-black font-mono text-brandPrimary/15">
-                    {item.step}
-                  </span>
-                  <h3 className="text-sm font-bold text-brandInk uppercase tracking-wide mt-4 mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-brandMuted text-xs leading-relaxed font-light">
-                    {item.desc}
-                  </p>
+              {/* Tech Stack */}
+              <div className="rounded-2xl border border-brandLine bg-brandBg p-5">
+                <h3 className="text-[11px] font-mono tracking-widest text-brandPrimary uppercase mb-4 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brandPrimary" />
+                  Tech Stack
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {["Next.js", "React", "TypeScript", "Tailwind CSS", "WordPress", "WooCommerce", "Node.js", "Figma"].map((tech) => (
+                    <span key={tech} className="px-2.5 py-1 rounded-lg bg-brandPrimary/8 border border-brandPrimary/15 text-[10px] font-mono text-brandMuted">
+                      {tech}
+                    </span>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </section>
+              </div>
 
-          {/* CTA */}
-          <section className="mt-16 sm:mt-20 rounded-3xl bg-white border border-brandLine p-8 sm:p-12 text-center shadow-sm">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-brandInk uppercase tracking-tight mb-3">
-              Need a <span className="text-brandPrimary">Custom Solution?</span>
-            </h2>
-            <p className="text-brandMuted text-sm sm:text-base font-light leading-relaxed max-w-2xl mx-auto mb-8">
-              Tell me about your project and get a free consultation. I&apos;ll respond within 24 hours.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/#contact"
-                className="inline-flex items-center justify-center px-8 py-3.5 bg-brandPrimary text-white text-xs font-bold uppercase tracking-widest rounded-xl shadow-lg shadow-brandPrimary/20 hover:bg-brandSecondary hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
-              >
-                Get a Quote
-              </Link>
-              <a
-                href={whatsappLink()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-3.5 bg-white text-brandInk text-xs font-bold uppercase tracking-widest rounded-xl border border-brandLine hover:border-[#25D366]/50 hover:text-[#25D366] transition-all duration-300"
-              >
-                Chat on WhatsApp
-              </a>
-            </div>
-          </section>
+              {/* Recent Blog Posts */}
+              <div className="rounded-2xl border border-brandLine bg-brandBg p-5">
+                <h3 className="text-[11px] font-mono tracking-widest text-brandPrimary uppercase mb-4 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brandPrimary" />
+                  From the Blog
+                </h3>
+                <ul className="space-y-4">
+                  {recentPosts.map((a) => (
+                    <li key={a.slug}>
+                      <Link href={`/blog/${a.slug}`} className="flex items-start gap-3 group">
+                        <div className="relative w-14 h-14 rounded-lg overflow-hidden shrink-0 bg-brandSoft">
+                          <Image src={a.image} alt={a.title} fill sizes="56px" className="object-cover" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-xs font-semibold text-brandInk group-hover:text-brandPrimary transition-colors leading-snug line-clamp-2">{a.title}</p>
+                          <p className="text-[10px] font-mono text-brandMuted/70 mt-1 uppercase">{a.date}</p>
+                        </div>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <Link href="/blog" className="mt-4 flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-brandPrimary hover:gap-3 transition-all duration-200">
+                  View All Posts →
+                </Link>
+              </div>
+
+            </aside>
+          </div>
         </div>
       </main>
     </>
