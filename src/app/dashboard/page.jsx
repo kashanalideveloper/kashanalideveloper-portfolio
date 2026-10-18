@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getStoredPosts, updatePostStatus, deletePost as deleteStoredPost } from "../lib/blogStorage";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Logo from "../Components/Logo";
@@ -213,6 +214,15 @@ const WEEKLY_DAYS = (() => {
   return days.map((d, i) => i === todayIdx ? `${d}*` : d);
 })();
 
+const MONTHLY_DATA = [
+  { v: 890 },
+  { v: 1200 },
+  { v: 980 },
+  { v: 1450 },
+  { v: 1890 },
+  { v: 2100 },
+];
+
 const NOTIFICATIONS = [
   { id: 1, type: "inquiry", text: "New inquiry from Bilal Hassan — React Dashboard (Rs 2.0L)", time: "2 min ago", unread: true },
   { id: 2, type: "user", text: "Sara Khan registered as a new client", time: "1 hr ago", unread: true },
@@ -282,6 +292,17 @@ export default function DashboardPage() {
   const [deleteConfirm, setDeleteConfirm] = useState(null);
   const [projects, setProjects] = useState(INITIAL_PROJECTS);
   const [posts, setPosts] = useState(INITIAL_POSTS);
+
+  useEffect(() => {
+    const stored = getStoredPosts();
+    if (stored.length > 0) {
+      setPosts((prev) => {
+        const existingIds = new Set(prev.map((p) => p.id));
+        const newOnes = stored.filter((p) => !existingIds.has(p.id));
+        return [...newOnes, ...prev];
+      });
+    }
+  }, []);
   const [messages, setMessages] = useState(INITIAL_MESSAGES);
   const [selectedMsg, setSelectedMsg] = useState(null);
   const [replyText, setReplyText] = useState("");
@@ -296,6 +317,8 @@ export default function DashboardPage() {
   const [services, setServices] = useState(INITIAL_SERVICES);
   const [skills, setSkills] = useState(INITIAL_SKILLS);
   const [testimonials, setTestimonials] = useState(INITIAL_TESTIMONIALS);
+  const [barHover, setBarHover] = useState(null);
+  const [lineHover, setLineHover] = useState(null);
 
   const filteredUsers = userTab === "admins"
     ? users.filter((u) => u.role === "Admin")
@@ -890,21 +913,28 @@ export default function DashboardPage() {
                   const todayIdx = (TODAY.getDay() + 6) % 7;
                   const gridSteps = [0, Math.round(maxV*0.33), Math.round(maxV*0.66), maxV];
                   const gy = (v) => padT + cH - (v / maxV) * cH;
+                  const hi = barHover;
                   return (
-                    <svg viewBox={`0 0 ${W} ${H}`} className="w-full" style={{height:160}}>
+                    <svg viewBox={`0 0 ${W} ${H}`} className="w-full cursor-crosshair" style={{height:160}}
+                      onMouseLeave={() => setBarHover(null)}>
                       {gridSteps.map(v => (
                         <g key={v}>
                           <line x1={padL} x2={W-padR} y1={gy(v)} y2={gy(v)} stroke="#e2e8f0" strokeWidth={v===0?1:0.6} strokeDasharray={v===0?"":"3 3"} />
                           <text x={padL-5} y={gy(v)+3.5} textAnchor="end" fontSize={8} fill="#94a3b8" fontFamily="ui-monospace,monospace">{v}</text>
                         </g>
                       ))}
+                      {/* hover crosshair vertical line */}
+                      {hi !== null && (
+                        <line x1={bx(hi)+bw/2} x2={bx(hi)+bw/2} y1={padT} y2={padT+cH}
+                          stroke="#0ea5e9" strokeWidth={1} strokeDasharray="3 3" opacity={0.6}/>
+                      )}
                       {vals.map((v, i) => (
-                        <g key={i}>
+                        <g key={i} onMouseEnter={() => setBarHover(i)} style={{cursor:"pointer"}}>
+                          {/* hover hit area */}
+                          <rect x={padL + i*slot} y={padT} width={slot} height={cH} fill="transparent"/>
                           <rect x={bx(i)} y={by(v)} width={bw} height={bh(v)} rx={4}
-                            fill={i===todayIdx ? "#0ea5e9" : "#bae6fd"} />
-                          {bh(v) > 14 && (
-                            <text x={bx(i)+bw/2} y={by(v)-5} textAnchor="middle" fontSize={8} fill="#64748b" fontFamily="ui-monospace,monospace">{v}</text>
-                          )}
+                            fill={hi===i ? "#0284c7" : i===todayIdx ? "#0ea5e9" : "#bae6fd"}
+                            style={{transition:"fill 0.1s"}}/>
                           <text x={bx(i)+bw/2} y={H-4} textAnchor="middle" fontSize={8.5}
                             fill={i===todayIdx?"#0ea5e9":"#94a3b8"}
                             fontWeight={i===todayIdx?"700":"400"} fontFamily="ui-monospace,monospace">
@@ -912,10 +942,24 @@ export default function DashboardPage() {
                           </text>
                         </g>
                       ))}
+                      {/* tooltip */}
+                      {hi !== null && (() => {
+                        const tx = bx(hi) + bw/2;
+                        const ty = by(vals[hi]) - 8;
+                        const label = `${WEEKLY_DAYS[hi].replace("*","")} · ${vals[hi]} visitors`;
+                        const tw = label.length * 5.5 + 16;
+                        const txAdj = Math.min(Math.max(tx - tw/2, padL), W - padR - tw);
+                        return (
+                          <g>
+                            <rect x={txAdj} y={ty-18} width={tw} height={20} rx={5} fill="#0f172a" opacity={0.88}/>
+                            <text x={txAdj + tw/2} y={ty-4} textAnchor="middle" fontSize={8.5} fill="#fff" fontFamily="ui-monospace,monospace" fontWeight="600">{label}</text>
+                          </g>
+                        );
+                      })()}
                     </svg>
                   );
                 })()}
-                <p className="text-[9px] text-brandMuted font-mono mt-1 text-center">* highlighted bar = today</p>
+                <p className="text-[9px] text-brandMuted font-mono mt-1 text-center">Hover bars for details · highlighted = today</p>
               </div>
 
               {/* Monthly trend line chart */}
@@ -941,13 +985,15 @@ export default function DashboardPage() {
                   const cW = W - padL - padR;
                   const cH = H - padT - padB;
                   const minV = 0, maxV = 2400;
-                  const px = (i) => padL + (i / (data.length-1)) * cW;
-                  const py = (v) => padT + cH - ((v - minV) / (maxV - minV)) * cH;
-                  const pts = data.map((d,i) => `${px(i)},${py(d.v)}`).join(" ");
-                  const areaPath = `M${px(0)},${py(data[0].v)} ` + data.slice(1).map((d,i)=>`L${px(i+1)},${py(d.v)}`).join(" ") + ` L${px(data.length-1)},${padT+cH} L${px(0)},${padT+cH} Z`;
+                  const cx = (i) => padL + (i / (data.length-1)) * cW;
+                  const cy = (v) => padT + cH - ((v - minV) / (maxV - minV)) * cH;
+                  const pts = data.map((d,i) => `${cx(i)},${cy(d.v)}`).join(" ");
+                  const areaPath = `M${cx(0)},${cy(data[0].v)} ` + data.slice(1).map((d,i)=>`L${cx(i+1)},${cy(d.v)}`).join(" ") + ` L${cx(data.length-1)},${padT+cH} L${cx(0)},${padT+cH} Z`;
                   const gridVals = [0, 600, 1200, 1800, 2400];
+                  const hi = lineHover;
                   return (
-                    <svg viewBox={`0 0 ${W} ${H}`} className="w-full" style={{height:140}}>
+                    <svg viewBox={`0 0 ${W} ${H}`} className="w-full cursor-crosshair" style={{height:140}}
+                      onMouseLeave={() => setLineHover(null)}>
                       <defs>
                         <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
                           <stop offset="0%" stopColor="#0ea5e9" stopOpacity="0.25"/>
@@ -956,19 +1002,49 @@ export default function DashboardPage() {
                       </defs>
                       {gridVals.map(v => (
                         <g key={v}>
-                          <line x1={padL} x2={W-padR} y1={py(v)} y2={py(v)} stroke="#e2e8f0" strokeWidth={v===0?1:0.5} strokeDasharray={v===0?"":"3 3"}/>
-                          <text x={padL-5} y={py(v)+3.5} textAnchor="end" fontSize={8} fill="#94a3b8" fontFamily="ui-monospace,monospace">{v===0?0:v>=1000?`${v/1000}k`:v}</text>
+                          <line x1={padL} x2={W-padR} y1={cy(v)} y2={cy(v)} stroke="#e2e8f0" strokeWidth={v===0?1:0.5} strokeDasharray={v===0?"":"3 3"}/>
+                          <text x={padL-5} y={cy(v)+3.5} textAnchor="end" fontSize={8} fill="#94a3b8" fontFamily="ui-monospace,monospace">{v===0?0:v>=1000?`${v/1000}k`:v}</text>
                         </g>
                       ))}
+                      {/* hover vertical crosshair */}
+                      {hi !== null && (
+                        <line x1={cx(hi)} x2={cx(hi)} y1={padT} y2={padT+cH}
+                          stroke="#0ea5e9" strokeWidth={1} strokeDasharray="3 3" opacity={0.5}/>
+                      )}
                       <path d={areaPath} fill="url(#areaGrad)" />
                       <polyline points={pts} fill="none" stroke="#0ea5e9" strokeWidth={2.5} strokeLinejoin="round" strokeLinecap="round"/>
+                      {/* invisible hover hit areas between points */}
+                      {data.map((d,i) => {
+                        const x0 = i === 0 ? padL : (cx(i-1)+cx(i))/2;
+                        const x1 = i === data.length-1 ? W-padR : (cx(i)+cx(i+1))/2;
+                        return (
+                          <rect key={`hit-${i}`} x={x0} y={padT} width={x1-x0} height={cH}
+                            fill="transparent" onMouseEnter={() => setLineHover(i)} style={{cursor:"pointer"}}/>
+                        );
+                      })}
                       {data.map((d,i) => (
                         <g key={i}>
-                          <circle cx={px(i)} cy={py(d.v)} r={4} fill="#fff" stroke="#0ea5e9" strokeWidth={2}/>
-                          <text x={px(i)} y={py(d.v)-10} textAnchor="middle" fontSize={8.5} fill="#0ea5e9" fontFamily="ui-monospace,monospace" fontWeight="600">{d.v>=1000?`${(d.v/1000).toFixed(1)}k`:d.v}</text>
-                          <text x={px(i)} y={H-4} textAnchor="middle" fontSize={8} fill="#94a3b8" fontFamily="ui-monospace,monospace">{d.label}</text>
+                          <circle cx={cx(i)} cy={cy(d.v)} r={hi===i?5.5:4}
+                            fill={hi===i?"#0ea5e9":"#fff"} stroke="#0ea5e9" strokeWidth={2}
+                            style={{transition:"r 0.1s"}}/>
+                          <text x={cx(i)} y={H-4} textAnchor="middle" fontSize={8} fill="#94a3b8" fontFamily="ui-monospace,monospace">{d.label}</text>
                         </g>
                       ))}
+                      {/* tooltip */}
+                      {hi !== null && (() => {
+                        const tx = cx(hi);
+                        const ty = cy(data[hi].v);
+                        const val = data[hi].v >= 1000 ? `${(data[hi].v/1000).toFixed(1)}k` : data[hi].v;
+                        const label = `${data[hi].label} · ${val} visitors`;
+                        const tw = label.length * 5.5 + 16;
+                        const txAdj = Math.min(Math.max(tx - tw/2, padL), W - padR - tw);
+                        return (
+                          <g>
+                            <rect x={txAdj} y={ty-30} width={tw} height={20} rx={5} fill="#0f172a" opacity={0.88}/>
+                            <text x={txAdj+tw/2} y={ty-16} textAnchor="middle" fontSize={8.5} fill="#fff" fontFamily="ui-monospace,monospace" fontWeight="600">{label}</text>
+                          </g>
+                        );
+                      })()}
                     </svg>
                   );
                 })()}

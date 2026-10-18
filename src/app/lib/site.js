@@ -7,8 +7,8 @@ export const SITE = {
   phoneDisplay: "+92 328 1944386",
   phoneIntl: "+923281944386",
   whatsappNumber: "923281944386",
-  github: "https://github.com/kashanali-dev/",
-  url: "https://malik-kashan-portfolio.vercel.app/",
+  github: "https://github.com/kashanalideveloper/",
+  url: "https://kashanalideveloper-portfolio.vercel.app/",
   cvFile: "/Malik_Kashan_CV_Final.pdf",
   location: {
     city: "Lahore",

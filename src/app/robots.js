@@ -9,6 +9,6 @@ export default function robots() {
         allow: "/",
       },
     ],
-    sitemap: "https://malik-kashan-portfolio.vercel.app/sitemap.xml",
+    sitemap: `${SITE.url}sitemap.xml`,
   };
 }

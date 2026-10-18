@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { updatePostStatus } from "../../lib/blogStorage";
 
 export default function BlogView({ posts, setPosts }) {
   const router = useRouter();
@@ -32,7 +33,7 @@ export default function BlogView({ posts, setPosts }) {
               </div>
               <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold shrink-0 ${p.status==="Published"?"bg-emerald-100 text-emerald-600 dark:bg-emerald-900/20 dark:text-emerald-400":"bg-slate-100 dark:bg-slate-800 text-brandMuted"}`}>{p.status}</span>
               <div className="flex gap-1.5 shrink-0">
-                <button onClick={()=>setPosts(prev=>prev.map(x=>x.id===p.id?{...x,status:x.status==="Published"?"Draft":"Published"}:x))}
+                <button onClick={()=>{const ns=p.status==="Published"?"Draft":"Published"; updatePostStatus(p.id,ns); setPosts(prev=>prev.map(x=>x.id===p.id?{...x,status:ns}:x));}}
                   className={`px-2.5 py-1.5 rounded-lg text-[10px] font-bold cursor-pointer transition-colors border ${p.status==="Published"?"border-amber-200 dark:border-amber-800 text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-900/20":"border-emerald-200 dark:border-emerald-800 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/20"}`}>
                   {p.status==="Published"?"Unpublish":"Publish"}
                 </button>

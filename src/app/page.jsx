@@ -8,7 +8,6 @@ import Process from "./Components/Process";
 import TechExpertise from "./Components/TechExpertise";
 import ProjectResults from "./Components/ProjectResults";
 import Industries from "./Components/Industries";
-import About from "./Components/About";
 import FaqSection from "./Components/FaqSection";
 import BlogPreview from "./Components/BlogPreview";
 import Contact from "./Components/Contact";
@@ -25,7 +24,6 @@ export default function Home() {
       <TechExpertise />
       <ProjectResults />
       <Industries />
-      <About />
       <FaqSection />
       <BlogPreview />
       <Contact />

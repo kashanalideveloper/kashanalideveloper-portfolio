@@ -15,6 +15,7 @@ export default function Header() {
   const { isLoggedIn } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const timeoutRef = useRef(null);
 
@@ -52,7 +53,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-7xl z-50 rounded-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-brandLine shadow-[0_8px_32px_rgba(15,23,42,0.08)] transition-all duration-300 font-sans">
+    <header className="animate-header-enter fixed top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-7xl z-50 rounded-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-brandLine shadow-[0_8px_32px_rgba(15,23,42,0.08)] transition-all duration-300 font-sans">
       <div className="absolute inset-0 bg-linear-to-r from-transparent via-brandPrimary/5 to-transparent rounded-2xl pointer-events-none" />
 
       <nav
@@ -174,8 +175,7 @@ export default function Header() {
             </Link>
           ) : (
             <Link href="/login"
-              className="hidden lg:inline-flex items-center justify-center gap-1.5 px-4 py-2 text-[11px] font-bold tracking-widest text-brandPrimary border border-brandPrimary/35 hover:border-brandPrimary hover:bg-brandPrimary/8 rounded-xl transition-all uppercase">
-              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+              className="hidden lg:inline-flex items-center justify-center px-4 py-2 text-[11px] font-bold tracking-widest text-brandPrimary border border-brandPrimary/35 hover:border-brandPrimary hover:bg-brandPrimary/8 rounded-xl transition-all uppercase">
               Login
             </Link>
           )}
@@ -205,34 +205,44 @@ export default function Header() {
       }`}>
         <nav className="flex flex-col gap-4">
           <Link href="/" onClick={() => setIsOpen(false)}
-            className="text-xs font-semibold tracking-widest text-brandInk dark:text-white uppercase py-1 border-b border-brandLine/40">
+            className="text-xs font-semibold tracking-widest text-brandInk dark:text-white uppercase py-1 border-b border-brandLine/40 hover:text-brandPrimary hover:translate-x-1 transition-all duration-200 block">
             {t("navHome")}
           </Link>
           <div className="py-1 border-b border-brandLine/40">
-            <Link href="/services" onClick={() => setIsOpen(false)}
-              className="text-xs font-semibold tracking-widest text-brandPrimary uppercase mb-2 block">
-              {t("navServices")} →
-            </Link>
-            <div className="pl-3 space-y-2">
-              <p className="text-[10px] font-mono text-brandPrimary uppercase mt-1">{t("customDevelopment")}</p>
-              {customServices.map((s) => (
-                <Link key={s.name} href={s.href} onClick={() => setIsOpen(false)}
-                  className="block text-xs text-brandMuted hover:text-brandPrimary dark:text-slate-300 font-medium py-0.5">
-                  {s.name}
-                </Link>
-              ))}
-              <p className="text-[10px] font-mono text-brandMuted uppercase mt-2">{t("cmsOptimization")}</p>
-              {otherServices.map((s) => (
-                <Link key={s.name} href={s.href} onClick={() => setIsOpen(false)}
-                  className="block text-xs text-brandMuted hover:text-brandPrimary dark:text-slate-300 font-medium py-0.5">
-                  {s.name}
-                </Link>
-              ))}
+            <button
+              onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+              className="w-full flex items-center justify-between text-xs font-semibold tracking-widest text-brandInk dark:text-white uppercase py-1 cursor-pointer hover:text-brandPrimary hover:translate-x-1 transition-all duration-200"
+            >
+              {t("navServices")}
+              <svg
+                className={`w-3 h-3 transition-transform duration-200 ${isMobileServicesOpen ? "rotate-180" : ""}`}
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+            <div className={`overflow-hidden transition-all duration-300 ${isMobileServicesOpen ? "max-h-96 opacity-100 mt-2" : "max-h-0 opacity-0"}`}>
+              <div className="pl-3 space-y-2 pb-2">
+                <p className="text-[10px] font-mono text-brandPrimary uppercase mt-1">{t("customDevelopment")}</p>
+                {customServices.map((s) => (
+                  <Link key={s.name} href={s.href} onClick={() => { setIsOpen(false); setIsMobileServicesOpen(false); }}
+                    className="block text-xs text-brandMuted hover:text-brandPrimary dark:text-slate-300 font-medium py-0.5">
+                    {s.name}
+                  </Link>
+                ))}
+                <p className="text-[10px] font-mono text-brandMuted uppercase mt-2">{t("cmsOptimization")}</p>
+                {otherServices.map((s) => (
+                  <Link key={s.name} href={s.href} onClick={() => { setIsOpen(false); setIsMobileServicesOpen(false); }}
+                    className="block text-xs text-brandMuted hover:text-brandPrimary dark:text-slate-300 font-medium py-0.5">
+                    {s.name}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
           {navLinks.slice(1).map((link) => (
             <Link key={link.name} href={link.href} onClick={() => setIsOpen(false)}
-              className="text-xs font-semibold tracking-widest text-brandInk dark:text-white uppercase py-1 border-b border-brandLine/40">
+              className="text-xs font-semibold tracking-widest text-brandInk dark:text-white uppercase py-1 border-b border-brandLine/40 hover:text-brandPrimary hover:translate-x-1 transition-all duration-200 block">
               {link.name}
             </Link>
           ))}

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Logo from "../../Components/Logo";
+import { savePost } from "../../lib/blogStorage";
 
 const CATEGORIES = ["Web Development", "Next.js", "WordPress", "Shopify", "React", "Laravel", "SEO", "Freelancing"];
 
@@ -20,10 +21,12 @@ export default function NewPostPage() {
     metaDesc: "",
     tags: "",
     content: "",
+    image: "",
     status: "Draft",
   });
   const [slugManual, setSlugManual] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [imagePreview, setImagePreview] = useState(null);
 
   const set = (key, val) => setForm((p) => ({ ...p, [key]: val }));
 
@@ -32,8 +35,29 @@ export default function NewPostPage() {
     if (!slugManual) set("slug", slugify(val));
   };
 
+  const handleImageFile = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      const base64 = ev.target.result;
+      set("image", base64);
+      setImagePreview(base64);
+    };
+    reader.readAsDataURL(file);
+  };
+
   const handleSave = () => {
     if (!form.title.trim()) return;
+    const post = {
+      ...form,
+      id: `post_${Date.now()}`,
+      date: new Date().toLocaleDateString("en-PK", { month: "long", year: "numeric" }),
+      readTime: `${Math.max(1, Math.round(form.content.split(/\s+/).filter(Boolean).length / 200))} min read`,
+      views: 0,
+      excerpt: form.metaDesc || form.content.slice(0, 150).replace(/[#*_]/g, "") + "…",
+    };
+    savePost(post);
     setSaved(true);
     setTimeout(() => router.push("/dashboard"), 1200);
   };
@@ -69,7 +93,7 @@ export default function NewPostPage() {
           </div>
         )}
 
-        {/* Title */}
+        {/* Title & Slug */}
         <div className="bg-white dark:bg-slate-900 rounded-2xl border border-brandLine dark:border-slate-700 shadow-[0_2px_12px_rgba(15,23,42,0.04)] p-5 space-y-4">
           <div>
             <label className="block text-[10px] font-mono text-brandMuted uppercase tracking-widest mb-1.5">Post Title *</label>
@@ -87,6 +111,33 @@ export default function NewPostPage() {
                 className="flex-1 px-3 py-2.5 text-xs font-mono bg-brandSoft dark:bg-slate-800 border border-brandLine dark:border-slate-600 rounded-r-xl text-brandPrimary placeholder:text-brandMuted/40 focus:outline-none focus:border-brandPrimary transition-all" />
             </div>
           </div>
+        </div>
+
+        {/* Cover Image */}
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-brandLine dark:border-slate-700 shadow-[0_2px_12px_rgba(15,23,42,0.04)] p-5 space-y-3">
+          <label className="block text-[10px] font-mono text-brandMuted uppercase tracking-widest">Cover Image</label>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <label className="flex items-center gap-2 cursor-pointer px-4 py-2.5 rounded-xl border-2 border-dashed border-brandLine dark:border-slate-600 hover:border-brandPrimary/50 transition-colors text-xs font-semibold text-brandMuted hover:text-brandPrimary">
+              <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              Upload Image
+              <input type="file" accept="image/*" className="sr-only" onChange={handleImageFile} />
+            </label>
+            <span className="flex items-center text-[10px] font-mono text-brandMuted">or</span>
+            <input type="text" value={typeof form.image === "string" && !form.image.startsWith("data:") ? form.image : ""}
+              onChange={(e) => { set("image", e.target.value); setImagePreview(e.target.value || null); }}
+              placeholder="https://example.com/image.jpg"
+              className="flex-1 px-3 py-2.5 text-xs font-mono bg-brandSoft dark:bg-slate-800 border border-brandLine dark:border-slate-600 rounded-xl text-brandInk dark:text-white placeholder:text-brandMuted/40 focus:outline-none focus:border-brandPrimary transition-all" />
+          </div>
+          {imagePreview && (
+            <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-brandSoft border border-brandLine">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={imagePreview} alt="Cover preview" className="w-full h-full object-cover" />
+              <button onClick={() => { set("image", ""); setImagePreview(null); }}
+                className="absolute top-2 right-2 w-7 h-7 rounded-full bg-white/90 dark:bg-slate-800/90 flex items-center justify-center text-rose-500 hover:bg-white transition-colors cursor-pointer">
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Meta */}

@@ -4,6 +4,7 @@ import SiteShell from "./Components/SiteShell";
 import { LanguageProvider } from "./Components/LanguageContext";
 import { AuthProvider } from "./Components/AuthContext";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { SITE } from "./lib/site";
 
 import { Poppins } from "next/font/google";
 
@@ -43,13 +44,13 @@ keywords: [
     "Malik Kashan",
   ],
   authors: [
-    { name: "Malik Kashan", url: "https://malik-kashan-portfolio.vercel.app/" },
+    { name: "Malik Kashan", url: "https://kashanalideveloper-portfolio.vercel.app/" },
   ],
   creator: "Malik Kashan",
   publisher: "Malik Kashan",
   applicationName: "Malik Kashan Developer Portfolio",
   category: "Web Development Portfolio",
-  metadataBase: new URL("https://malik-kashan-portfolio.vercel.app"),
+  metadataBase: new URL("https://kashanalideveloper-portfolio.vercel.app"),
 
   formatDetection: {
     email: false,
@@ -63,7 +64,7 @@ keywords: [
   },
 
   alternates: {
-    canonical: "https://malik-kashan-portfolio.vercel.app/",
+    canonical: "https://kashanalideveloper-portfolio.vercel.app/",
   },
 
   verification: {
@@ -80,7 +81,7 @@ keywords: [
     title: "Malik Kashan | Best Frontend & WordPress Developer in Pakistan",
     description:
       "Hire top frontend developers and custom WordPress experts in Lahore, Pakistan. Check out Malik Kashan's high-performance SaaS portfolio.",
-    url: "https://malik-kashan-portfolio.vercel.app/",
+    url: "https://kashanalideveloper-portfolio.vercel.app/",
     siteName: "Malik Kashan Developer Portfolio",
     images: [
       {
@@ -129,7 +130,7 @@ export default function RootLayout({ children }) {
       "@type": "Organization",
       name: "Freelance",
     },
-    sameAs: ["https://github.com/malik-kashan", "https://linkedin.com/in/malik-kashan"],
+    sameAs: ["https://github.com/kashanalideveloper", "https://linkedin.com/in/malik-kashan"],
     address: {
       "@type": "PostalAddress",
       addressLocality: "Lahore",

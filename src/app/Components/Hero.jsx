@@ -71,43 +71,42 @@ export default function Hero() {
       <div className="max-w-7xl w-full mx-auto px-6 sm:px-8 py-6 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center relative z-10">
         {/* Left Content Column */}
         <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1">
-          {/* 🔍 SEO: Valid text structure for availability badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brandPrimary/10 border border-brandPrimary/20 mb-4 backdrop-blur-sm">
+          {/* Availability badge */}
+          <div className="animate-fade-in-up delay-100 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brandPrimary/10 border border-brandPrimary/20 mb-5 backdrop-blur-sm">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brandPrimary opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-brandPrimary"></span>
             </span>
-            <span className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] text-brandPrimary uppercase">
+            <span className="text-[10px] sm:text-xs font-medium tracking-[0.18em] text-brandPrimary uppercase">
               {t("availableForNewProjects")}
             </span>
           </div>
 
-          <p className="text-base sm:text-lg font-bold tracking-[0.15em] text-brandPrimary uppercase mb-2 block">
+          <p className="animate-fade-in-up delay-200 text-sm sm:text-base font-medium tracking-[0.18em] text-brandMuted uppercase mb-2">
             {t("heroGreeting")}
           </p>
 
-          {/* 🔍 SEO: Standard clean H1 tag for the core index keyword mapping */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-brandInk dark:text-white uppercase mb-3">
+          <h1 className="animate-fade-in-up delay-300 text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-brandInk dark:text-white uppercase mb-4 leading-[1.1]">
             {t("heroTitle")}
           </h1>
 
-          {/* Clean Typewriter Sub-heading */}
-          <div className="h-10 sm:h-12.5 flex items-center justify-center lg:justify-start mb-6">
-            <p className="text-xl sm:text-2xl md:text-3xl font-medium tracking-wide text-brandMuted">
-              {t("heroIam")}{" "}
-            </p>
-            <p className="text-xl sm:text-2xl md:text-3xl font-bold tracking-wide text-brandPrimary border-r-4 border-brandPrimary pl-2 ml-1 pr-1 animate-blink inline-block">
+          {/* Typewriter */}
+          <div className="animate-fade-in-up delay-400 h-9 sm:h-11 flex items-center justify-center lg:justify-start mb-5">
+            <span className="text-lg sm:text-xl font-normal tracking-wide text-brandMuted mr-2">
+              {t("heroIam")}
+            </span>
+            <span className="text-lg sm:text-xl font-semibold tracking-wide text-brandPrimary border-r-2 border-brandPrimary pr-1 animate-blink inline-block min-w-[2px]">
               {mounted ? currentText : ""}
-            </p>
+            </span>
           </div>
 
-          <p className="text-sm sm:text-base text-brandMuted tracking-wide max-w-xl font-light mb-6 leading-relaxed">
+          <p className="animate-fade-in-up delay-500 text-sm text-brandMuted/80 tracking-wide max-w-lg font-light mb-7 leading-relaxed">
             {t("heroDesc")}
           </p>
 
           {/* Social proof strip */}
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-8">
-            <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-900 border border-brandLine dark:border-slate-700 shadow-sm">
+          <div className="animate-fade-in-up delay-600 flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-8">
+            <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-brandLine dark:border-slate-700 shadow-sm">
               <div className="flex -space-x-2">
                 {["AH","SK","UT"].map((a) => (
                   <div key={a} className="w-6 h-6 rounded-full bg-brandPrimary/10 border-2 border-white dark:border-slate-900 flex items-center justify-center text-[7px] font-bold text-brandPrimary">{a}</div>
@@ -117,31 +116,31 @@ export default function Hero() {
                 <div className="flex items-center gap-0.5">
                   {[1,2,3,4,5].map((s) => <svg key={s} className="w-2.5 h-2.5 text-amber-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>)}
                 </div>
-                <p className="text-[9px] font-semibold text-brandMuted">50+ happy clients</p>
+                <p className="text-[9px] text-brandMuted">50+ happy clients</p>
               </div>
             </div>
-            <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-900 border border-brandLine dark:border-slate-700 shadow-sm">
+            <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-brandLine dark:border-slate-700 shadow-sm">
               <div className="w-6 h-6 rounded-full bg-emerald-100 dark:bg-emerald-900/20 flex items-center justify-center text-emerald-600">
                 <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
               <div>
-                <p className="text-xs font-black text-brandInk dark:text-white leading-none">100+</p>
-                <p className="text-[9px] font-semibold text-brandMuted">Projects delivered</p>
+                <p className="text-xs font-bold text-brandInk dark:text-white leading-none">100+</p>
+                <p className="text-[9px] text-brandMuted">Projects delivered</p>
               </div>
             </div>
-            <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-900 border border-brandLine dark:border-slate-700 shadow-sm">
+            <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-brandLine dark:border-slate-700 shadow-sm">
               <div className="w-6 h-6 rounded-full bg-brandPrimary/10 flex items-center justify-center text-brandPrimary">
                 <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
               </div>
               <div>
-                <p className="text-xs font-black text-brandInk dark:text-white leading-none">24hr</p>
-                <p className="text-[9px] font-semibold text-brandMuted">Response time</p>
+                <p className="text-xs font-bold text-brandInk dark:text-white leading-none">24hr</p>
+                <p className="text-[9px] text-brandMuted">Response time</p>
               </div>
             </div>
           </div>
 
-          {/* Actions Framework */}
-          <div className="flex flex-col sm:flex-row items-center gap-6 w-full sm:w-auto">
+          {/* Actions */}
+          <div className="animate-fade-in-up delay-700 flex flex-col sm:flex-row items-center gap-6 w-full sm:w-auto">
             {/* 🔍 SEO: Accessible link name with valid download target routing */}
             <a
               href={SITE.cvFile}
@@ -211,7 +210,7 @@ export default function Hero() {
         </div>
 
         {/* Right Code Terminal Shell */}
-        <div className="lg:col-span-5 flex justify-center items-center order-1 lg:order-2 w-full">
+        <div className="animate-fade-in-up delay-200 lg:col-span-5 flex justify-center items-center order-1 lg:order-2 w-full">
           <div className="relative w-full max-w-115 aspect-[4/3.2] rounded-3xl">
             <div className="absolute inset-0 bg-linear-to-tr from-brandPrimary/15 to-transparent opacity-40 rounded-3xl blur-2xl pointer-events-none" />
 
@@ -226,43 +225,42 @@ export default function Hero() {
                 </span>
               </div>
 
-              {/* Securely Hydrated Code Rendering Blocks */}
               {mounted && (
                 <div
                   className="flex-1 font-mono text-[11px] sm:text-xs text-brandInk/70 space-y-2 pt-5 select-none"
                   aria-hidden="true"
                 >
                   <p className="text-blue-600">
-                    const <span className="text-brandInk">Developer</span> =
+                    const <span className="text-brandInk dark:text-slate-200">Developer</span> =
                     () =&gt; {"{"}
                   </p>
 
                   <div className="pl-4 space-y-1">
                     <p className="text-purple-600">
-                      return <span className="text-brandInk">(</span>
+                      return <span className="text-brandInk dark:text-slate-200">(</span>
                     </p>
 
                     <div className="pl-4 space-y-1">
                       <p className="text-emerald-600">
                         &lt;<span className="text-blue-600">MalikKashan</span>
                       </p>
-                      <p className="pl-6 text-brandInk">
+                      <p className="pl-6 text-brandInk dark:text-slate-300">
                         skills=<span className="text-purple-600">{"{"}</span>
-                        <span className="text-brandInk">[</span>
+                        <span className="text-brandInk dark:text-slate-300">[</span>
                         <span className="text-green-600">&quot;Next.js&quot;</span>
-                        <span className="text-brandInk">, </span>
+                        <span className="text-brandInk dark:text-slate-300">, </span>
                         <span className="text-green-600">&quot;Tailwind&quot;</span>
-                        <span className="text-brandInk">]</span>
+                        <span className="text-brandInk dark:text-slate-300">]</span>
                         <span className="text-purple-600">{"}"}</span>
                       </p>
-                      <p className="pl-6 text-brandInk">
+                      <p className="pl-6 text-brandInk dark:text-slate-300">
                         experience=
                         <span className="text-amber-600">&quot;Expert&quot;</span>
                       </p>
                       <p className="text-emerald-600">/&gt;</p>
                     </div>
 
-                    <p className="text-brandInk">)</p>
+                    <p className="text-brandInk dark:text-slate-200">)</p>
                   </div>
 
                   <p className="text-blue-600">{"};"}</p>

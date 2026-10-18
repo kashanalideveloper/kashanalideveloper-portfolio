@@ -1,14 +1,36 @@
-﻿// src/app/Components/BlogPreview.jsx
+// src/app/Components/BlogPreview.jsx
 "use client";
-// Home page blog section — shows the 3 latest articles linking to their detail pages.
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ARTICLES } from "../lib/blog";
+import { getPublishedPosts } from "../lib/blogStorage";
 import { useLanguage } from "./LanguageContext";
 
 export default function BlogPreview() {
   const { t } = useLanguage();
-  const latest = ARTICLES.slice(0, 3);
+  const [dynamicPosts, setDynamicPosts] = useState([]);
+
+  useEffect(() => {
+    try {
+      setDynamicPosts(getPublishedPosts());
+    } catch {}
+  }, []);
+
+  // Dashboard posts first, then static articles, take latest 3
+  const allArticles = [
+    ...dynamicPosts.map((p) => ({
+      slug: p.slug,
+      title: p.title,
+      excerpt: p.excerpt || "",
+      date: p.date,
+      category: p.category,
+      readTime: p.readTime,
+      image: p.image || null,
+      isDynamic: true,
+    })),
+    ...ARTICLES,
+  ].slice(0, 3);
 
   return (
     <section
@@ -16,7 +38,6 @@ export default function BlogPreview() {
       className="relative py-12 sm:py-16 lg:py-16 bg-white text-brandInk overflow-hidden border-t border-brandLine scroll-mt-28"
       aria-labelledby="blog-preview-heading"
     >
-      {/* Ambient Glow */}
       <div
         className="absolute top-0 right-0 w-72 sm:w-125 h-72 sm:h-125 bg-brandPrimary/8 blur-[120px] sm:blur-[180px] pointer-events-none -z-10"
         aria-hidden="true"
@@ -39,21 +60,36 @@ export default function BlogPreview() {
 
         {/* Article Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {latest.map((article) => (
+          {allArticles.map((article) => (
             <Link
               key={article.slug}
-              href={`/blog/${article.slug}`}
+              href={article.isDynamic ? `/blog/post/${article.slug}` : `/blog/${article.slug}`}
               className="group relative overflow-hidden flex flex-col justify-between w-full rounded-3xl bg-brandBg border border-brandLine transition-all duration-300 hover:-translate-y-2 hover:border-brandPrimary/30 hover:shadow-[0_16px_32px_-12px_rgba(15,23,42,0.1)]"
             >
-              <div className="relative block w-full aspect-16/10 overflow-hidden bg-brandSoft">
-                <Image
-                  src={article.image}
-                  alt={`Illustration for ${article.title}`}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  loading="lazy"
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                />
+              <div className="relative block w-full aspect-video overflow-hidden bg-brandSoft">
+                {article.image ? (
+                  article.image.startsWith("data:") || article.image.startsWith("http") ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  ) : (
+                    <Image
+                      src={article.image}
+                      alt={article.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      loading="lazy"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  )
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-brandPrimary/5">
+                    <svg className="w-10 h-10 text-brandPrimary/20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                  </div>
+                )}
                 <span className="absolute top-4 left-4 inline-block px-2.5 py-0.5 rounded font-mono text-[9px] tracking-wider bg-white/90 text-brandPrimary border border-brandPrimary/20 uppercase backdrop-blur-md shadow-lg z-10">
                   {article.category}
                 </span>
@@ -75,17 +111,8 @@ export default function BlogPreview() {
                 </div>
 
                 <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brandPrimary transition-all duration-300 group-hover:gap-3">
-                  Read Article
-                  <svg
-                    className="w-3.5 h-3.5"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={3}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
+                  {t("readArticle")}
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <line x1="5" y1="12" x2="19" y2="12" />
                     <polyline points="12 5 19 12 12 19" />
                   </svg>

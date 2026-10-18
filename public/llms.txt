@@ -1,10 +1,10 @@
 # Malik Kashan - Web Developer Portfolio
-# URL: https://malik-kashan-portfolio.vercel.app
+# URL: https://kashanalideveloper-portfolio.vercel.app
 # Name: Malik Kashan
 # Role: Web Developer
 # Location: Lahore, Pakistan
 # Expertise: React, Next.js, Shopify, Tailwind CSS
 # Services: Custom web development, Shopify stores, Next.js applications, React portfolios
 # Contact: kashanalikot@gmail.com
-# GitHub: https://github.com/malik-kashan
+# GitHub: https://github.com/kashanalideveloper
 # LinkedIn: https://linkedin.com/in/malik-kashan
