@@ -6,13 +6,13 @@ import { ARTICLES } from "../lib/blog";
 import { SITE } from "../lib/site";
 
 export const metadata = {
-  title: "Blog | Web Development Tips & Insights - Malik Kashan",
+  title: "Web Development Blog | Malik Kashan — Frontend Developer",
   description:
-    "Articles on web development, Next.js, WordPress, UI/UX design and performance optimization from Malik Kashan, a frontend developer in Lahore, Pakistan.",
+    "Next.js, React, WordPress and web performance articles by Malik Kashan — frontend developer in Lahore, Pakistan.",
   alternates: { canonical: `${SITE.url}blog` },
   openGraph: {
-    title: "Blog | Web Development Tips & Insights",
-    description: "Learn about web development, Next.js, WordPress and performance optimization from Malik Kashan.",
+    title: "Web Development Blog | Malik Kashan",
+    description: "Next.js, React, WordPress and web performance articles by Malik Kashan — frontend developer in Lahore, Pakistan.",
     url: `${SITE.url}blog`,
     type: "website",
   },
@@ -44,8 +44,8 @@ export default function BlogPage() {
               {/* About widget */}
               <div className="rounded-2xl border border-brandLine bg-brandBg p-6">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-11 h-11 rounded-full bg-brandPrimary/10 border border-brandPrimary/20 flex items-center justify-center text-xs font-bold text-brandPrimary font-mono">
-                    MK
+                  <div className="w-11 h-11 rounded-full overflow-hidden border border-brandPrimary/20 shrink-0">
+                    <Image src="/favicon.png" alt="Malik Kashan" width={44} height={44} className="w-full h-full object-cover" />
                   </div>
                   <div>
                     <p className="text-sm font-bold text-brandInk">Malik Kashan</p>
@@ -59,10 +59,10 @@ export default function BlogPage() {
 
               {/* Categories */}
               <div className="rounded-2xl border border-brandLine bg-brandBg p-6">
-                <h3 className="text-[11px] font-mono tracking-widest text-brandPrimary uppercase mb-4 flex items-center gap-2">
+                <h2 className="text-[11px] font-mono tracking-widest text-brandPrimary uppercase mb-4 flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-brandPrimary" />
                   Categories
-                </h3>
+                </h2>
                 <ul className="space-y-2">
                   {CATEGORIES.map((cat) => {
                     const count = ARTICLES.filter((a) => a.category === cat).length;
@@ -80,10 +80,10 @@ export default function BlogPage() {
 
               {/* Recent Posts */}
               <div className="rounded-2xl border border-brandLine bg-brandBg p-6">
-                <h3 className="text-[11px] font-mono tracking-widest text-brandPrimary uppercase mb-4 flex items-center gap-2">
+                <h2 className="text-[11px] font-mono tracking-widest text-brandPrimary uppercase mb-4 flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-brandPrimary" />
                   Recent Posts
-                </h3>
+                </h2>
                 <ul className="space-y-4">
                   {RECENT.map((a) => (
                     <li key={a.slug}>
@@ -154,7 +154,7 @@ export default function BlogPage() {
                         </p>
                       </div>
                       <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-brandPrimary transition-all duration-300 group-hover:gap-2.5">
-                        Read Article
+                        View Article
                         <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round">
                           <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
                         </svg>

@@ -35,6 +35,8 @@ export default function sitemap() {
     { path: "", priority: 1.0, frequency: "weekly" },
     { path: "about", priority: 0.9, frequency: "monthly" },
     { path: "projects", priority: 0.9, frequency: "weekly" },
+    { path: "services", priority: 0.9, frequency: "monthly" },
+    { path: "blog", priority: 0.8, frequency: "weekly" },
     { path: "contact", priority: 0.8, frequency: "monthly" },
   ];
 

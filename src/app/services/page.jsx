@@ -270,7 +270,7 @@ export default function ServicesPage() {
             </div>
 
             {/* ── RIGHT SIDEBAR ── */}
-            <aside className="lg:w-72 xl:w-80 shrink-0 space-y-7">
+            <aside className="lg:w-80 xl:w-96 shrink-0 space-y-7">
 
               {/* Quick Contact */}
               <div className="rounded-2xl bg-brandPrimary p-6 text-center sticky top-28">
