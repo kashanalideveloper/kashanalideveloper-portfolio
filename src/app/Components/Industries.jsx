@@ -23,7 +23,7 @@ export default function Industries() {
             <span className="w-1.5 h-1.5 rounded-full bg-brandPrimary" />
             {t("industriesSub")}
           </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-brandInk dark:text-white uppercase tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-brandInk dark:text-white uppercase tracking-tight">
             {t("industriesHeading")}
           </h2>
           <p className="mt-3 text-sm sm:text-base text-brandMuted font-light">{t("industriesDesc")}</p>

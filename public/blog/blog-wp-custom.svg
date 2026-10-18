@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a8a"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="acc" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#60a5fa"/>
+      <stop offset="100%" style="stop-color:#93c5fd"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g stroke="rgba(255,255,255,0.07)" stroke-width="1">
+    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="525" x2="1200" y2="525"/>
+    <line x1="150" y1="0" x2="150" y2="630"/><line x1="300" y1="0" x2="300" y2="630"/>
+    <line x1="450" y1="0" x2="450" y2="630"/><line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="750" y1="0" x2="750" y2="630"/><line x1="900" y1="0" x2="900" y2="630"/>
+    <line x1="1050" y1="0" x2="1050" y2="630"/>
+  </g>
+  <circle cx="200" cy="315" r="280" fill="white" opacity="0.07"/>
+  <rect x="0" y="0" width="6" height="630" fill="url(#acc)"/>
+  <g transform="translate(162, 197)">
+    <rect width="120" height="120" rx="24" fill="white" opacity="0.15"/>
+    <rect x="2" y="2" width="116" height="116" rx="22" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+    <rect x="15" y="30" width="38" height="60" rx="6" fill="white" opacity="0.3"/>
+    <text x="34" y="67" font-family="monospace" font-size="18" fill="white" text-anchor="middle" font-weight="bold" opacity="0.7">W</text>
+    <line x1="57" y1="60" x2="63" y2="60" stroke="#60a5fa" stroke-width="3" stroke-linecap="round"/>
+    <line x1="60" y1="57" x2="66" y2="60" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"/>
+    <line x1="60" y1="63" x2="66" y2="60" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"/>
+    <rect x="67" y="30" width="38" height="60" rx="6" fill="#60a5fa" opacity="0.3"/>
+    <text x="86" y="67" font-family="monospace" font-size="14" fill="white" text-anchor="middle" font-weight="bold" opacity="0.8">&lt;/&gt;</text>
+  </g>
+  <rect x="160" y="355" width="110" height="28" rx="14" fill="white" opacity="0.15"/>
+  <text x="215" y="374" font-family="monospace" font-size="11" fill="white" text-anchor="middle" letter-spacing="2">WORDPRESS</text>
+  <text x="160" y="430" font-family="'Inter','Helvetica Neue',sans-serif" font-size="52" font-weight="800" fill="white" letter-spacing="-1">WP vs</text>
+  <text x="160" y="494" font-family="'Inter','Helvetica Neue',sans-serif" font-size="52" font-weight="800" fill="url(#acc)" letter-spacing="-1">Custom</text>
+  <text x="160" y="547" font-family="'Inter','Helvetica Neue',sans-serif" font-size="24" font-weight="400" fill="rgba(255,255,255,0.7)">Flexibility · Speed · Ownership</text>
+  <g transform="translate(750, 80)" opacity="0.22">
+    <rect width="192" height="300" rx="12" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+    <rect x="14" y="14" width="164" height="40" rx="6" fill="rgba(255,255,255,0.08)"/>
+    <rect x="14" y="64" width="164" height="10" rx="5" fill="rgba(255,255,255,0.1)"/>
+    <rect x="14" y="82" width="120" height="8" rx="4" fill="rgba(255,255,255,0.06)"/>
+    <rect x="14" y="98" width="140" height="8" rx="4" fill="rgba(255,255,255,0.06)"/>
+    <rect x="14" y="240" width="164" height="44" rx="8" fill="#60a5fa" opacity="0.15"/>
+    <rect x="208" y="0" width="192" height="300" rx="12" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+    <rect x="222" y="14" width="164" height="40" rx="6" fill="#60a5fa" opacity="0.12"/>
+    <rect x="222" y="64" width="164" height="10" rx="5" fill="rgba(255,255,255,0.1)"/>
+    <rect x="222" y="82" width="120" height="8" rx="4" fill="rgba(255,255,255,0.06)"/>
+    <rect x="222" y="240" width="164" height="44" rx="8" fill="rgba(255,255,255,0.08)"/>
+  </g>
+  <text x="160" y="600" font-family="monospace" font-size="13" fill="rgba(255,255,255,0.35)" letter-spacing="1">kashanalideveloper-portfolio.vercel.app</text>
+</svg>

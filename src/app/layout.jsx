@@ -26,11 +26,11 @@ export const viewport = {
 
 export const metadata = {
   title: {
-    default: "Malik Kashan | Web Developer in Lahore | Shopify & Next.js Expert",
+    default: "Malik Kashan | Web Developer in Lahore | Next.js Expert",
     template: "%s | Malik Kashan - Web Developer",
   },
   description:
-    "Malik Kashan - Web Developer in Lahore, Pakistan. Shopify & Next.js Expert, specializing in React, Next.js, and custom web development solutions.",
+    "Malik Kashan - Web Developer in Lahore, Pakistan. Next.js & Shopify expert building fast, custom web solutions.",
 keywords: [
     "malik kashan portfolio",
     "kashan ali web developer",

@@ -41,7 +41,7 @@ export default function Header() {
     { name: "WooCommerce Development", href: "/services/woocommerce-development" },
     { name: "Website Redesign", href: "/services/website-redesign" },
     { name: "Performance Optimization", href: "/services/performance-optimization" },
-    { name: "Website Maintenance", href: "/services/web-development" },
+    { name: "Website Maintenance", href: "/services/website-maintenance" },
   ];
 
   const navLinks = [

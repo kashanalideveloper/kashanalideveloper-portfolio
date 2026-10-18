@@ -71,6 +71,50 @@ const services = [
       </svg>
     ),
   },
+  {
+    slug: "woocommerce-development",
+    num: "07",
+    title: "WooCommerce E-Commerce",
+    desc: "High-converting online stores with secure payment gateways, product catalogs, and optimized checkout flows.",
+    icon: (
+      <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
+        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+      </svg>
+    ),
+  },
+  {
+    slug: "website-redesign",
+    num: "08",
+    title: "Website Redesign",
+    desc: "Transform your outdated website into a modern, high-converting digital asset that impresses clients.",
+    icon: (
+      <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm0 0L6 8l-4 4 1.41 1.41L4 10.82l2.59-2.58L6 6.41z"/>
+      </svg>
+    ),
+  },
+  {
+    slug: "performance-optimization",
+    num: "09",
+    title: "Performance Optimization",
+    desc: "Boost website speed, fix Core Web Vitals, and achieve 95+ Lighthouse scores for higher rankings and retention.",
+    icon: (
+      <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+      </svg>
+    ),
+  },
+  {
+    slug: "website-maintenance",
+    num: "10",
+    title: "Website Maintenance",
+    desc: "Ongoing security updates, backups, monitoring, and technical support to keep your site online and secure.",
+    icon: (
+      <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 5v14M5 12h14"/>
+      </svg>
+    ),
+  },
 ];
 
 export default function ServicesPreview() {
@@ -88,7 +132,7 @@ export default function ServicesPreview() {
           </span>
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
-              <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-brandInk dark:text-white tracking-tight leading-[1.1]">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brandInk dark:text-white tracking-tight leading-[1.1]">
                 {t("servicesHeading")}
               </h2>
               <p className="mt-3 text-sm text-brandMuted font-light leading-relaxed max-w-lg">
@@ -122,7 +166,7 @@ export default function ServicesPreview() {
                   <div className="w-12 h-12 rounded-xl bg-brandPrimary/10 text-brandPrimary flex items-center justify-center group-hover:bg-brandPrimary group-hover:text-white transition-all duration-300 shadow-sm">
                     {s.icon}
                   </div>
-                  <span className="text-[11px] font-mono text-brandMuted/40 mt-1">//{s.num}</span>
+                  <span className="text-[11px] font-mono text-brandMuted/40 mt-1">{"/"}{s.num}</span>
                 </div>
 
                 {/* Title */}

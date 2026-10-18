@@ -7,25 +7,12 @@ import { getStoredPosts } from "../../../lib/blogStorage";
 
 export default function DynamicBlogPost() {
   const { slug } = useParams();
-  const [post, setPost] = useState(null);
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
+  const [post, setPost] = useState(() => {
     try {
       const posts = getStoredPosts();
-      const found = posts.find((p) => p.slug === slug);
-      setPost(found || null);
-    } catch {}
-    setLoaded(true);
-  }, [slug]);
-
-  if (!loaded) {
-    return (
-      <div className="min-h-screen bg-brandBg flex items-center justify-center">
-        <div className="w-8 h-8 border-2 border-brandPrimary border-t-transparent rounded-full animate-spin" />
-      </div>
-    );
-  }
+      return posts.find((p) => p.slug === slug) || null;
+    } catch { return null; }
+  });
 
   if (!post) {
     return (

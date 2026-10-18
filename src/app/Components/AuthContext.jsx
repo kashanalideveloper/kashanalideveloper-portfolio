@@ -4,13 +4,9 @@ import { createContext, useContext, useEffect, useState } from "react";
 const AuthCtx = createContext({ isLoggedIn: false, login: () => {}, logout: () => {} });
 
 export function AuthProvider({ children }) {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    try {
-      setIsLoggedIn(localStorage.getItem("mk_logged_in") === "1");
-    } catch {}
-  }, []);
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    try { return localStorage.getItem("mk_logged_in") === "1"; } catch { return false; }
+  });
 
   const login = () => {
     try { localStorage.setItem("mk_logged_in", "1"); } catch {}

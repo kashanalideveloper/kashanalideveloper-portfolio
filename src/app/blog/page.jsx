@@ -133,19 +133,28 @@ export default function BlogPage() {
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
                         loading="lazy"
                         className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                        onError={(e) => {
+                          const img = e.target;
+                          if (img) img.style.display = "none";
+                          const fallback = img?.parentElement?.querySelector(`[data-fallback="${article.slug}"]`);
+                          if (fallback) fallback.classList.remove("hidden");
+                        }}
                       />
+                      <div
+                        data-fallback={article.slug}
+                        className="hidden absolute inset-0 flex items-center justify-center bg-brandPrimary/5 flex-col gap-2 pointer-events-none"
+                      >
+                        <div className="w-12 h-12 rounded-lg bg-brandPrimary/20 border border-brandPrimary/30 flex items-center justify-center text-brandPrimary">
+                          <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/></svg>
+                        </div>
+                        <span className="text-[10px] font-mono text-brandMuted/50 uppercase tracking-wider">Image unavailable</span>
+                      </div>
                       <span className="absolute top-3 left-3 inline-block px-2.5 py-0.5 rounded font-mono text-[9px] tracking-wider bg-white/90 text-brandPrimary border border-brandPrimary/20 uppercase backdrop-blur-md shadow-sm z-10">
                         {article.category}
                       </span>
                     </div>
 
                     <div className="p-5 flex flex-col justify-between grow">
-                      <div>
-                        <div className="flex items-center gap-2 text-[10px] font-mono text-brandMuted/70 uppercase tracking-wider mb-2">
-                          <span>{article.date}</span>
-                          <span aria-hidden="true">•</span>
-                          <span>{article.readTime}</span>
-                        </div>
                         <h2 className="text-sm font-bold text-brandInk tracking-wide mb-2 group-hover:text-brandPrimary transition-colors duration-200 line-clamp-2">
                           {article.title}
                         </h2>
@@ -159,7 +168,6 @@ export default function BlogPage() {
                           <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
                         </svg>
                       </span>
-                    </div>
                   </Link>
                 ))}
               </div>

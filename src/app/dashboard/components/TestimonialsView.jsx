@@ -41,7 +41,7 @@ export default function TestimonialsView({ testimonials, setTestimonials }) {
                       </span>
                     </div>
                   </div>
-                  <p className="text-[11px] text-brandMuted leading-relaxed mb-2">"{t.text}"</p>
+                  <p className="text-[11px] text-brandMuted leading-relaxed mb-2">&ldquo;{t.text}&rdquo;</p>
                   <div className="flex items-center gap-3">
                     <span className="text-[9px] font-mono text-brandMuted">{t.date}</span>
                     <button

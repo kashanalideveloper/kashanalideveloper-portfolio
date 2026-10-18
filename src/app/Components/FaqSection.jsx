@@ -44,13 +44,13 @@ export default function FaqSection() {
             <span className="w-1.5 h-1.5 rounded-full bg-brandPrimary" />
             {t("faqSub")}
           </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-brandInk dark:text-white uppercase tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-brandInk dark:text-white uppercase tracking-tight">
             {t("faqHeading")}
           </h2>
           <p className="mt-3 text-sm sm:text-base text-brandMuted font-light">{t("faqDesc")}</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+        <div className="grid grid-cols-1 gap-4 mb-12">
           {faqs.map((faq, idx) => {
             const isOpen = openIdx === idx;
             return (
@@ -60,18 +60,18 @@ export default function FaqSection() {
                 style={{ backgroundColor: "var(--bg-card)" }}
               >
                 <button
-                  onClick={() => setOpenIdx(isOpen ? null : idx)}
-                  className="w-full flex items-center justify-between p-6 text-left cursor-pointer"
+                  onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
+                  className="w-full flex items-center justify-between p-6 text-left cursor-pointer gap-2 transition-colors hover:bg-brandPrimary/5 dark:hover:bg-brandPrimary/10"
                 >
-                  <span className="text-sm font-semibold" style={{ color: "var(--color-ink)" }}>
+                  <span className="text-sm font-semibold text-brandInk dark:text-white">
                     {faq.q}
                   </span>
-                  <span className="w-7 h-7 rounded-full bg-brandSoft flex items-center justify-center text-brandPrimary font-bold shrink-0 ml-4 text-base leading-none">
+                  <span className="w-7 h-7 rounded-full bg-brandSoft flex items-center justify-center text-brandPrimary font-bold shrink-0 text-base leading-none">
                     {isOpen ? "−" : "+"}
                   </span>
                 </button>
                 {isOpen && (
-                  <div className="px-6 pb-6 text-xs sm:text-sm font-light leading-relaxed border-t border-brandLine/50 pt-4" style={{ color: "var(--color-muted)" }}>
+                  <div className="px-6 pb-6 text-sm font-light leading-relaxed border-t border-brandLine/50 pt-4 text-brandMuted dark:text-slate-400">
                     {faq.a}
                   </div>
                 )}

@@ -34,7 +34,7 @@ export default function SearchModal({ isOpen, onClose }) {
         }
       };
     } else {
-      setQuery("");
+      // Query resets on remount since component returns null when closed
     }
   }, [isOpen, onClose]);
 

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { getStoredPosts, updatePostStatus, deletePost as deleteStoredPost } from "../lib/blogStorage";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Logo from "../Components/Logo";
 import emailjs from "@emailjs/browser";
@@ -291,18 +292,15 @@ export default function DashboardPage() {
   const [userTab, setUserTab] = useState("all");
   const [deleteConfirm, setDeleteConfirm] = useState(null);
   const [projects, setProjects] = useState(INITIAL_PROJECTS);
-  const [posts, setPosts] = useState(INITIAL_POSTS);
-
-  useEffect(() => {
+  const [posts, setPosts] = useState(() => {
     const stored = getStoredPosts();
     if (stored.length > 0) {
-      setPosts((prev) => {
-        const existingIds = new Set(prev.map((p) => p.id));
-        const newOnes = stored.filter((p) => !existingIds.has(p.id));
-        return [...newOnes, ...prev];
-      });
+      const existingIds = new Set(INITIAL_POSTS.map((p) => p.id));
+      const newOnes = stored.filter((p) => !existingIds.has(p.id));
+      return [...newOnes, ...INITIAL_POSTS];
     }
-  }, []);
+    return INITIAL_POSTS;
+  });
   const [messages, setMessages] = useState(INITIAL_MESSAGES);
   const [selectedMsg, setSelectedMsg] = useState(null);
   const [replyText, setReplyText] = useState("");
@@ -1246,8 +1244,8 @@ export default function DashboardPage() {
                     <div className="flex flex-col items-center gap-2 shrink-0">
                       <div className="w-20 h-20 rounded-2xl border-2 border-brandLine dark:border-slate-700 overflow-hidden bg-brandSoft dark:bg-slate-800 flex items-center justify-center">
                         {logoPreview
-                          ? <img src={logoPreview} alt="Logo preview" className="w-full h-full object-contain" />
-                          : <img src="/logo.webp" alt="Current logo" className="w-full h-full object-contain" />}
+                          ? <Image src={logoPreview} alt="Logo preview" width={80} height={80} className="w-full h-full object-contain" sizes="80px" />
+                          : <Image src="/logo.webp" alt="Current logo" width={80} height={80} className="w-full h-full object-contain" sizes="80px" />}
                       </div>
                       <p className="text-[9px] font-mono text-brandMuted">{logoPreview ? "Preview" : "Current"}</p>
                     </div>

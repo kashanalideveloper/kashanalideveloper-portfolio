@@ -41,7 +41,7 @@ export default function WhyWorkWithMe() {
             <span className="w-1.5 h-1.5 rounded-full bg-brandPrimary" />
             {t("whyChooseSub")}
           </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-brandInk uppercase tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-brandInk uppercase tracking-tight">
             {t("whyChooseHeading")}
           </h2>
           <p className="mt-3 text-sm sm:text-base text-brandMuted font-light">

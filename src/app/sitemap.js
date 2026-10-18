@@ -1,26 +1,14 @@
-﻿// src/app/sitemap.js
 import { SITE } from "./lib/site";
 import { ARTICLES } from "./lib/blog";
 
-// Dynamic last modified - current date for all routes
 const CURRENT_DATE = new Date().toISOString().split("T")[0];
 
 const MONTH_INDEX = {
-  January: "01",
-  February: "02",
-  March: "03",
-  April: "04",
-  May: "05",
-  June: "06",
-  July: "07",
-  August: "08",
-  September: "09",
-  October: "10",
-  November: "11",
-  December: "12",
+  January: "01", February: "02", March: "03", April: "04",
+  May: "05", June: "06", July: "07", August: "08",
+  September: "09", October: "10", November: "11", December: "12",
 };
 
-// Converts "August 2026" -> "2026-08" so article dates stay stable across builds.
 function articleLastModified(dateStr) {
   const [month, year] = dateStr.split(" ");
   return `${year}-${MONTH_INDEX[month] || "01"}`;

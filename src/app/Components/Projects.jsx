@@ -41,7 +41,7 @@ export function ProjectCard({ project, index }) {
     <motion.div
       variants={cardVariants}
       whileHover={{ y: -4 }}
-      className="group relative overflow-hidden flex flex-col justify-between w-full rounded-3xl bg-white border border-brandLine backdrop-blur-sm transition-all duration-300 hover:border-brandPrimary/25 hover:shadow-[0_16px_32px_-12px_rgba(15,23,42,0.12)] transform-gpu will-change-transform"
+      className="group relative overflow-hidden flex flex-col justify-between w-full rounded-3xl bg-white border border-brandLine backdrop-blur-sm transition-all duration-300 hover:border-brandPrimary/25 hover:shadow-[0_16px_32px_-12px_rgba(15,23,42,0.12)] transform-gpu"
       itemProp="itemListElement"
       itemScope
       itemType="https://schema.org/ListItem"
@@ -352,7 +352,7 @@ export default function Projects() {
               }}
               className="bg-white px-6 py-8 sm:py-10 text-center"
             >
-              <p className="text-2xl sm:text-4xl font-black text-brandPrimary font-mono">
+              <p className="text-xl sm:text-2xl lg:text-4xl font-black text-brandPrimary font-mono">
                 <Counter end={stat.value} suffix={stat.suffix} />
               </p>
               <p className="text-[10px] uppercase tracking-widest text-brandMuted mt-1.5">

@@ -43,7 +43,7 @@ export default function Footer() {
     },
     {
       name: "Website Maintenance",
-      href: "/services/web-development",
+      href: "/services/website-maintenance",
     },
   ];
 
@@ -58,14 +58,14 @@ export default function Footer() {
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-72 h-16 bg-brandPrimary/10 blur-[80px] pointer-events-none -z-10 transform-gpu" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-8 sm:pb-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-8 lg:items-start">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-8 lg:items-start">
           {/* BRAND + INTRO */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="lg:col-span-1"
+            className="col-span-2 sm:col-span-2 lg:col-span-1"
           >
             <div className="flex items-center gap-3.5 text-left mb-4">
               <Logo size={44} />
@@ -177,6 +177,7 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.15, ease: "easeOut" }}
+            className="col-span-2 sm:col-span-2 lg:col-span-1"
           >
             <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-brandInk dark:text-white mb-5">
               {t("navContact")}

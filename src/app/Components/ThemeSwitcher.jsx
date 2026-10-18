@@ -1,24 +1,29 @@
 // src/app/Components/ThemeSwitcher.jsx
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useSyncExternalStore } from "react";
 
 export default function ThemeSwitcher() {
-  const [theme, setTheme] = useState("light");
+  const theme = useSyncExternalStore(
+    (onStoreChange) => {
+      if (typeof window === "undefined") return () => {};
+      window.addEventListener("storage", onStoreChange);
+      return () => window.removeEventListener("storage", onStoreChange);
+    },
+    () => (typeof window !== "undefined" ? localStorage.getItem("theme") || "light" : "light"),
+    () => "light"
+  );
 
   useEffect(() => {
-    const saved = localStorage.getItem("theme") || "light";
-    setTheme(saved);
-    if (saved === "dark") {
+    if (theme === "dark") {
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
     }
-  }, []);
+  }, [theme]);
 
   const toggleTheme = () => {
     const next = theme === "light" ? "dark" : "light";
-    setTheme(next);
     localStorage.setItem("theme", next);
     if (next === "dark") {
       document.documentElement.classList.add("dark");

@@ -715,15 +715,15 @@ const LanguageContext = createContext({
 });
 
 export function LanguageProvider({ children }) {
-  const [lang, setLangState] = useState("en");
+  const [lang, setLangState] = useState(() => {
+    try { return localStorage.getItem("portfolio_lang") || "en"; } catch { return "en"; }
+  });
 
   useEffect(() => {
-    const saved = localStorage.getItem("portfolio_lang") || "en";
-    setLangState(saved);
-    const dir = saved === "ur" || saved === "ar" ? "rtl" : "ltr";
-    document.documentElement.lang = saved;
+    const dir = lang === "ur" || lang === "ar" ? "rtl" : "ltr";
+    document.documentElement.lang = lang;
     document.documentElement.dir = dir;
-  }, []);
+  }, [lang]);
 
   const setLang = (newLang) => {
     setLangState(newLang);

@@ -122,7 +122,7 @@ export default function About() {
               Professional Bio
             </span>
 
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-brandInk leading-tight mb-5 sm:mb-6 uppercase tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brandInk leading-tight mb-5 sm:mb-6 uppercase tracking-tight">
               Working <br className="hidden lg:block" />
               <span className="text-brandPrimary">With Precision</span>
             </h2>
@@ -224,7 +224,7 @@ export default function About() {
               }}
               className="bg-brandBg px-6 py-8 sm:py-10 text-center"
             >
-              <p className="text-2xl sm:text-4xl font-black text-brandPrimary font-mono">
+              <p className="text-xl sm:text-2xl lg:text-4xl font-black text-brandPrimary font-mono">
                 <Counter end={stat.value} suffix={stat.suffix} />
               </p>
               <p className="text-[10px] uppercase tracking-widest text-brandMuted mt-1.5">

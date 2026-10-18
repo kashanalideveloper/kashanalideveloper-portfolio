@@ -9,13 +9,9 @@ import { useLanguage } from "./LanguageContext";
 
 export default function BlogPreview() {
   const { t } = useLanguage();
-  const [dynamicPosts, setDynamicPosts] = useState([]);
-
-  useEffect(() => {
-    try {
-      setDynamicPosts(getPublishedPosts());
-    } catch {}
-  }, []);
+  const [dynamicPosts, setDynamicPosts] = useState(() => {
+    try { return getPublishedPosts(); } catch { return []; }
+  });
 
   // Dashboard posts first, then static articles, take latest 3
   const allArticles = [

@@ -62,8 +62,8 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center bg-brandBg overflow-hidden font-sans pt-24"
     >
       {/* ⚡ SPEED: Optimized CSS-only native gradient blobs instead of heavy blurred filters */}
-      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-75 h-75 sm:w-125 sm:h-125 rounded-full bg-brandPrimary/10 blur-[120px] pointer-events-none will-change-transform" />
-      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-62.5 h-62.5 sm:w-100 sm:h-100 rounded-full bg-brandSecondary/10 blur-[100px] pointer-events-none will-change-transform" />
+      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-75 sm:h-75 sm:w-125 sm:h-125 rounded-full bg-brandPrimary/10 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-40 h-40 sm:w-62.5 sm:h-62.5 sm:w-100 sm:h-100 rounded-full bg-brandSecondary/10 blur-[100px] pointer-events-none" />
 
       {/* Grid Pattern Mesh */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a05_1px,transparent_1px),linear-gradient(to_bottom,#0f172a05_1px,transparent_1px)] bg-size-[40px_40px] mask-[radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
@@ -86,7 +86,7 @@ export default function Hero() {
             {t("heroGreeting")}
           </p>
 
-          <h1 className="animate-fade-in-up delay-300 text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-brandInk dark:text-white uppercase mb-4 leading-[1.1]">
+          <h1 className="animate-fade-in-up delay-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-brandInk dark:text-white uppercase mb-4 leading-[1.1]">
             {t("heroTitle")}
           </h1>
 
