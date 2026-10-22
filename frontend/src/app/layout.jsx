@@ -4,6 +4,7 @@ import SiteShell from "./Components/SiteShell";
 import { LanguageProvider } from "./Components/LanguageContext";
 import { AuthProvider } from "./Components/AuthContext";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/react";
 import { SITE } from "./lib/site";
 
 import { Poppins } from "next/font/google";
@@ -174,6 +175,7 @@ export default function RootLayout({ children }) {
           </SiteShell>
         </LanguageProvider>
         </AuthProvider>
+        <Analytics />
       </body>
       <GoogleAnalytics gaId="G-L078Y7W2DR" />
     </html>
