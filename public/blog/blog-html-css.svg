@@ -1,50 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="HTML vs CSS">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#7c2d12"/>
-      <stop offset="100%" style="stop-color:#1e40af"/>
+      <stop offset="0%" stop-color="#431407"/>
+      <stop offset="100%" stop-color="#0c2a3f"/>
     </linearGradient>
     <linearGradient id="acc" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#fb923c"/>
-      <stop offset="100%" style="stop-color:#60a5fa"/>
+      <stop offset="0%" stop-color="#fb923c"/>
+      <stop offset="100%" stop-color="#60a5fa"/>
     </linearGradient>
+    <radialGradient id="glow" cx="30%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#fb923c" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#fb923c" stop-opacity="0"/>
+    </radialGradient>
   </defs>
+
+  <!-- background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <g stroke="rgba(255,255,255,0.07)" stroke-width="1">
-    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
-    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
-    <line x1="0" y1="525" x2="1200" y2="525"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- subtle grid -->
+  <g stroke="rgba(255,255,255,0.05)" stroke-width="1">
+    <line x1="0" y1="126" x2="1200" y2="126"/><line x1="0" y1="252" x2="1200" y2="252"/>
+    <line x1="0" y1="378" x2="1200" y2="378"/><line x1="0" y1="504" x2="1200" y2="504"/>
     <line x1="150" y1="0" x2="150" y2="630"/><line x1="300" y1="0" x2="300" y2="630"/>
     <line x1="450" y1="0" x2="450" y2="630"/><line x1="600" y1="0" x2="600" y2="630"/>
     <line x1="750" y1="0" x2="750" y2="630"/><line x1="900" y1="0" x2="900" y2="630"/>
     <line x1="1050" y1="0" x2="1050" y2="630"/>
   </g>
-  <circle cx="200" cy="315" r="280" fill="white" opacity="0.07"/>
+
+  <!-- decorative rings -->
+  <circle cx="1060" cy="80" r="180" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+  <circle cx="1060" cy="80" r="120" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.5"/>
+
+  <!-- accent spine -->
   <rect x="0" y="0" width="6" height="630" fill="url(#acc)"/>
-  <g transform="translate(162, 197)">
-    <rect width="120" height="120" rx="24" fill="white" opacity="0.12"/>
-    <rect x="2" y="2" width="116" height="116" rx="22" fill="none" stroke="white" stroke-width="1.5" opacity="0.3"/>
-    <text x="34" y="55" font-family="monospace" font-size="17" fill="#fb923c" text-anchor="middle" font-weight="bold" opacity="0.9">&lt;H&gt;</text>
-    <text x="34" y="80" font-family="monospace" font-size="11" fill="#fb923c" text-anchor="middle" opacity="0.6">HTML</text>
-    <text x="86" y="55" font-family="monospace" font-size="17" fill="#60a5fa" text-anchor="middle" font-weight="bold" opacity="0.9">{C}</text>
-    <text x="86" y="80" font-family="monospace" font-size="11" fill="#60a5fa" text-anchor="middle" opacity="0.6">CSS</text>
-    <line x1="57" y1="55" x2="63" y2="55" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+
+  <!-- icon tile -->
+  <g transform="translate(160, 150)">
+    <rect width="132" height="132" rx="28" fill="rgba(255,255,255,0.12)"/>
+    <rect x="1.5" y="1.5" width="129" height="129" rx="26.5" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+    <rect x="6" y="6" width="120" height="120" rx="22" fill="#fb923c" opacity="0.10"/>
+    <g transform="translate(6, 6)">
+    <text x="36" y="62" font-family="monospace" font-size="19" font-weight="700" fill="#fb923c" text-anchor="middle">&lt;&gt;</text>
+    <text x="36" y="86" font-family="monospace" font-size="11" fill="#fb923c" text-anchor="middle" opacity="0.7">HTML</text>
+    <text x="84" y="62" font-family="monospace" font-size="19" font-weight="700" fill="#60a5fa" text-anchor="middle">{ }</text>
+    <text x="84" y="86" font-family="monospace" font-size="11" fill="#60a5fa" text-anchor="middle" opacity="0.7">CSS</text></g>
   </g>
-  <rect x="160" y="355" width="90" height="28" rx="14" fill="white" opacity="0.15"/>
-  <text x="205" y="374" font-family="monospace" font-size="11" fill="white" text-anchor="middle" letter-spacing="2">WEB DEV</text>
-  <text x="160" y="430" font-family="'Inter','Helvetica Neue',sans-serif" font-size="52" font-weight="800" fill="white" letter-spacing="-1">HTML</text>
-  <text x="160" y="494" font-family="'Inter','Helvetica Neue',sans-serif" font-size="52" font-weight="800" fill="url(#acc)" letter-spacing="-1">vs CSS</text>
-  <text x="160" y="547" font-family="'Inter','Helvetica Neue',sans-serif" font-size="24" font-weight="400" fill="rgba(255,255,255,0.7)">Structure · Style · Foundation</text>
-  <g transform="translate(750, 80)" opacity="0.22">
-    <rect width="400" height="300" rx="14" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
-    <text x="16" y="36" font-family="monospace" font-size="13" fill="#fb923c" opacity="0.7">&lt;header&gt;</text>
-    <text x="32" y="60" font-family="monospace" font-size="13" fill="rgba(255,255,255,0.4)">&lt;h1&gt;Hello World&lt;/h1&gt;</text>
-    <text x="16" y="84" font-family="monospace" font-size="13" fill="#fb923c" opacity="0.7">&lt;/header&gt;</text>
-    <rect x="0" y="100" width="400" height="2" rx="1" fill="rgba(255,255,255,0.08)"/>
-    <text x="16" y="130" font-family="monospace" font-size="13" fill="#60a5fa" opacity="0.7">header {</text>
-    <text x="32" y="154" font-family="monospace" font-size="13" fill="rgba(255,255,255,0.4)">background: #fff;</text>
-    <text x="32" y="178" font-family="monospace" font-size="13" fill="rgba(255,255,255,0.4)">padding: 2rem;</text>
-    <text x="16" y="202" font-family="monospace" font-size="13" fill="#60a5fa" opacity="0.7">}</text>
+
+  <!-- tag pill -->
+  <rect x="160" y="330" width="99" height="30" rx="15" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+  <text x="209.5" y="350" font-family="'JetBrains Mono','Consolas',monospace" font-size="11.5" fill="#fb923c" text-anchor="middle" letter-spacing="2.5" font-weight="700">WEB DEV</text>
+
+  <!-- title -->
+  <text x="160" y="416" font-family="'Poppins','Inter','Segoe UI',sans-serif" font-size="58" font-weight="800" fill="#ffffff" letter-spacing="-1.5">HTML</text>
+  <text x="160" y="486" font-family="'Poppins','Inter','Segoe UI',sans-serif" font-size="58" font-weight="800" fill="url(#acc)" letter-spacing="-1.5">vs CSS</text>
+
+  <!-- subtitle -->
+  <line x1="160" y1="518" x2="216" y2="518" stroke="#fb923c" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+  <text x="232" y="526" font-family="'Poppins','Inter','Segoe UI',sans-serif" font-size="22" font-weight="400" fill="rgba(255,255,255,0.72)" letter-spacing="0.5">Structure · Style · Foundation</text>
+
+  <!-- footer brand -->
+  <g transform="translate(160, 585)">
+    <circle cx="8" cy="-4" r="4" fill="#fb923c" opacity="0.9"/>
+    <text x="22" y="0" font-family="'JetBrains Mono','Consolas',monospace" font-size="13" fill="rgba(255,255,255,0.42)" letter-spacing="1.5">malikkashan.dev</text>
   </g>
-  <text x="160" y="600" font-family="monospace" font-size="13" fill="rgba(255,255,255,0.35)" letter-spacing="1">kashanalideveloper-portfolio.vercel.app</text>
 </svg>

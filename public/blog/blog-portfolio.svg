@@ -1,52 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Developer Portfolio">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#134e4a"/>
-      <stop offset="100%" style="stop-color:#0f766e"/>
+      <stop offset="0%" stop-color="#042f2e"/>
+      <stop offset="100%" stop-color="#0f766e"/>
     </linearGradient>
     <linearGradient id="acc" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#2dd4bf"/>
-      <stop offset="100%" style="stop-color:#5eead4"/>
+      <stop offset="0%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#5eead4"/>
     </linearGradient>
+    <radialGradient id="glow" cx="30%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
   </defs>
+
+  <!-- background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <g stroke="rgba(255,255,255,0.07)" stroke-width="1">
-    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
-    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
-    <line x1="0" y1="525" x2="1200" y2="525"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- subtle grid -->
+  <g stroke="rgba(255,255,255,0.05)" stroke-width="1">
+    <line x1="0" y1="126" x2="1200" y2="126"/><line x1="0" y1="252" x2="1200" y2="252"/>
+    <line x1="0" y1="378" x2="1200" y2="378"/><line x1="0" y1="504" x2="1200" y2="504"/>
     <line x1="150" y1="0" x2="150" y2="630"/><line x1="300" y1="0" x2="300" y2="630"/>
     <line x1="450" y1="0" x2="450" y2="630"/><line x1="600" y1="0" x2="600" y2="630"/>
     <line x1="750" y1="0" x2="750" y2="630"/><line x1="900" y1="0" x2="900" y2="630"/>
     <line x1="1050" y1="0" x2="1050" y2="630"/>
   </g>
-  <circle cx="200" cy="315" r="280" fill="white" opacity="0.07"/>
+
+  <!-- decorative rings -->
+  <circle cx="1060" cy="80" r="180" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+  <circle cx="1060" cy="80" r="120" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.5"/>
+
+  <!-- accent spine -->
   <rect x="0" y="0" width="6" height="630" fill="url(#acc)"/>
-  <g transform="translate(160, 197)">
-    <rect width="120" height="120" rx="24" fill="white" opacity="0.15"/>
-    <rect x="2" y="2" width="116" height="116" rx="22" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
-    <rect x="16" y="16" width="36" height="36" rx="6" fill="white" opacity="0.25"/>
-    <rect x="64" y="16" width="36" height="36" rx="6" fill="white" opacity="0.25"/>
-    <rect x="16" y="64" width="36" height="36" rx="6" fill="white" opacity="0.25"/>
-    <rect x="64" y="64" width="36" height="36" rx="6" fill="#2dd4bf" opacity="0.5"/>
+
+  <!-- icon tile -->
+  <g transform="translate(160, 150)">
+    <rect width="132" height="132" rx="28" fill="rgba(255,255,255,0.12)"/>
+    <rect x="1.5" y="1.5" width="129" height="129" rx="26.5" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+    <rect x="6" y="6" width="120" height="120" rx="22" fill="#2dd4bf" opacity="0.10"/>
+    <g transform="translate(6, 6)">
+    <rect x="16" y="16" width="40" height="40" rx="7" fill="#fff" opacity="0.25"/>
+    <rect x="64" y="16" width="40" height="40" rx="7" fill="#fff" opacity="0.25"/>
+    <rect x="16" y="64" width="40" height="40" rx="7" fill="#fff" opacity="0.25"/>
+    <rect x="64" y="64" width="40" height="40" rx="7" fill="#2dd4bf" opacity="0.5"/></g>
   </g>
-  <rect x="160" y="355" width="100" height="28" rx="14" fill="white" opacity="0.15"/>
-  <text x="210" y="374" font-family="monospace" font-size="11" fill="white" text-anchor="middle" letter-spacing="2">PORTFOLIO</text>
-  <text x="160" y="430" font-family="'Inter','Helvetica Neue',sans-serif" font-size="52" font-weight="800" fill="white" letter-spacing="-1">Developer</text>
-  <text x="160" y="494" font-family="'Inter','Helvetica Neue',sans-serif" font-size="52" font-weight="800" fill="url(#acc)" letter-spacing="-1">Portfolio</text>
-  <text x="160" y="547" font-family="'Inter','Helvetica Neue',sans-serif" font-size="24" font-weight="400" fill="rgba(255,255,255,0.7)">Templates · Examples · Projects</text>
-  <g transform="translate(760, 80)" opacity="0.28">
-    <rect width="390" height="500" rx="16" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
-    <rect x="16" y="20" width="358" height="100" rx="10" fill="rgba(255,255,255,0.08)"/>
-    <circle cx="66" cy="70" r="26" fill="rgba(255,255,255,0.15)"/>
-    <rect x="110" y="46" width="140" height="14" rx="7" fill="rgba(255,255,255,0.3)"/>
-    <rect x="110" y="68" width="200" height="10" rx="5" fill="rgba(255,255,255,0.15)"/>
-    <rect x="110" y="86" width="160" height="10" rx="5" fill="rgba(255,255,255,0.1)"/>
-    <rect x="16" y="136" width="172" height="140" rx="10" fill="rgba(255,255,255,0.08)"/>
-    <rect x="202" y="136" width="172" height="140" rx="10" fill="rgba(255,255,255,0.08)"/>
-    <rect x="16" y="136" width="172" height="50" rx="10" fill="#2dd4bf" opacity="0.2"/>
-    <rect x="202" y="136" width="172" height="50" rx="10" fill="rgba(255,255,255,0.1)"/>
-    <rect x="16" y="296" width="172" height="140" rx="10" fill="rgba(255,255,255,0.08)"/>
-    <rect x="202" y="296" width="172" height="140" rx="10" fill="rgba(255,255,255,0.08)"/>
+
+  <!-- tag pill -->
+  <rect x="160" y="330" width="117" height="30" rx="15" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+  <text x="218.5" y="350" font-family="'JetBrains Mono','Consolas',monospace" font-size="11.5" fill="#2dd4bf" text-anchor="middle" letter-spacing="2.5" font-weight="700">PORTFOLIO</text>
+
+  <!-- title -->
+  <text x="160" y="416" font-family="'Poppins','Inter','Segoe UI',sans-serif" font-size="58" font-weight="800" fill="#ffffff" letter-spacing="-1.5">Developer</text>
+  <text x="160" y="486" font-family="'Poppins','Inter','Segoe UI',sans-serif" font-size="58" font-weight="800" fill="url(#acc)" letter-spacing="-1.5">Portfolio</text>
+
+  <!-- subtitle -->
+  <line x1="160" y1="518" x2="216" y2="518" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+  <text x="232" y="526" font-family="'Poppins','Inter','Segoe UI',sans-serif" font-size="22" font-weight="400" fill="rgba(255,255,255,0.72)" letter-spacing="0.5">Templates · Examples · Projects</text>
+
+  <!-- footer brand -->
+  <g transform="translate(160, 585)">
+    <circle cx="8" cy="-4" r="4" fill="#2dd4bf" opacity="0.9"/>
+    <text x="22" y="0" font-family="'JetBrains Mono','Consolas',monospace" font-size="13" fill="rgba(255,255,255,0.42)" letter-spacing="1.5">malikkashan.dev</text>
   </g>
-  <text x="160" y="600" font-family="monospace" font-size="13" fill="rgba(255,255,255,0.35)" letter-spacing="1">kashanalideveloper-portfolio.vercel.app</text>
 </svg>

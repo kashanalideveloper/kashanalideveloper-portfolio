@@ -1,56 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Bootstrap vs Tailwind">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#831843"/>
-      <stop offset="100%" style="stop-color:#9d174d"/>
+      <stop offset="0%" stop-color="#500724"/>
+      <stop offset="100%" stop-color="#0e7490"/>
     </linearGradient>
     <linearGradient id="acc" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#7c3aed"/>
-      <stop offset="100%" style="stop-color:#06b6d4"/>
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
     </linearGradient>
+    <radialGradient id="glow" cx="30%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0"/>
+    </radialGradient>
   </defs>
+
+  <!-- background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <g stroke="rgba(255,255,255,0.07)" stroke-width="1">
-    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
-    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
-    <line x1="0" y1="525" x2="1200" y2="525"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- subtle grid -->
+  <g stroke="rgba(255,255,255,0.05)" stroke-width="1">
+    <line x1="0" y1="126" x2="1200" y2="126"/><line x1="0" y1="252" x2="1200" y2="252"/>
+    <line x1="0" y1="378" x2="1200" y2="378"/><line x1="0" y1="504" x2="1200" y2="504"/>
     <line x1="150" y1="0" x2="150" y2="630"/><line x1="300" y1="0" x2="300" y2="630"/>
     <line x1="450" y1="0" x2="450" y2="630"/><line x1="600" y1="0" x2="600" y2="630"/>
     <line x1="750" y1="0" x2="750" y2="630"/><line x1="900" y1="0" x2="900" y2="630"/>
     <line x1="1050" y1="0" x2="1050" y2="630"/>
   </g>
-  <circle cx="200" cy="315" r="280" fill="white" opacity="0.07"/>
+
+  <!-- decorative rings -->
+  <circle cx="1060" cy="80" r="180" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+  <circle cx="1060" cy="80" r="120" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.5"/>
+
+  <!-- accent spine -->
   <rect x="0" y="0" width="6" height="630" fill="url(#acc)"/>
-  <g transform="translate(162, 197)">
-    <rect width="120" height="120" rx="24" fill="white" opacity="0.15"/>
-    <rect x="2" y="2" width="116" height="116" rx="22" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
-    <rect x="15" y="20" width="40" height="16" rx="4" fill="#7c3aed" opacity="0.6"/>
-    <rect x="15" y="40" width="32" height="16" rx="4" fill="rgba(255,255,255,0.3)"/>
-    <rect x="15" y="60" width="40" height="16" rx="4" fill="rgba(255,255,255,0.2)"/>
-    <rect x="15" y="80" width="36" height="16" rx="4" fill="rgba(255,255,255,0.15)"/>
-    <line x1="60" y1="30" x2="66" y2="30" stroke="white" stroke-width="2" opacity="0.4" stroke-linecap="round"/>
-    <rect x="68" y="20" width="40" height="10" rx="3" fill="#06b6d4" opacity="0.5"/>
-    <rect x="68" y="34" width="28" height="8" rx="3" fill="rgba(255,255,255,0.3)"/>
-    <rect x="68" y="46" width="36" height="8" rx="3" fill="rgba(255,255,255,0.2)"/>
-    <rect x="68" y="58" width="28" height="8" rx="3" fill="#06b6d4" opacity="0.35"/>
-    <rect x="68" y="70" width="40" height="8" rx="3" fill="rgba(255,255,255,0.15)"/>
+
+  <!-- icon tile -->
+  <g transform="translate(160, 150)">
+    <rect width="132" height="132" rx="28" fill="rgba(255,255,255,0.12)"/>
+    <rect x="1.5" y="1.5" width="129" height="129" rx="26.5" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+    <rect x="6" y="6" width="120" height="120" rx="22" fill="#a78bfa" opacity="0.10"/>
+    <g transform="translate(6, 6)">
+    <rect x="18" y="22" width="84" height="18" rx="5" fill="#a78bfa" opacity="0.55"/>
+    <rect x="18" y="48" width="60" height="12" rx="4" fill="#fff" opacity="0.28"/>
+    <rect x="18" y="68" width="72" height="12" rx="4" fill="#22d3ee" opacity="0.35"/>
+    <rect x="18" y="88" width="48" height="12" rx="4" fill="#fff" opacity="0.18"/></g>
   </g>
-  <rect x="160" y="355" width="75" height="28" rx="14" fill="white" opacity="0.15"/>
-  <text x="197" y="374" font-family="monospace" font-size="11" fill="white" text-anchor="middle" letter-spacing="2">UI/UX</text>
-  <text x="160" y="430" font-family="'Inter','Helvetica Neue',sans-serif" font-size="52" font-weight="800" fill="white" letter-spacing="-1">Bootstrap</text>
-  <text x="160" y="494" font-family="'Inter','Helvetica Neue',sans-serif" font-size="52" font-weight="800" fill="url(#acc)" letter-spacing="-1">vs Tailwind</text>
-  <text x="160" y="547" font-family="'Inter','Helvetica Neue',sans-serif" font-size="24" font-weight="400" fill="rgba(255,255,255,0.7)">Utility · Components · CSS Scale</text>
-  <g transform="translate(750, 80)" opacity="0.22">
-    <rect width="192" height="300" rx="12" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
-    <rect x="14" y="14" width="50" height="50" rx="8" fill="#7c3aed" opacity="0.2"/>
-    <rect x="72" y="14" width="50" height="50" rx="8" fill="rgba(255,255,255,0.06)"/>
-    <rect x="130" y="14" width="50" height="50" rx="8" fill="rgba(255,255,255,0.06)"/>
-    <rect x="14" y="80" width="166" height="200" rx="8" fill="rgba(255,255,255,0.05)"/>
-    <rect x="208" y="0" width="192" height="300" rx="12" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
-    <text x="220" y="28" font-family="monospace" font-size="11" fill="#06b6d4" opacity="0.7">flex items-center</text>
-    <text x="220" y="48" font-family="monospace" font-size="11" fill="rgba(255,255,255,0.3)">gap-4 p-4 rounded</text>
-    <text x="220" y="68" font-family="monospace" font-size="11" fill="#06b6d4" opacity="0.5">text-sm font-bold</text>
-    <text x="220" y="88" font-family="monospace" font-size="11" fill="rgba(255,255,255,0.2)">hover:bg-blue-500</text>
+
+  <!-- tag pill -->
+  <rect x="160" y="330" width="81" height="30" rx="15" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+  <text x="200.5" y="350" font-family="'JetBrains Mono','Consolas',monospace" font-size="11.5" fill="#a78bfa" text-anchor="middle" letter-spacing="2.5" font-weight="700">UI/UX</text>
+
+  <!-- title -->
+  <text x="160" y="416" font-family="'Poppins','Inter','Segoe UI',sans-serif" font-size="58" font-weight="800" fill="#ffffff" letter-spacing="-1.5">Bootstrap</text>
+  <text x="160" y="486" font-family="'Poppins','Inter','Segoe UI',sans-serif" font-size="58" font-weight="800" fill="url(#acc)" letter-spacing="-1.5">vs Tailwind</text>
+
+  <!-- subtitle -->
+  <line x1="160" y1="518" x2="216" y2="518" stroke="#a78bfa" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+  <text x="232" y="526" font-family="'Poppins','Inter','Segoe UI',sans-serif" font-size="22" font-weight="400" fill="rgba(255,255,255,0.72)" letter-spacing="0.5">Utility · Components · CSS Scale</text>
+
+  <!-- footer brand -->
+  <g transform="translate(160, 585)">
+    <circle cx="8" cy="-4" r="4" fill="#a78bfa" opacity="0.9"/>
+    <text x="22" y="0" font-family="'JetBrains Mono','Consolas',monospace" font-size="13" fill="rgba(255,255,255,0.42)" letter-spacing="1.5">malikkashan.dev</text>
   </g>
-  <text x="160" y="600" font-family="monospace" font-size="13" fill="rgba(255,255,255,0.35)" letter-spacing="1">kashanalideveloper-portfolio.vercel.app</text>
 </svg>

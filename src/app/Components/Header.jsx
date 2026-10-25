@@ -48,6 +48,7 @@ export default function Header() {
     { name: t("navWork"), href: "/projects" },
     { name: t("navBlog"), href: "/blog" },
     { name: t("navFaq"), href: "/faq" },
+    { name: t("navContact"), href: "/contact" },
   ];
 
   return (
@@ -64,7 +65,7 @@ export default function Header() {
           className="flex items-center gap-3 group shrink-0 transition-transform duration-300 hover:scale-[1.01]"
           aria-label="Malik Kashan Homepage"
         >
-          <Logo size={38} />
+          <Logo size={38} priority />
           <div className="flex flex-col justify-center leading-none">
             <span className="text-xs sm:text-sm font-extrabold tracking-[0.14em] text-brandInk dark:text-white uppercase">
               Malik Kashan
@@ -165,7 +166,7 @@ export default function Header() {
           <ThemeSwitcher />
 
           {/* Let's Talk — desktop */}
-          <Link href="/contact"
+          <Link href="/#contact"
             className="hidden sm:inline-flex items-center justify-center px-4 py-2 text-[11px] font-bold tracking-widest text-white bg-brandPrimary hover:bg-brandSecondary rounded-xl transition-all uppercase shadow-md">
             {t("letsTalk")}
           </Link>

@@ -1,55 +1,69 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Node.js & Backend Dev">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#14532d"/>
-      <stop offset="100%" style="stop-color:#166534"/>
+      <stop offset="0%" stop-color="#052e16"/>
+      <stop offset="100%" stop-color="#166534"/>
     </linearGradient>
     <linearGradient id="acc" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#4ade80"/>
-      <stop offset="100%" style="stop-color:#86efac"/>
+      <stop offset="0%" stop-color="#4ade80"/>
+      <stop offset="100%" stop-color="#86efac"/>
     </linearGradient>
+    <radialGradient id="glow" cx="30%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#4ade80" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#4ade80" stop-opacity="0"/>
+    </radialGradient>
   </defs>
+
+  <!-- background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <g stroke="rgba(255,255,255,0.07)" stroke-width="1">
-    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
-    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
-    <line x1="0" y1="525" x2="1200" y2="525"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- subtle grid -->
+  <g stroke="rgba(255,255,255,0.05)" stroke-width="1">
+    <line x1="0" y1="126" x2="1200" y2="126"/><line x1="0" y1="252" x2="1200" y2="252"/>
+    <line x1="0" y1="378" x2="1200" y2="378"/><line x1="0" y1="504" x2="1200" y2="504"/>
     <line x1="150" y1="0" x2="150" y2="630"/><line x1="300" y1="0" x2="300" y2="630"/>
     <line x1="450" y1="0" x2="450" y2="630"/><line x1="600" y1="0" x2="600" y2="630"/>
     <line x1="750" y1="0" x2="750" y2="630"/><line x1="900" y1="0" x2="900" y2="630"/>
     <line x1="1050" y1="0" x2="1050" y2="630"/>
   </g>
-  <circle cx="200" cy="315" r="280" fill="white" opacity="0.07"/>
+
+  <!-- decorative rings -->
+  <circle cx="1060" cy="80" r="180" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+  <circle cx="1060" cy="80" r="120" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.5"/>
+
+  <!-- accent spine -->
   <rect x="0" y="0" width="6" height="630" fill="url(#acc)"/>
-  <g transform="translate(160, 197)">
-    <rect width="120" height="120" rx="24" fill="white" opacity="0.15"/>
-    <rect x="2" y="2" width="116" height="116" rx="22" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
-    <rect x="18" y="22" width="84" height="22" rx="6" fill="none" stroke="white" stroke-width="2" opacity="0.7"/>
-    <circle cx="94" cy="33" r="5" fill="#4ade80" opacity="0.9"/>
-    <rect x="18" y="52" width="84" height="22" rx="6" fill="none" stroke="white" stroke-width="2" opacity="0.7"/>
-    <circle cx="94" cy="63" r="5" fill="#4ade80" opacity="0.9"/>
-    <rect x="18" y="82" width="84" height="22" rx="6" fill="none" stroke="white" stroke-width="2" opacity="0.5"/>
-    <circle cx="94" cy="93" r="5" fill="rgba(255,255,255,0.2)"/>
+
+  <!-- icon tile -->
+  <g transform="translate(160, 150)">
+    <rect width="132" height="132" rx="28" fill="rgba(255,255,255,0.12)"/>
+    <rect x="1.5" y="1.5" width="129" height="129" rx="26.5" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+    <rect x="6" y="6" width="120" height="120" rx="22" fill="#4ade80" opacity="0.10"/>
+    <g transform="translate(6, 6)">
+    <rect x="16" y="20" width="88" height="24" rx="6" fill="none" stroke="#fff" stroke-width="2" opacity="0.65"/>
+    <circle cx="96" cy="32" r="4.5" fill="#4ade80"/>
+    <rect x="16" y="52" width="88" height="24" rx="6" fill="none" stroke="#fff" stroke-width="2" opacity="0.65"/>
+    <circle cx="96" cy="64" r="4.5" fill="#4ade80"/>
+    <rect x="16" y="84" width="88" height="24" rx="6" fill="none" stroke="#fff" stroke-width="2" opacity="0.45"/>
+    <circle cx="96" cy="96" r="4.5" fill="#fff" opacity="0.3"/></g>
   </g>
-  <rect x="160" y="355" width="105" height="28" rx="14" fill="white" opacity="0.15"/>
-  <text x="213" y="374" font-family="monospace" font-size="11" fill="white" text-anchor="middle" letter-spacing="2">BACKEND</text>
-  <text x="160" y="430" font-family="'Inter','Helvetica Neue',sans-serif" font-size="52" font-weight="800" fill="white" letter-spacing="-1">Node.js &amp;</text>
-  <text x="160" y="494" font-family="'Inter','Helvetica Neue',sans-serif" font-size="52" font-weight="800" fill="url(#acc)" letter-spacing="-1">Backend Dev</text>
-  <text x="160" y="547" font-family="'Inter','Helvetica Neue',sans-serif" font-size="24" font-weight="400" fill="rgba(255,255,255,0.7)">APIs · Databases · Scalable Services</text>
-  <g transform="translate(760, 100)" opacity="0.28">
-    <rect width="380" height="80" rx="12" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
-    <rect x="16" y="16" width="100" height="48" rx="8" fill="#4ade80" opacity="0.25"/>
-    <text x="66" y="46" font-family="monospace" font-size="13" fill="white" text-anchor="middle">Node.js</text>
-    <rect x="130" y="16" width="100" height="48" rx="8" fill="rgba(255,255,255,0.08)"/>
-    <text x="180" y="46" font-family="monospace" font-size="13" fill="rgba(255,255,255,0.5)" text-anchor="middle">Express</text>
-    <rect x="246" y="16" width="100" height="48" rx="8" fill="rgba(255,255,255,0.08)"/>
-    <text x="296" y="46" font-family="monospace" font-size="13" fill="rgba(255,255,255,0.5)" text-anchor="middle">MongoDB</text>
-    <rect width="380" height="80" rx="12" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" y="100"/>
-    <text x="20" y="155" font-family="monospace" font-size="12" fill="#4ade80">GET /api/users → 200 OK</text>
-    <rect width="380" height="80" rx="12" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" y="200"/>
-    <text x="20" y="247" font-family="monospace" font-size="12" fill="#86efac">POST /api/auth → 201 Created</text>
-    <rect width="380" height="80" rx="12" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" y="300"/>
-    <text x="20" y="347" font-family="monospace" font-size="12" fill="rgba(255,255,255,0.4)">DELETE /api/item/:id → 204</text>
+
+  <!-- tag pill -->
+  <rect x="160" y="330" width="99" height="30" rx="15" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+  <text x="209.5" y="350" font-family="'JetBrains Mono','Consolas',monospace" font-size="11.5" fill="#4ade80" text-anchor="middle" letter-spacing="2.5" font-weight="700">BACKEND</text>
+
+  <!-- title -->
+  <text x="160" y="416" font-family="'Poppins','Inter','Segoe UI',sans-serif" font-size="58" font-weight="800" fill="#ffffff" letter-spacing="-1.5">Node.js &</text>
+  <text x="160" y="486" font-family="'Poppins','Inter','Segoe UI',sans-serif" font-size="58" font-weight="800" fill="url(#acc)" letter-spacing="-1.5">Backend Dev</text>
+
+  <!-- subtitle -->
+  <line x1="160" y1="518" x2="216" y2="518" stroke="#4ade80" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+  <text x="232" y="526" font-family="'Poppins','Inter','Segoe UI',sans-serif" font-size="22" font-weight="400" fill="rgba(255,255,255,0.72)" letter-spacing="0.5">APIs · Databases · Scalable Services</text>
+
+  <!-- footer brand -->
+  <g transform="translate(160, 585)">
+    <circle cx="8" cy="-4" r="4" fill="#4ade80" opacity="0.9"/>
+    <text x="22" y="0" font-family="'JetBrains Mono','Consolas',monospace" font-size="13" fill="rgba(255,255,255,0.42)" letter-spacing="1.5">malikkashan.dev</text>
   </g>
-  <text x="160" y="600" font-family="monospace" font-size="13" fill="rgba(255,255,255,0.35)" letter-spacing="1">kashanalideveloper-portfolio.vercel.app</text>
 </svg>

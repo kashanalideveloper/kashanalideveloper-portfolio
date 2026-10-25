@@ -1,56 +1,65 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Next.js Framework">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#18181b"/>
-      <stop offset="100%" style="stop-color:#27272a"/>
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
     </linearGradient>
     <linearGradient id="acc" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#e2e8f0"/>
-      <stop offset="100%" style="stop-color:#f8fafc"/>
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#7dd3fc"/>
     </linearGradient>
-    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:0.4"/>
-      <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:0.2"/>
-    </linearGradient>
+    <radialGradient id="glow" cx="30%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
   </defs>
+
+  <!-- background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="600" cy="315" r="400" fill="url(#glow)"/>
-  <g stroke="rgba(255,255,255,0.06)" stroke-width="1">
-    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
-    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
-    <line x1="0" y1="525" x2="1200" y2="525"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- subtle grid -->
+  <g stroke="rgba(255,255,255,0.05)" stroke-width="1">
+    <line x1="0" y1="126" x2="1200" y2="126"/><line x1="0" y1="252" x2="1200" y2="252"/>
+    <line x1="0" y1="378" x2="1200" y2="378"/><line x1="0" y1="504" x2="1200" y2="504"/>
     <line x1="150" y1="0" x2="150" y2="630"/><line x1="300" y1="0" x2="300" y2="630"/>
     <line x1="450" y1="0" x2="450" y2="630"/><line x1="600" y1="0" x2="600" y2="630"/>
     <line x1="750" y1="0" x2="750" y2="630"/><line x1="900" y1="0" x2="900" y2="630"/>
     <line x1="1050" y1="0" x2="1050" y2="630"/>
   </g>
+
+  <!-- decorative rings -->
+  <circle cx="1060" cy="80" r="180" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+  <circle cx="1060" cy="80" r="120" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.5"/>
+
+  <!-- accent spine -->
   <rect x="0" y="0" width="6" height="630" fill="url(#acc)"/>
-  <g transform="translate(160, 195)">
-    <rect width="130" height="130" rx="26" fill="white" opacity="0.1"/>
-    <rect x="2" y="2" width="126" height="126" rx="24" fill="none" stroke="white" stroke-width="2" opacity="0.5"/>
-    <text x="65" y="93" font-family="'Inter',sans-serif" font-size="72" font-weight="900" fill="white" text-anchor="middle">N</text>
+
+  <!-- icon tile -->
+  <g transform="translate(160, 150)">
+    <rect width="132" height="132" rx="28" fill="rgba(255,255,255,0.12)"/>
+    <rect x="1.5" y="1.5" width="129" height="129" rx="26.5" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+    <rect x="6" y="6" width="120" height="120" rx="22" fill="#38bdf8" opacity="0.10"/>
+    <g transform="translate(6, 6)">
+    <text x="60" y="88" font-family="'Inter','Segoe UI',sans-serif" font-size="66" font-weight="900" fill="#fff" text-anchor="middle">N</text>
+    <line x1="34" y1="92" x2="86" y2="24" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" opacity="0.7"/></g>
   </g>
-  <rect x="160" y="360" width="90" height="28" rx="14" fill="white" opacity="0.12"/>
-  <text x="205" y="379" font-family="monospace" font-size="11" fill="white" text-anchor="middle" letter-spacing="2">NEXT.JS</text>
-  <text x="160" y="435" font-family="'Inter','Helvetica Neue',sans-serif" font-size="52" font-weight="800" fill="white" letter-spacing="-1">Next.js</text>
-  <text x="160" y="499" font-family="'Inter','Helvetica Neue',sans-serif" font-size="52" font-weight="800" fill="url(#acc)" letter-spacing="-1">Framework</text>
-  <text x="160" y="547" font-family="'Inter','Helvetica Neue',sans-serif" font-size="24" font-weight="400" fill="rgba(255,255,255,0.6)">SSR · SSG · App Router · Full-Stack</text>
-  <g transform="translate(760, 80)" opacity="0.3">
-    <rect width="390" height="460" rx="16" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
-    <rect x="0" y="0" width="390" height="36" rx="16" fill="rgba(255,255,255,0.08)"/>
-    <circle cx="18" cy="18" r="6" fill="#ef4444" opacity="0.8"/>
-    <circle cx="38" cy="18" r="6" fill="#eab308" opacity="0.8"/>
-    <circle cx="58" cy="18" r="6" fill="#22c55e" opacity="0.8"/>
-    <text x="20" y="72" font-family="monospace" font-size="12" fill="#a5b4fc">import</text>
-    <text x="80" y="72" font-family="monospace" font-size="12" fill="white">{ NextPage }</text>
-    <text x="20" y="96" font-family="monospace" font-size="12" fill="#a5b4fc">from</text>
-    <text x="65" y="96" font-family="monospace" font-size="12" fill="#6ee7b7">'next'</text>
-    <text x="20" y="132" font-family="monospace" font-size="12" fill="rgba(255,255,255,0.4)">// App Router</text>
-    <text x="20" y="160" font-family="monospace" font-size="12" fill="#a5b4fc">export default</text>
-    <text x="168" y="160" font-family="monospace" font-size="12" fill="#38bdf8">function</text>
-    <text x="240" y="160" font-family="monospace" font-size="12" fill="#fde68a">Page</text>
-    <text x="20" y="200" font-family="monospace" font-size="12" fill="#6ee7b7">  return</text>
-    <text x="20" y="228" font-family="monospace" font-size="12" fill="rgba(255,255,255,0.5)">    &lt;main&gt;...&lt;/main&gt;</text>
+
+  <!-- tag pill -->
+  <rect x="160" y="330" width="99" height="30" rx="15" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+  <text x="209.5" y="350" font-family="'JetBrains Mono','Consolas',monospace" font-size="11.5" fill="#38bdf8" text-anchor="middle" letter-spacing="2.5" font-weight="700">NEXT.JS</text>
+
+  <!-- title -->
+  <text x="160" y="416" font-family="'Poppins','Inter','Segoe UI',sans-serif" font-size="58" font-weight="800" fill="#ffffff" letter-spacing="-1.5">Next.js</text>
+  <text x="160" y="486" font-family="'Poppins','Inter','Segoe UI',sans-serif" font-size="58" font-weight="800" fill="url(#acc)" letter-spacing="-1.5">Framework</text>
+
+  <!-- subtitle -->
+  <line x1="160" y1="518" x2="216" y2="518" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+  <text x="232" y="526" font-family="'Poppins','Inter','Segoe UI',sans-serif" font-size="22" font-weight="400" fill="rgba(255,255,255,0.72)" letter-spacing="0.5">SSR · SSG · App Router · Full-Stack</text>
+
+  <!-- footer brand -->
+  <g transform="translate(160, 585)">
+    <circle cx="8" cy="-4" r="4" fill="#38bdf8" opacity="0.9"/>
+    <text x="22" y="0" font-family="'JetBrains Mono','Consolas',monospace" font-size="13" fill="rgba(255,255,255,0.42)" letter-spacing="1.5">malikkashan.dev</text>
   </g>
-  <text x="160" y="600" font-family="monospace" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="1">kashanalideveloper-portfolio.vercel.app</text>
 </svg>

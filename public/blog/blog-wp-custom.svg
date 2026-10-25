@@ -1,54 +1,68 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="WP vs Custom">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1e3a8a"/>
-      <stop offset="100%" style="stop-color:#1d4ed8"/>
+      <stop offset="0%" stop-color="#0c2a5f"/>
+      <stop offset="100%" stop-color="#1e40af"/>
     </linearGradient>
     <linearGradient id="acc" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#60a5fa"/>
-      <stop offset="100%" style="stop-color:#93c5fd"/>
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="100%" stop-color="#93c5fd"/>
     </linearGradient>
+    <radialGradient id="glow" cx="30%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#60a5fa" stop-opacity="0"/>
+    </radialGradient>
   </defs>
+
+  <!-- background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <g stroke="rgba(255,255,255,0.07)" stroke-width="1">
-    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
-    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
-    <line x1="0" y1="525" x2="1200" y2="525"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- subtle grid -->
+  <g stroke="rgba(255,255,255,0.05)" stroke-width="1">
+    <line x1="0" y1="126" x2="1200" y2="126"/><line x1="0" y1="252" x2="1200" y2="252"/>
+    <line x1="0" y1="378" x2="1200" y2="378"/><line x1="0" y1="504" x2="1200" y2="504"/>
     <line x1="150" y1="0" x2="150" y2="630"/><line x1="300" y1="0" x2="300" y2="630"/>
     <line x1="450" y1="0" x2="450" y2="630"/><line x1="600" y1="0" x2="600" y2="630"/>
     <line x1="750" y1="0" x2="750" y2="630"/><line x1="900" y1="0" x2="900" y2="630"/>
     <line x1="1050" y1="0" x2="1050" y2="630"/>
   </g>
-  <circle cx="200" cy="315" r="280" fill="white" opacity="0.07"/>
+
+  <!-- decorative rings -->
+  <circle cx="1060" cy="80" r="180" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+  <circle cx="1060" cy="80" r="120" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.5"/>
+
+  <!-- accent spine -->
   <rect x="0" y="0" width="6" height="630" fill="url(#acc)"/>
-  <g transform="translate(162, 197)">
-    <rect width="120" height="120" rx="24" fill="white" opacity="0.15"/>
-    <rect x="2" y="2" width="116" height="116" rx="22" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
-    <rect x="15" y="30" width="38" height="60" rx="6" fill="white" opacity="0.3"/>
-    <text x="34" y="67" font-family="monospace" font-size="18" fill="white" text-anchor="middle" font-weight="bold" opacity="0.7">W</text>
-    <line x1="57" y1="60" x2="63" y2="60" stroke="#60a5fa" stroke-width="3" stroke-linecap="round"/>
-    <line x1="60" y1="57" x2="66" y2="60" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"/>
-    <line x1="60" y1="63" x2="66" y2="60" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"/>
-    <rect x="67" y="30" width="38" height="60" rx="6" fill="#60a5fa" opacity="0.3"/>
-    <text x="86" y="67" font-family="monospace" font-size="14" fill="white" text-anchor="middle" font-weight="bold" opacity="0.8">&lt;/&gt;</text>
+
+  <!-- icon tile -->
+  <g transform="translate(160, 150)">
+    <rect width="132" height="132" rx="28" fill="rgba(255,255,255,0.12)"/>
+    <rect x="1.5" y="1.5" width="129" height="129" rx="26.5" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+    <rect x="6" y="6" width="120" height="120" rx="22" fill="#60a5fa" opacity="0.10"/>
+    <g transform="translate(6, 6)">
+    <rect x="14" y="28" width="40" height="64" rx="8" fill="#fff" opacity="0.25"/>
+    <text x="34" y="68" font-family="monospace" font-size="19" font-weight="700" fill="#fff" text-anchor="middle" opacity="0.8">W</text>
+    <line x1="58" y1="60" x2="66" y2="60" stroke="#60a5fa" stroke-width="3.5" stroke-linecap="round"/>
+    <rect x="70" y="28" width="40" height="64" rx="8" fill="#60a5fa" opacity="0.3"/>
+    <text x="90" y="68" font-family="monospace" font-size="16" font-weight="700" fill="#fff" text-anchor="middle" opacity="0.85">&lt;/&gt;</text></g>
   </g>
-  <rect x="160" y="355" width="110" height="28" rx="14" fill="white" opacity="0.15"/>
-  <text x="215" y="374" font-family="monospace" font-size="11" fill="white" text-anchor="middle" letter-spacing="2">WORDPRESS</text>
-  <text x="160" y="430" font-family="'Inter','Helvetica Neue',sans-serif" font-size="52" font-weight="800" fill="white" letter-spacing="-1">WP vs</text>
-  <text x="160" y="494" font-family="'Inter','Helvetica Neue',sans-serif" font-size="52" font-weight="800" fill="url(#acc)" letter-spacing="-1">Custom</text>
-  <text x="160" y="547" font-family="'Inter','Helvetica Neue',sans-serif" font-size="24" font-weight="400" fill="rgba(255,255,255,0.7)">Flexibility · Speed · Ownership</text>
-  <g transform="translate(750, 80)" opacity="0.22">
-    <rect width="192" height="300" rx="12" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
-    <rect x="14" y="14" width="164" height="40" rx="6" fill="rgba(255,255,255,0.08)"/>
-    <rect x="14" y="64" width="164" height="10" rx="5" fill="rgba(255,255,255,0.1)"/>
-    <rect x="14" y="82" width="120" height="8" rx="4" fill="rgba(255,255,255,0.06)"/>
-    <rect x="14" y="98" width="140" height="8" rx="4" fill="rgba(255,255,255,0.06)"/>
-    <rect x="14" y="240" width="164" height="44" rx="8" fill="#60a5fa" opacity="0.15"/>
-    <rect x="208" y="0" width="192" height="300" rx="12" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
-    <rect x="222" y="14" width="164" height="40" rx="6" fill="#60a5fa" opacity="0.12"/>
-    <rect x="222" y="64" width="164" height="10" rx="5" fill="rgba(255,255,255,0.1)"/>
-    <rect x="222" y="82" width="120" height="8" rx="4" fill="rgba(255,255,255,0.06)"/>
-    <rect x="222" y="240" width="164" height="44" rx="8" fill="rgba(255,255,255,0.08)"/>
+
+  <!-- tag pill -->
+  <rect x="160" y="330" width="117" height="30" rx="15" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+  <text x="218.5" y="350" font-family="'JetBrains Mono','Consolas',monospace" font-size="11.5" fill="#60a5fa" text-anchor="middle" letter-spacing="2.5" font-weight="700">WORDPRESS</text>
+
+  <!-- title -->
+  <text x="160" y="416" font-family="'Poppins','Inter','Segoe UI',sans-serif" font-size="58" font-weight="800" fill="#ffffff" letter-spacing="-1.5">WP vs</text>
+  <text x="160" y="486" font-family="'Poppins','Inter','Segoe UI',sans-serif" font-size="58" font-weight="800" fill="url(#acc)" letter-spacing="-1.5">Custom</text>
+
+  <!-- subtitle -->
+  <line x1="160" y1="518" x2="216" y2="518" stroke="#60a5fa" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+  <text x="232" y="526" font-family="'Poppins','Inter','Segoe UI',sans-serif" font-size="22" font-weight="400" fill="rgba(255,255,255,0.72)" letter-spacing="0.5">Flexibility · Speed · Ownership</text>
+
+  <!-- footer brand -->
+  <g transform="translate(160, 585)">
+    <circle cx="8" cy="-4" r="4" fill="#60a5fa" opacity="0.9"/>
+    <text x="22" y="0" font-family="'JetBrains Mono','Consolas',monospace" font-size="13" fill="rgba(255,255,255,0.42)" letter-spacing="1.5">malikkashan.dev</text>
   </g>
-  <text x="160" y="600" font-family="monospace" font-size="13" fill="rgba(255,255,255,0.35)" letter-spacing="1">kashanalideveloper-portfolio.vercel.app</text>
 </svg>

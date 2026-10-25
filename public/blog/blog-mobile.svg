@@ -1,49 +1,68 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Mobile Responsive">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#831843"/>
-      <stop offset="100%" style="stop-color:#9d174d"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#500724"/>
+      <stop offset="100%" stop-color="#be185d"/>
     </linearGradient>
     <linearGradient id="acc" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#f9a8d4"/>
-      <stop offset="100%" style="stop-color:#fbcfe8"/>
+      <stop offset="0%" stop-color="#f9a8d4"/>
+      <stop offset="100%" stop-color="#fbcfe8"/>
     </linearGradient>
+    <radialGradient id="glow" cx="30%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#f9a8d4" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#f9a8d4" stop-opacity="0"/>
+    </radialGradient>
   </defs>
+
+  <!-- background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <g stroke="rgba(255,255,255,0.07)" stroke-width="1">
-    <line x1="0" y1="105" x2="1200" y2="105"/><line x1="0" y1="210" x2="1200" y2="210"/>
-    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="420" x2="1200" y2="420"/>
-    <line x1="0" y1="525" x2="1200" y2="525"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- subtle grid -->
+  <g stroke="rgba(255,255,255,0.05)" stroke-width="1">
+    <line x1="0" y1="126" x2="1200" y2="126"/><line x1="0" y1="252" x2="1200" y2="252"/>
+    <line x1="0" y1="378" x2="1200" y2="378"/><line x1="0" y1="504" x2="1200" y2="504"/>
     <line x1="150" y1="0" x2="150" y2="630"/><line x1="300" y1="0" x2="300" y2="630"/>
     <line x1="450" y1="0" x2="450" y2="630"/><line x1="600" y1="0" x2="600" y2="630"/>
     <line x1="750" y1="0" x2="750" y2="630"/><line x1="900" y1="0" x2="900" y2="630"/>
     <line x1="1050" y1="0" x2="1050" y2="630"/>
   </g>
-  <circle cx="200" cy="315" r="280" fill="white" opacity="0.07"/>
+
+  <!-- decorative rings -->
+  <circle cx="1060" cy="80" r="180" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+  <circle cx="1060" cy="80" r="120" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.5"/>
+
+  <!-- accent spine -->
   <rect x="0" y="0" width="6" height="630" fill="url(#acc)"/>
-  <g transform="translate(162, 197)">
-    <rect width="120" height="120" rx="24" fill="white" opacity="0.15"/>
-    <rect x="2" y="2" width="116" height="116" rx="22" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
-    <rect x="38" y="15" width="44" height="90" rx="8" fill="white" opacity="0.2"/>
-    <rect x="38" y="15" width="44" height="90" rx="8" fill="none" stroke="#f9a8d4" stroke-width="1.5" opacity="0.7"/>
-    <rect x="50" y="19" width="20" height="4" rx="2" fill="white" opacity="0.4"/>
-    <circle cx="60" cy="97" r="3" fill="white" opacity="0.5"/>
-    <rect x="44" y="28" width="32" height="40" rx="4" fill="#f9a8d4" opacity="0.2"/>
-    <rect x="44" y="72" width="32" height="8" rx="3" fill="rgba(255,255,255,0.15)"/>
+
+  <!-- icon tile -->
+  <g transform="translate(160, 150)">
+    <rect width="132" height="132" rx="28" fill="rgba(255,255,255,0.12)"/>
+    <rect x="1.5" y="1.5" width="129" height="129" rx="26.5" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+    <rect x="6" y="6" width="120" height="120" rx="22" fill="#f9a8d4" opacity="0.10"/>
+    <g transform="translate(6, 6)">
+    <rect x="36" y="14" width="48" height="92" rx="10" fill="#fff" opacity="0.16"/>
+    <rect x="36" y="14" width="48" height="92" rx="10" fill="none" stroke="#f9a8d4" stroke-width="2" opacity="0.7"/>
+    <rect x="46" y="30" width="28" height="36" rx="4" fill="#f9a8d4" opacity="0.3"/>
+    <rect x="46" y="74" width="28" height="7" rx="3.5" fill="#fff" opacity="0.28"/>
+    <rect x="46" y="87" width="18" height="7" rx="3.5" fill="#fff" opacity="0.16"/></g>
   </g>
-  <rect x="160" y="355" width="75" height="28" rx="14" fill="white" opacity="0.15"/>
-  <text x="197" y="374" font-family="monospace" font-size="11" fill="white" text-anchor="middle" letter-spacing="2">UI/UX</text>
-  <text x="160" y="430" font-family="'Inter','Helvetica Neue',sans-serif" font-size="52" font-weight="800" fill="white" letter-spacing="-1">Mobile</text>
-  <text x="160" y="494" font-family="'Inter','Helvetica Neue',sans-serif" font-size="52" font-weight="800" fill="url(#acc)" letter-spacing="-1">Responsive</text>
-  <text x="160" y="547" font-family="'Inter','Helvetica Neue',sans-serif" font-size="24" font-weight="400" fill="rgba(255,255,255,0.7)">Flexbox · Grid · 60% Mobile Traffic</text>
-  <g transform="translate(750, 60)" opacity="0.22">
-    <rect width="400" height="350" rx="14" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
-    <rect x="16" y="16" width="368" height="120" rx="8" fill="rgba(255,255,255,0.06)"/>
-    <rect x="16" y="152" width="174" height="80" rx="8" fill="rgba(255,255,255,0.05)"/>
-    <rect x="210" y="152" width="174" height="80" rx="8" fill="#f9a8d4" opacity="0.1"/>
-    <rect x="16" y="248" width="110" height="80" rx="8" fill="rgba(255,255,255,0.05)"/>
-    <rect x="145" y="248" width="110" height="80" rx="8" fill="rgba(255,255,255,0.05)"/>
-    <rect x="274" y="248" width="110" height="80" rx="8" fill="rgba(255,255,255,0.05)"/>
+
+  <!-- tag pill -->
+  <rect x="160" y="330" width="81" height="30" rx="15" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+  <text x="200.5" y="350" font-family="'JetBrains Mono','Consolas',monospace" font-size="11.5" fill="#f9a8d4" text-anchor="middle" letter-spacing="2.5" font-weight="700">UI/UX</text>
+
+  <!-- title -->
+  <text x="160" y="416" font-family="'Poppins','Inter','Segoe UI',sans-serif" font-size="58" font-weight="800" fill="#ffffff" letter-spacing="-1.5">Mobile</text>
+  <text x="160" y="486" font-family="'Poppins','Inter','Segoe UI',sans-serif" font-size="58" font-weight="800" fill="url(#acc)" letter-spacing="-1.5">Responsive</text>
+
+  <!-- subtitle -->
+  <line x1="160" y1="518" x2="216" y2="518" stroke="#f9a8d4" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+  <text x="232" y="526" font-family="'Poppins','Inter','Segoe UI',sans-serif" font-size="22" font-weight="400" fill="rgba(255,255,255,0.72)" letter-spacing="0.5">Flexbox · Grid · 60% Mobile Traffic</text>
+
+  <!-- footer brand -->
+  <g transform="translate(160, 585)">
+    <circle cx="8" cy="-4" r="4" fill="#f9a8d4" opacity="0.9"/>
+    <text x="22" y="0" font-family="'JetBrains Mono','Consolas',monospace" font-size="13" fill="rgba(255,255,255,0.42)" letter-spacing="1.5">malikkashan.dev</text>
   </g>
-  <text x="160" y="600" font-family="monospace" font-size="13" fill="rgba(255,255,255,0.35)" letter-spacing="1">kashanalideveloper-portfolio.vercel.app</text>
 </svg>
