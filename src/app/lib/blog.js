@@ -20,7 +20,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Services",
     readTime: "6 min read",
-    image: "/blog/blog-services.svg",
+    image: "/Front-End-Development-Services-in-LahoreCustom-Web-Solutions.jpg",
   },
   {
     slug: "front-end-development-services-islamabad",
@@ -30,7 +30,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Services",
     readTime: "6 min read",
-    image: "/blog/blog-services.svg",
+    image: "/Front-End-Development-ServFront-End-Development-Services-in-Islamabad.jpg",
   },
   {
     slug: "front-end-development-services-karachi",
@@ -40,7 +40,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Services",
     readTime: "6 min read",
-    image: "/blog/blog-services.svg",
+    image: "/Front-EndDevelopmentServicesinKarachiScaleYourDigitalProduct.jpg",
   },
   {
     slug: "front-end-developer-roadmap",
@@ -50,7 +50,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Career",
     readTime: "8 min read",
-    image: "/blog/blog-career.svg",
+    image: "/Front-EndDeveloperRoadmap2026Step-by-StepLearningPath.jpg",
   },
   {
     slug: "junior-frontend-developer",
@@ -80,7 +80,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Interviews",
     readTime: "8 min read",
-    image: "/blog/blog-interview.svg",
+    image: "/Front-EndDeveloperInterviewQuestionsforFreshers(With Answers).png",
   },
   {
     slug: "front-end-developer-interview-questions-experienced",
@@ -90,7 +90,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Interviews",
     readTime: "9 min read",
-    image: "/blog/blog-interview.svg",
+    image: "/Front-EndDeveloperInterviewQuestionsforFreshers(With Answers).png",
   },
   {
     slug: "top-best-developers-in-the-world",
@@ -100,7 +100,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Development",
     readTime: "6 min read",
-    image: "/blog/blog-career.svg",
+    image: "/TopBestDevelopersintheWorldWhatMakesThemElite.jpg",
   },
   {
     slug: "hiring-a-developer-for-website",
@@ -110,7 +110,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Hiring",
     readTime: "7 min read",
-    image: "/blog/blog-hiring.svg",
+    image: "/HiringaDeveloperforYourWebsiteTheCompleteGuide.jpg",
   },
   {
     slug: "custom-web-development",
@@ -120,7 +120,7 @@ export const ARTICLES = [
     date: "May 2026",
     category: "Web Development",
     readTime: "7 min read",
-    image: "/blog/blog-webdev.svg",
+    image: "/CustomWebDevelopmentWhatYouGetWhenYouSkipTemplates.jpg",
   },
   {
     slug: "wordpress-development",
@@ -130,7 +130,7 @@ export const ARTICLES = [
     date: "April 2026",
     category: "WordPress",
     readTime: "6 min read",
-    image: "/blog/blog-wordpress.svg",
+    image: "/WordPressDevelopmentServicesWhataPro.jpg",
   },
   {
     slug: "react-js-applications",
@@ -140,7 +140,7 @@ export const ARTICLES = [
     date: "March 2026",
     category: "React.js",
     readTime: "6 min read",
-    image: "/blog/blog-react.svg",
+    image: "/React.jsApplicationDevelopmentFromSPAtoEnterprise.jpg",
   },
   {
     slug: "ui-ux-design",
@@ -150,7 +150,7 @@ export const ARTICLES = [
     date: "February 2026",
     category: "UI/UX",
     readTime: "7 min read",
-    image: "/blog/blog-uiux.svg",
+    image: "/UIUXDesignServicesWhyDesignDeterminesConversionRate.jpg",
   },
   {
     slug: "performance-optimization",
@@ -160,7 +160,7 @@ export const ARTICLES = [
     date: "January 2026",
     category: "Performance",
     readTime: "8 min read",
-    image: "/blog/blog-performance.svg",
+    image: "/WebsitePerformanceOptimizationACompleteServiceChecklist.jpg",
   },
   {
     slug: "website-maintenance",
@@ -170,7 +170,7 @@ export const ARTICLES = [
     date: "December 2025",
     category: "Maintenance",
     readTime: "6 min read",
-    image: "/blog/blog-webdev.svg",
+    image: "/WebsiteMaintenanceServicesWhyYourSiteNeedsCare.jpg",
   },
   {
     slug: "nextjs-vs-react-which-one-to-choose",
@@ -180,7 +180,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Next.js",
     readTime: "6 min read",
-    image: "/blog/blog-nextjs.svg",
+    image: "/Next.jsvsReactWhichOneShouldYouChoosein2026.jpg",
   },
   {
     slug: "wordpress-vs-custom-development",
@@ -190,7 +190,7 @@ export const ARTICLES = [
     date: "July 2026",
     category: "WordPress",
     readTime: "7 min read",
-    image: "/blog/blog-wordpress.svg",
+    image: "/WordPressvsCustomDevelopmentHowtoChoosetheRight Path.jpg",
   },
   {
     slug: "ai-developers",
@@ -200,7 +200,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "AI",
     readTime: "6 min read",
-    image: "/blog/blog-ai.svg",
+    image: "/AI DevelopersWhatTheyDo,SkillsandHowtoHireThem.jpg",
   },
   {
     slug: "how-to-become-ai-developer",
@@ -210,7 +210,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "AI",
     readTime: "7 min read",
-    image: "/blog/blog-ai.svg",
+    image: "/HowtoBecomeanAIDeveloperin2026EssentialSteps.jpg",
   },
   {
     slug: "front-end-developer-portfolio-templates",
@@ -220,7 +220,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Portfolio",
     readTime: "6 min read",
-    image: "/blog/blog-portfolio.svg",
+    image: "/Front-EndDeveloperPortfolioTemplatesBestOptions&WhattoLookFor.jpg",
   },
   {
     slug: "front-end-developer-portfolio-template-free",
@@ -230,7 +230,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Portfolio",
     readTime: "6 min read",
-    image: "/blog/blog-portfolio.svg",
+    image: "/Front-EndDeveloperPortfolioTemplatesBestOptions&WhattoLookFor.jpg",
   },
   {
     slug: "front-end-developer-portfolio-examples",
@@ -240,7 +240,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Portfolio",
     readTime: "6 min read",
-    image: "/blog/blog-portfolio.svg",
+    image: "/Front-EndDeveloperPortfolioTemplatesBestOptions&WhattoLookFor.jpg",
   },
   {
     slug: "front-end-developer-projects",
@@ -250,7 +250,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Projects",
     readTime: "7 min read",
-    image: "/blog/blog-career.svg",
+    image: "/Front-EndDeveloperProjectstoBuildforYourResume.jpg",
   },
   {
     slug: "how-to-improve-website-speed-seo",
@@ -260,7 +260,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "SEO",
     readTime: "7 min read",
-    image: "/blog/blog-seo.svg",
+    image: "/HowtoImproveWebsiteSpeedandSEOforHigherRankings.jpg",
   },
   {
     slug: "javascript-vs-typescript",
@@ -270,7 +270,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Development",
     readTime: "7 min read",
-    image: "/blog/blog-webdev.svg",
+    image: "/HTMLvsCSSandJavascriptUnderstandingtheFoundationofWebDevelopment.jpg",
   },
   {
     slug: "react-vs-nextjs",
@@ -280,7 +280,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "React.js",
     readTime: "7 min read",
-    image: "/blog/blog-react.svg",
+    image: "/Next.jsvsReactWhichOneShouldYouChoosein2026.jpg",
   },
   {
     slug: "bootstrap-vs-tailwind-css",
@@ -290,7 +290,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "UI/UX",
     readTime: "6 min read",
-    image: "/blog/blog-uiux.svg",
+    image: "/HTMLvsCSSandJavascriptUnderstandingtheFoundationofWebDevelopment.jpg",
   },
   {
     slug: "html-vs-css",
@@ -300,7 +300,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Web Development",
     readTime: "6 min read",
-    image: "/blog/blog-webdev.svg",
+    image: "/HTMLvsCSSandJavascriptUnderstandingtheFoundationofWebDevelopment.jpg",
   },
   {
     slug: "benefits-of-using-python",
@@ -310,7 +310,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Backend",
     readTime: "7 min read",
-    image: "/blog/blog-backend.svg",
+    image: "/BenefitsofUsingPythonforModernWebAppsandAutomation.jpg",
   },
   {
     slug: "nodejs-development-guide",
@@ -320,7 +320,7 @@ export const ARTICLES = [
     date: "August 2026",
     category: "Backend",
     readTime: "8 min read",
-    image: "/blog/blog-backend.svg",
+    image: "/Node.jsDevelopmentGuideBuildingScalableBackendServices.jpg",
   },
   {
     slug: "web-development-cost-pakistan",
@@ -330,7 +330,7 @@ export const ARTICLES = [
     date: "October 2026",
     category: "Hiring",
     readTime: "8 min read",
-    image: "/blog/blog-hiring.svg",
+    image: "/SoftwareDevelopnmentinPakistanin2026.webp",
   },
   {
     slug: "hire-freelance-web-developer",
@@ -340,7 +340,7 @@ export const ARTICLES = [
     date: "October 2026",
     category: "Hiring",
     readTime: "7 min read",
-    image: "/blog/blog-hiring.svg",
+    image: "/WebsiteDeveloperinPakistan.jpg",
   },
   {
     slug: "ecommerce-website-development",
@@ -350,7 +350,7 @@ export const ARTICLES = [
     date: "October 2026",
     category: "Web Development",
     readTime: "8 min read",
-    image: "/blog/blog-webdev.svg",
+    image: "/CustomWebDevelopmentWhatYouGetWhenYouSkipTemplates.jpg",
   },
   {
     slug: "mobile-responsive-website-design",
@@ -360,7 +360,7 @@ export const ARTICLES = [
     date: "October 2026",
     category: "UI/UX",
     readTime: "6 min read",
-    image: "/blog/blog-uiux.svg",
+    image: "/UIUXDesignServicesWhyDesignDeterminesConversionRate.jpg",
   },
   {
     slug: "laravel-vs-wordpress",
@@ -370,7 +370,7 @@ export const ARTICLES = [
     date: "October 2026",
     category: "Backend",
     readTime: "7 min read",
-    image: "/blog/blog-backend.svg",
+    image: "/LaravelvsWordPressWhichBackendIsRightforYourProject.jpg",
   },
   {
     slug: "web-development-agency-vs-freelancer",
@@ -380,7 +380,7 @@ export const ARTICLES = [
     date: "October 2026",
     category: "Hiring",
     readTime: "6 min read",
-    image: "/blog/blog-hiring.svg",
+    image: "/WebsiteDeveloperinPakistan.jpg",
   },
   {
     slug: "seo-friendly-website-design",
@@ -390,7 +390,7 @@ export const ARTICLES = [
     date: "October 2026",
     category: "SEO",
     readTime: "7 min read",
-    image: "/blog/blog-seo.svg",
+    image: "/HowtoImproveWebsiteSpeedandSEOforHigherRankings.jpg",
   },
   {
     slug: "nextjs-portfolio-website",
@@ -400,6 +400,96 @@ export const ARTICLES = [
     date: "October 2026",
     category: "Next.js",
     readTime: "7 min read",
-    image: "/blog/blog-nextjs.svg",
+    image: "/Front-EndDeveloperPortfolioTemplatesBestOptions&WhattoLookFor.jpg",
+  },
+  {
+    slug: "ai-first-web-development-2026",
+    title: "AI-First Web Development in 2026: How Smart Developers Ship Faster",
+    excerpt:
+      "AI has moved from autocomplete to co-worker. Here is how AI-first development actually works in production — and where it still fails.",
+    date: "October 2026",
+    category: "AI",
+    readTime: "7 min read",
+    image: "/AI DevelopersWhatTheyDo,SkillsandHowtoHireThem.jpg",
+  },
+  {
+    slug: "react-server-components-explained",
+    title: "React Server Components Explained: Less JavaScript, Faster Pages",
+    excerpt:
+      "Server Components ship zero JS to the browser. Learn when to use them, when not to, and how they change React architecture.",
+    date: "October 2026",
+    category: "React",
+    readTime: "8 min read",
+    image: "/ReactServerComponentsExplainedLessJavaScript,Faster Pages.jpg",
+  },
+  {
+    slug: "core-web-vitals-guide",
+    title: "Core Web Vitals 2026: The Complete Guide to Passing Every Metric",
+    excerpt:
+      "LCP, INP and CLS explained with real fixes. The exact checklist I use to get client sites into the green on every metric.",
+    date: "October 2026",
+    category: "Performance",
+    readTime: "8 min read",
+    image: "/WebsitePerformanceOptimizationACompleteServiceChecklist.jpg",
+  },
+  {
+    slug: "website-security-checklist",
+    title: "Website Security Checklist: Protect Your Site From Common Attacks",
+    excerpt:
+      "XSS, CSRF, weak headers and exposed secrets — the practical security checklist every website owner should run through.",
+    date: "October 2026",
+    category: "Web Development",
+    readTime: "7 min read",
+    image: "/WebsiteMaintenanceServicesWhyYourSiteNeedsCare.jpg",
+  },
+  {
+    slug: "seo-for-ai-search-engines",
+    title: "SEO for AI Search: How to Rank in ChatGPT, Perplexity and Google AI",
+    excerpt:
+      "Search is shifting from blue links to AI answers. Here is how to structure your content so AI engines cite and recommend you.",
+    date: "October 2026",
+    category: "SEO",
+    readTime: "7 min read",
+    image: "/AI DevelopersWhatTheyDo,SkillsandHowtoHireThem.jpg",
+  },
+  {
+    slug: "how-to-integrate-emailjs-in-nextjs",
+    title: "How to Integrate EmailJS in Next.js (Complete 2026 Guide)",
+    excerpt:
+      "Add a working contact form to Next.js with EmailJS — setup, environment variables, the 404 error fix, and Vercel deployment gotchas.",
+    date: "October 2026",
+    category: "Next.js",
+    readTime: "6 min read",
+    image: "/Next.jsvsReactWhichOneShouldYouChoosein2026.jpg",
+  },
+  {
+    slug: "nextjs-seo-best-practices",
+    title: "Next.js SEO Best Practices 2026: Rank Higher With the App Router",
+    excerpt:
+      "Metadata API, structured data, sitemaps, robots and Core Web Vitals — the complete Next.js SEO checklist that gets pages indexed and ranked.",
+    date: "October 2026",
+    category: "SEO",
+    readTime: "8 min read",
+    image: "/HowtoImproveWebsiteSpeedandSEOforHigherRankings.jpg",
+  },
+  {
+    slug: "figma-to-nextjs-conversion",
+    title: "Figma to Next.js Conversion: Turning Designs Into Production Code",
+    excerpt:
+      "The exact workflow I use to convert Figma designs into pixel-perfect, responsive Next.js + Tailwind applications — without AI slop.",
+    date: "October 2026",
+    category: "UI/UX",
+    readTime: "6 min read",
+    image: "/UIUXDesignServicesWhyDesignDeterminesConversionRate.jpg",
+  },
+  {
+    slug: "how-to-integrate-google-analytics-nextjs",
+    title: "How to Integrate Google Analytics in Next.js (GA4, the Right Way)",
+    excerpt:
+      "Add GA4 to Next.js App Router with @next/third-parties, fix Content-Security-Policy blocking, and keep your PageSpeed score intact.",
+    date: "October 2026",
+    category: "Next.js",
+    readTime: "5 min read",
+    image: "/Next.jsvsReactWhichOneShouldYouChoosein2026.jpg",
   },
 ];

@@ -1,20 +1,22 @@
 // src/app/page.jsx
-"use client";
+import dynamic from "next/dynamic";
 import Hero from "./Components/Hero";
 import TrustBar from "./Components/TrustBar";
 import ServicesPreview from "./Components/ServicesPreview";
-import WhyWorkWithMe from "./Components/WhyWorkWithMe";
-import Projects from "./Components/Projects";
-import Process from "./Components/Process";
-import TechExpertise from "./Components/TechExpertise";
-import ProjectResults from "./Components/ProjectResults";
-import Industries from "./Components/Industries";
-import FaqSection from "./Components/FaqSection";
-import BlogPreview from "./Components/BlogPreview";
-import Testimonials from "./Components/Testimonials";
-import FinalCta from "./Components/FinalCta";
 import Contact from "./Components/Contact";
-import { motion, AnimatePresence } from "framer-motion";
+
+// Below-the-fold sections are code-split: their JS only loads when the
+// browser is idle, so the hero renders with a much smaller initial bundle.
+const WhyWorkWithMe = dynamic(() => import("./Components/WhyWorkWithMe"));
+const Projects = dynamic(() => import("./Components/Projects"));
+const Process = dynamic(() => import("./Components/Process"));
+const TechExpertise = dynamic(() => import("./Components/TechExpertise"));
+const ProjectResults = dynamic(() => import("./Components/ProjectResults"));
+const Industries = dynamic(() => import("./Components/Industries"));
+const FaqSection = dynamic(() => import("./Components/FaqSection"));
+const BlogPreview = dynamic(() => import("./Components/BlogPreview"));
+const Testimonials = dynamic(() => import("./Components/Testimonials"));
+const FinalCta = dynamic(() => import("./Components/FinalCta"));
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -45,19 +47,11 @@ export default function Home() {
 
   return (
     <main className="relative bg-brandBg overflow-hidden selection:bg-brandPrimary selection:text-white">
-      <AnimatePresence>
-        {sections.map((section) => (
-          <motion.div
-            key={section.id}
-            variants={sectionVariants}
-            initial="hidden"
-            animate="visible"
-            className={section.extraClass}
-          >
-            <section.Component />
-          </motion.div>
-        ))}
-      </AnimatePresence>
+      {sections.map((section) => (
+        <div key={section.id} className={section.extraClass}>
+          <section.Component />
+        </div>
+      ))}
     </main>
   );
 }

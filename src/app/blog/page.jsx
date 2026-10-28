@@ -158,7 +158,7 @@ export default function BlogPage() {
                     <div className="relative block w-full aspect-video overflow-hidden bg-brandSoft">
                       <BlogCardImage
                         src={article.image}
-                        alt={`Illustration for ${article.title}`}
+                        alt={`${article.title} — Malik Kashan web development blog`}
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
                         slug={article.slug}
                       />

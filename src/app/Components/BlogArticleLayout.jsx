@@ -83,6 +83,19 @@ export default function BlogArticleLayout({
       {/* Content + Sidebar */}
       <main className="relative bg-white pb-16 sm:pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+          {/* Cover image — reinforces the article topic for readers and image search */}
+          {article && article.image && (
+            <div className="w-full aspect-video rounded-2xl overflow-hidden bg-brandSoft mb-10 border border-brandLine">
+              <Image
+                src={article.image}
+                alt={`${title} — ${category} guide by Malik Kashan, web developer in Pakistan`}
+                fill
+                sizes="(max-width: 1024px) 100vw, 900px"
+                priority
+                className="object-cover"
+              />
+            </div>
+          )}
           <div className="flex flex-col lg:flex-row gap-12">
 
             {/* ── ARTICLE CONTENT ── */}
@@ -120,6 +133,22 @@ export default function BlogArticleLayout({
                     </div>
                   </section>
                 )}
+              </div>
+
+              {/* In-article CTA */}
+              <div className="mt-12 rounded-2xl bg-brandPrimary/5 border border-brandPrimary/20 p-6 sm:p-8 text-center">
+                <h3 className="text-lg sm:text-xl font-bold text-brandInk uppercase tracking-tight mb-2">
+                  Want help with <span className="text-brandPrimary">your project?</span>
+                </h3>
+                <p className="text-brandMuted text-sm font-light leading-relaxed max-w-xl mx-auto mb-5">
+                  I build fast, modern and SEO-ready websites. Let&apos;s talk about what you need — I usually respond within a few hours.
+                </p>
+                <Link
+                  href="/#contact"
+                  className="inline-flex items-center justify-center px-8 py-3 bg-brandPrimary text-white text-xs font-bold uppercase tracking-widest rounded-xl shadow-lg shadow-brandPrimary/20 hover:bg-brandSecondary hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+                >
+                  Get in Touch →
+                </Link>
               </div>
 
               {/* Author card */}

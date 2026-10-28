@@ -3,6 +3,7 @@
 
 import { useState, useRef } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 import ThemeSwitcher from "./ThemeSwitcher";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -11,6 +12,7 @@ import { useLanguage } from "./LanguageContext";
 
 export default function Header() {
   const { t, lang } = useLanguage();
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
@@ -52,8 +54,8 @@ export default function Header() {
   ];
 
   return (
-    <header className="animate-header-enter fixed top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-7xl z-50 rounded-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-brandLine shadow-[0_8px_32px_rgba(15,23,42,0.08)] transition-all duration-300 font-sans">
-      <div className="absolute inset-0 bg-linear-to-r from-transparent via-brandPrimary/5 to-transparent rounded-2xl pointer-events-none" />
+    <header className="animate-header-enter fixed top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-7xl z-50 rounded-2xl bg-white/95 dark:bg-slate-900/85 backdrop-blur-xl border border-brandLine/80 dark:border-slate-700/60 shadow-[0_8px_32px_rgba(15,23,42,0.08)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.45)] transition-all duration-300 font-sans">
+      <div className="absolute inset-0 bg-linear-to-r from-transparent via-brandPrimary/5 dark:via-cyan-500/8 to-transparent rounded-2xl pointer-events-none" />
 
       <nav
         className="h-[68px] px-5 sm:px-6 lg:px-8 flex items-center justify-between relative z-10"
@@ -81,7 +83,11 @@ export default function Header() {
           <li>
             <Link
               href="/"
-              className="text-[11px] tracking-widest text-brandMuted hover:text-brandPrimary dark:text-slate-300 dark:hover:text-brandPrimary font-semibold uppercase transition-colors py-1 block"
+              className={`text-[11px] tracking-widest font-semibold uppercase transition-colors py-1 block ${
+                pathname === "/"
+                  ? "text-brandPrimary dark:text-cyan-300"
+                  : "text-brandMuted hover:text-brandPrimary dark:text-slate-300 dark:hover:text-cyan-300"
+              }`}
             >
               {t("navHome")}
             </Link>
@@ -107,7 +113,7 @@ export default function Header() {
             </Link>
 
             {isServicesOpen && (
-              <div className="absolute top-full left-0 mt-2 w-80 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-brandLine p-4 z-50 animate-in fade-in zoom-in-95 duration-150">
+              <div className="absolute top-full left-0 mt-2 w-80 bg-white dark:bg-slate-800/95 backdrop-blur-xl rounded-2xl shadow-xl border border-brandLine dark:border-slate-600/50 p-4 z-50 animate-in fade-in zoom-in-95 duration-150">
                 <div className="mb-3 pb-3 border-b border-brandLine">
                   <p className="text-[10px] font-mono tracking-widest text-brandPrimary uppercase mb-2 font-bold">
                     {t("customDevelopment")}
@@ -141,7 +147,11 @@ export default function Header() {
           {navLinks.slice(1).map((link) => (
             <li key={link.name}>
               <Link href={link.href}
-                className="text-[11px] tracking-widest text-brandMuted hover:text-brandPrimary dark:text-slate-300 dark:hover:text-brandPrimary font-semibold uppercase transition-colors py-1 block">
+                className={`text-[11px] tracking-widest font-semibold uppercase transition-colors py-1 block ${
+                  pathname === link.href
+                    ? "text-brandPrimary dark:text-cyan-300"
+                    : "text-brandMuted hover:text-brandPrimary dark:text-slate-300 dark:hover:text-cyan-300"
+                }`}>
                 {link.name}
               </Link>
             </li>
@@ -167,7 +177,7 @@ export default function Header() {
 
           {/* Let's Talk — desktop */}
           <Link href="/#contact"
-            className="hidden sm:inline-flex items-center justify-center px-4 py-2 text-[11px] font-bold tracking-widest text-white bg-brandPrimary hover:bg-brandSecondary rounded-xl transition-all uppercase shadow-md">
+            className="hidden sm:inline-flex items-center justify-center px-4 py-2 text-[11px] font-bold tracking-widest text-white bg-brandPrimary hover:bg-brandSecondary rounded-xl transition-all uppercase shadow-md hover:shadow-[0_4px_16px_rgba(8,145,178,0.4)] hover:-translate-y-px">
             {t("letsTalk")}
           </Link>
 

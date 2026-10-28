@@ -431,14 +431,19 @@ function svg(t) {
       <stop offset="100%" stop-color="${a2}"/>
     </linearGradient>
     <radialGradient id="glow" cx="30%" cy="40%" r="70%">
-      <stop offset="0%" stop-color="${a1}" stop-opacity="0.18"/>
+      <stop offset="0%" stop-color="${a1}" stop-opacity="0.25"/>
       <stop offset="100%" stop-color="${a1}" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="85%" cy="80%" r="60%">
+      <stop offset="0%" stop-color="${c2}" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="${c2}" stop-opacity="0"/>
     </radialGradient>
   </defs>
 
   <!-- background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
   <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
 
   <!-- subtle grid -->
   <g stroke="rgba(255,255,255,0.05)" stroke-width="1">

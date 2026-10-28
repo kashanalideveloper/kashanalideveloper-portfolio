@@ -59,11 +59,11 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center bg-brandBg overflow-hidden font-sans pt-24"
+      className="relative min-h-screen flex items-center justify-center bg-brandBg dark:bg-slate-950 overflow-hidden font-sans pt-24"
     >
       {/* ⚡ SPEED: Optimized CSS-only native gradient blobs instead of heavy blurred filters */}
-      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-75 sm:h-75 sm:w-125 sm:h-125 rounded-full bg-brandPrimary/10 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-40 h-40 sm:w-62.5 sm:h-62.5 sm:w-100 sm:h-100 rounded-full bg-brandSecondary/10 blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-125 sm:h-125 rounded-full bg-brandPrimary/10 dark:bg-brandPrimary/15 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-40 h-40 sm:w-100 sm:h-100 rounded-full bg-brandSecondary/10 dark:bg-brandSecondary/15 blur-[100px] pointer-events-none" />
 
       {/* Grid Pattern Mesh */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a05_1px,transparent_1px),linear-gradient(to_bottom,#0f172a05_1px,transparent_1px)] bg-size-[40px_40px] mask-[radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
@@ -72,7 +72,7 @@ export default function Hero() {
         {/* Left Content Column */}
         <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1">
           {/* Availability badge */}
-          <div className="animate-fade-in-up delay-100 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brandPrimary/10 border border-brandPrimary/20 mb-5 backdrop-blur-sm">
+          <div className="animate-fade-in-up delay-100 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brandPrimary/10 border border-brandPrimary/20 dark:bg-cyan-500/10 dark:border-cyan-400/25 mb-5 backdrop-blur-sm">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brandPrimary opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-brandPrimary"></span>
@@ -92,10 +92,10 @@ export default function Hero() {
 
           {/* Typewriter */}
           <div className="animate-fade-in-up delay-400 h-9 sm:h-11 flex items-center justify-center lg:justify-start mb-5">
-            <span className="text-lg sm:text-xl font-normal tracking-wide text-brandMuted mr-2">
+            <span className="text-lg sm:text-xl font-normal tracking-wide text-brandMuted dark:text-slate-400 mr-2">
               {t("heroIam")}
             </span>
-            <span className="text-lg sm:text-xl font-semibold tracking-wide text-brandPrimary border-r-2 border-brandPrimary pr-1 animate-blink inline-block min-w-[2px]">
+            <span className="text-lg sm:text-xl font-semibold tracking-wide text-brandPrimary dark:text-cyan-300 border-r-2 border-brandPrimary dark:border-cyan-300 pr-1 animate-blink inline-block min-w-[2px]">
               {mounted ? currentText : ""}
             </span>
           </div>
@@ -106,10 +106,10 @@ export default function Hero() {
 
           {/* Social proof strip */}
           <div className="animate-fade-in-up delay-600 flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-8">
-            <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-brandLine dark:border-slate-700 shadow-sm">
+            <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white dark:bg-slate-800/80 border border-brandLine dark:border-slate-700/70 shadow-sm">
               <div className="flex -space-x-2">
                 {["AH","SK","UT"].map((a) => (
-                  <div key={a} className="w-6 h-6 rounded-full bg-brandPrimary/10 border-2 border-white dark:border-slate-900 flex items-center justify-center text-[7px] font-bold text-brandPrimary">{a}</div>
+                  <div key={a} className="w-6 h-6 rounded-full bg-cyan-100 dark:bg-cyan-500/15 border-2 border-white dark:border-slate-800 flex items-center justify-center text-[7px] font-bold text-brandPrimary dark:text-cyan-300">{a}</div>
                 ))}
               </div>
               <div>
@@ -119,8 +119,8 @@ export default function Hero() {
                 <p className="text-[9px] text-brandMuted">50+ happy clients</p>
               </div>
             </div>
-            <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-brandLine dark:border-slate-700 shadow-sm">
-              <div className="w-6 h-6 rounded-full bg-emerald-100 dark:bg-emerald-900/20 flex items-center justify-center text-emerald-600">
+            <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white dark:bg-slate-800/80 border border-brandLine dark:border-slate-700/70 shadow-sm">
+              <div className="w-6 h-6 rounded-full bg-emerald-100 dark:bg-emerald-500/15 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
                 <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
               <div>
@@ -128,8 +128,8 @@ export default function Hero() {
                 <p className="text-[9px] text-brandMuted">Projects delivered</p>
               </div>
             </div>
-            <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-brandLine dark:border-slate-700 shadow-sm">
-              <div className="w-6 h-6 rounded-full bg-brandPrimary/10 flex items-center justify-center text-brandPrimary">
+            <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white dark:bg-slate-800/80 border border-brandLine dark:border-slate-700/70 shadow-sm">
+              <div className="w-6 h-6 rounded-full bg-brandPrimary/10 dark:bg-cyan-500/15 flex items-center justify-center text-brandPrimary dark:text-cyan-300">
                 <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
               </div>
               <div>
@@ -155,7 +155,7 @@ export default function Hero() {
               <a
                 href={`mailto:${SITE.email}`}
                 aria-label="Send an email to Malik Kashan"
-                className="w-9 h-9 rounded-full border border-brandLine bg-white flex items-center justify-center text-brandMuted hover:border-brandPrimary hover:text-brandPrimary transition-all duration-300 shadow-sm"
+                className="w-9 h-9 rounded-full border border-brandLine dark:border-slate-800 bg-white dark:bg-slate-900 flex items-center justify-center text-brandMuted dark:text-slate-400 hover:border-brandPrimary hover:text-brandPrimary transition-all duration-300 shadow-sm"
               >
                 <svg
                   className="w-4 h-4"
@@ -177,7 +177,7 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit Malik Kashan GitHub profile"
-                className="w-9 h-9 rounded-full border border-brandLine bg-white flex items-center justify-center text-brandMuted hover:border-brandPrimary hover:text-brandPrimary transition-all duration-300 shadow-sm"
+                className="w-9 h-9 rounded-full border border-brandLine dark:border-slate-800 bg-white dark:bg-slate-900 flex items-center justify-center text-brandMuted dark:text-slate-400 hover:border-brandPrimary hover:text-brandPrimary transition-all duration-300 shadow-sm"
               >
                 <svg
                   className="w-4 h-4"
@@ -212,9 +212,9 @@ export default function Hero() {
         {/* Right Code Terminal Shell */}
         <div className="animate-fade-in-up delay-200 lg:col-span-5 flex justify-center items-center order-1 lg:order-2 w-full">
           <div className="relative w-full max-w-115 aspect-[4/3.2] rounded-3xl">
-            <div className="absolute inset-0 bg-linear-to-tr from-brandPrimary/15 to-transparent opacity-40 rounded-3xl blur-2xl pointer-events-none" />
+            <div className="absolute inset-0 bg-linear-to-tr from-brandPrimary/15 dark:from-cyan-500/20 to-transparent opacity-40 rounded-3xl blur-2xl pointer-events-none" />
 
-            <div className="w-full h-full relative rounded-3xl overflow-hidden bg-white dark:bg-slate-900 border border-brandLine dark:border-slate-700 p-4 shadow-[0_10px_24px_rgba(15,23,42,0.07)] flex flex-col justify-between">
+            <div className="w-full h-full relative rounded-3xl overflow-hidden bg-white dark:bg-slate-900/90 border border-brandLine dark:border-slate-700/80 p-4 shadow-[0_10px_24px_rgba(15,23,42,0.07)] dark:shadow-[0_10px_40px_rgba(34,211,238,0.08)] flex flex-col justify-between">
               {/* Terminal Window Controls */}
               <div className="flex items-center gap-1.5 border-b border-brandLine pb-3">
                 <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
@@ -230,34 +230,34 @@ export default function Hero() {
                   className="flex-1 font-mono text-[11px] sm:text-xs text-brandInk/70 space-y-2 pt-5 select-none"
                   aria-hidden="true"
                 >
-                  <p className="text-blue-600">
+                  <p className="text-blue-600 dark:text-sky-400">
                     const <span className="text-brandInk dark:text-slate-200">Developer</span> =
                     () =&gt; {"{"}
                   </p>
 
                   <div className="pl-4 space-y-1">
-                    <p className="text-purple-600">
+                    <p className="text-purple-600 dark:text-fuchsia-400">
                       return <span className="text-brandInk dark:text-slate-200">(</span>
                     </p>
 
                     <div className="pl-4 space-y-1">
-                      <p className="text-emerald-600">
-                        &lt;<span className="text-blue-600">MalikKashan</span>
+                      <p className="text-emerald-600 dark:text-emerald-400">
+                        &lt;<span className="text-blue-600 dark:text-sky-300">MalikKashan</span>
                       </p>
                       <p className="pl-6 text-brandInk dark:text-slate-300">
-                        skills=<span className="text-purple-600">{"{"}</span>
+                        skills=<span className="text-purple-600 dark:text-fuchsia-400">{"{"}</span>
                         <span className="text-brandInk dark:text-slate-300">[</span>
-                        <span className="text-green-600">&quot;Next.js&quot;</span>
+                        <span className="text-green-600 dark:text-green-400">&quot;Next.js&quot;</span>
                         <span className="text-brandInk dark:text-slate-300">, </span>
-                        <span className="text-green-600">&quot;Tailwind&quot;</span>
+                        <span className="text-green-600 dark:text-green-400">&quot;Tailwind&quot;</span>
                         <span className="text-brandInk dark:text-slate-300">]</span>
-                        <span className="text-purple-600">{"}"}</span>
+                        <span className="text-purple-600 dark:text-fuchsia-400">{"}"}</span>
                       </p>
                       <p className="pl-6 text-brandInk dark:text-slate-300">
                         experience=
-                        <span className="text-amber-600">&quot;Expert&quot;</span>
+                        <span className="text-amber-600 dark:text-amber-400">&quot;Expert&quot;</span>
                       </p>
-                      <p className="text-emerald-600">/&gt;</p>
+                      <p className="text-emerald-600 dark:text-emerald-400">/&gt;</p>
                     </div>
 
                     <p className="text-brandInk dark:text-slate-200">)</p>
