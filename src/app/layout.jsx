@@ -13,6 +13,7 @@ const poppins = Poppins({
   variable: "--font-poppins",
   display: "swap",
   preload: true,
+  adjustFontFallback: true,
 });
 
 export const viewport = {
@@ -45,6 +46,11 @@ export const metadata = {
     "affordable web design agency",
     "top web developer Lahore",
     "hire React.js developer USA UK",
+    "front-end development services Lahore Karachi Islamabad",
+    "AI web development services Pakistan",
+    "WooCommerce and Shopify expert Pakistan",
+    "Core Web Vitals optimization specialist",
+    "hire freelance web designer Pakistan",
   ],
   authors: [{ name: SITE.name, url: SITE.url }],
   creator: "Malik Kashan",
