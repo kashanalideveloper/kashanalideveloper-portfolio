@@ -5,6 +5,66 @@ export const LIVE_DEMO_URL_PLACEHOLDER = "https://your-project-live-demo.com";
 
 export const PROJECT_DATA = [
   {
+    title: "Gothm Project",
+    slug: "gothm-project",
+    category: "Web Application",
+    description: "A modern web project showcasing clean UI and interactive functionality.",
+    longDescription: "Gothm Project is a sleek web application focused on providing a streamlined user experience with modern design principles and responsive layouts.",
+    liveDemo: "https://gothm-project.vercel.app/",
+    github: "https://github.com/kashanalideveloper/gothm-project",
+    image: "/gothm-project.png",
+    technologies: ["Next.js", "React", "Tailwind CSS"],
+    features: ["Responsive Design", "Interactive UI", "Optimized Performance"],
+    challenge: "Creating a highly interactive and aesthetically pleasing web interface.",
+    solution: "Leveraged modern frontend frameworks to ensure smooth interactions and performant delivery.",
+  },
+  {
+    title: "SANEM — National Employment Fair",
+    slug: "sanem-national-employment-fair",
+    category: "Employment Platform",
+    description:
+      "A digital home for Niger's Salon National de l'Emploi, connecting job seekers, employers, and career opportunities.",
+    longDescription:
+      "SANEM is a web experience for Niger's national employment fair. It introduces the event and guides visitors to job-seeker and recruiter journeys, while highlighting employment, training, and professional networking.",
+    liveDemo: "https://sane-kappa.vercel.app/",
+    github: "",
+    image: "/sanem-project.png",
+    technologies: ["Next.js", "Responsive Design", "Frontend Development"],
+    features: [
+      "Clear entry points for job seekers and recruiters",
+      "Event information for employment, training, and professional networking",
+      "Prominent calls to participate and explore opportunities",
+      "Responsive layout for mobile and desktop visitors",
+    ],
+    challenge:
+      "Making a national employment event easy to understand and navigate for job seekers, recruiters, and partners.",
+    solution:
+      "Structured the landing page around clear audience journeys, concise event messaging, and highly visible participation and opportunity links.",
+  },
+  {
+    title: "UNGE Medical Cannabis Website",
+    slug: "unge-medical-cannabis-website",
+    category: "Corporate Website",
+    description:
+      "A bold, science-led website for UNGE, presenting its medical cannabis focus through a refined visual identity, product pages, and clear company information.",
+    longDescription:
+      "The UNGE website introduces a medical cannabis company focused on science, health, and innovation. Its dark, editorial visual direction pairs strong typography with botanical imagery, while the navigation gives visitors direct paths to the company's science, products, innovation, and contact information.",
+    liveDemo: "https://unge-project.vercel.app/",
+    github: "https://github.com/kashanalideveloper/unge-project",
+    image: "/unge-project.png",
+    technologies: ["Corporate Website", "Responsive Design", "Frontend Development"],
+    features: [
+      "Distinctive dark visual identity with botanical imagery",
+      "Dedicated navigation for science, products, innovation, and company information",
+      "Prominent contact and company introduction calls to action",
+      "Responsive, editorial-style page composition",
+    ],
+    challenge:
+      "Presenting a science-oriented medical cannabis brand with a confident visual identity while keeping key information and navigation easy to find.",
+    solution:
+      "Created a focused corporate web experience that pairs high-contrast typography and atmospheric imagery with clear content sections and direct navigation.",
+  },
+  {
     title: "Oracles Force",
     slug: "oracles-force",
     category: "React.js Stack",

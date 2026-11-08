@@ -41,7 +41,7 @@ export function ProjectCard({ project, index }) {
     <motion.div
       variants={cardVariants}
       whileHover={{ y: -4 }}
-      className="group relative overflow-hidden flex flex-col justify-between w-full rounded-3xl bg-white border border-brandLine backdrop-blur-sm transition-all duration-300 hover:border-brandPrimary/25 hover:shadow-[0_16px_32px_-12px_rgba(15,23,42,0.12)] transform-gpu"
+      className="group relative overflow-hidden flex flex-col justify-between w-full rounded-3xl bg-white border border-brandLine shadow-soft backdrop-blur-sm transition-all duration-300 hover:border-brandPrimary/25 hover:shadow-soft-hover transform-gpu"
       itemProp="itemListElement"
       itemScope
       itemType="https://schema.org/ListItem"
@@ -299,19 +299,19 @@ export default function Projects() {
 
           <h2
             id={`${componentId}-heading`}
-            className="text-2xl sm:text-4xl font-extrabold text-brandInk leading-tight uppercase tracking-tight"
+            className="text-3xl sm:text-5xl font-extrabold text-brandInk leading-tight uppercase tracking-tighter"
           >
-            Featured <span className="text-brandPrimary">Projects.</span>
+            Featured <span className="text-brandPrimary underline decoration-brandPrimary/30 underline-offset-8">Projects.</span>
           </h2>
         </header>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewOptions}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full items-stretch"
-          itemScope
+          <motion.div
+           variants={containerVariants}
+           initial="hidden"
+           whileInView="visible"
+           viewport={viewOptions}
+           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full items-stretch"
+           itemScope
           itemType="https://schema.org/ItemList"
         >
           <meta
@@ -323,7 +323,7 @@ export default function Projects() {
             content="https://schema.org/OrderAscending"
           />
 
-          {PROJECT_DATA.map((project, idx) => (
+          {PROJECT_DATA.filter(p => p.liveDemo && p.liveDemo !== LIVE_DEMO_URL_PLACEHOLDER).slice(0, 9).map((project, idx) => (
             <ProjectCard key={project.title} project={project} index={idx} />
           ))}
         </motion.div>

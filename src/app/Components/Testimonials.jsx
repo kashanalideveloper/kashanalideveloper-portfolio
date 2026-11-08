@@ -65,15 +65,26 @@ export default function Testimonials() {
   const componentId = useId();
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [pageSize, setPageSize] = useState(1);
 
   const viewOptions = { once: true, margin: "-60px" };
 
-  const PAGE_SIZE = 3;
   const pages = [];
-  for (let i = 0; i < testimonials.length; i += PAGE_SIZE) {
-    pages.push(testimonials.slice(i, i + PAGE_SIZE));
+  for (let i = 0; i < testimonials.length; i += pageSize) {
+    pages.push(testimonials.slice(i, i + pageSize));
   }
   const totalPages = pages.length;
+  const activeIndex = index % totalPages;
+
+  useEffect(() => {
+    const updatePageSize = () => {
+      setPageSize(window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1);
+    };
+
+    updatePageSize();
+    window.addEventListener("resize", updatePageSize);
+    return () => window.removeEventListener("resize", updatePageSize);
+  }, []);
 
   useEffect(() => {
     if (!paused) {
@@ -89,7 +100,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="relative py-20 sm:py-24 lg:py-28 bg-linear-to-b from-brandBg via-white to-brandBg text-brandInk overflow-hidden border-t border-brandLine scroll-mt-28"
+      className="relative overflow-hidden border-t border-brandLine bg-brandBg py-16 text-brandInk scroll-mt-28 sm:py-20 lg:py-24"
       style={{ contentVisibility: "auto", containIntrinsicSize: "0 800px" }}
       aria-labelledby={`${componentId}-heading`}
     >
@@ -103,22 +114,34 @@ export default function Testimonials() {
         aria-hidden="true"
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+      <div className="relative z-20 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col mb-12 sm:mb-16 text-center items-center">
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brandPrimary/10 border border-brandPrimary/25 text-[11px] font-mono tracking-widest text-brandPrimary uppercase mb-4 shadow-xs">
-            <span className="w-2 h-2 rounded-full bg-brandPrimary animate-pulse" />
-            Verified Client Feedback
-          </span>
-          <h2
-            id={`${componentId}-heading`}
-            className="text-3xl sm:text-5xl font-black text-brandInk leading-tight uppercase tracking-tight"
-          >
-            Trusted By <span className="text-brandPrimary">Founders</span> & Leaders.
-          </h2>
-          <p className="mt-4 max-w-2xl text-sm sm:text-base text-brandMuted font-light">
-            Here is what clients and project stakeholders say about working with Malik Kashan for custom frontend and full-stack development.
-          </p>
+        <div className="mb-9 flex flex-col gap-6 sm:mb-12 sm:flex-row sm:items-end sm:justify-between">
+          <div className="max-w-2xl">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-brandPrimary/25 bg-brandPrimary/10 px-3 py-1 text-[10px] font-mono uppercase tracking-[0.18em] text-brandPrimary">
+              <span className="h-1.5 w-1.5 rounded-full bg-brandPrimary" />
+              Client stories
+            </span>
+            <h2
+              id={`${componentId}-heading`}
+              className="text-3xl font-bold leading-tight tracking-tight text-brandInk sm:text-4xl lg:text-5xl"
+            >
+              Good work speaks{" "}
+              <span className="text-brandPrimary">for itself.</span>
+            </h2>
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-brandMuted sm:text-base">
+              A few words from the people behind the products, platforms and
+              businesses I have worked with.
+            </p>
+          </div>
+          <div className="flex items-center gap-3 border-t border-brandLine pt-4 sm:border-l sm:border-t-0 sm:pb-1 sm:pl-5 sm:pt-0">
+            <span className="font-mono text-3xl font-semibold tracking-tight text-brandPrimary">
+              0{testimonials.length}
+            </span>
+            <span className="max-w-24 text-[10px] font-semibold uppercase leading-relaxed tracking-[0.14em] text-brandMuted">
+              Client stories
+            </span>
+          </div>
         </div>
 
         {/* Testimonial Carousel Container */}
@@ -130,11 +153,11 @@ export default function Testimonials() {
             hidden: { opacity: 0, y: 20 },
             visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
           }}
-          className="max-w-7xl mx-auto"
+          className="mx-auto max-w-7xl"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
-          <div className="relative rounded-3xl bg-white border border-brandLine overflow-hidden shadow-[0_20px_50px_rgba(15,23,42,0.07)] p-2 sm:p-4">
+          <div className="relative overflow-hidden rounded-3xl border border-brandLine bg-white p-2 shadow-[0_2px_8px_rgba(15,23,42,0.03)] dark:bg-brandCard dark:shadow-none sm:p-3">
             {/* Top Accent Gradient Bar */}
             <div
               className="absolute top-0 left-0 w-full h-1.5 bg-linear-to-r from-cyan-500 via-sky-400 to-cyan-600 z-20"
@@ -143,24 +166,23 @@ export default function Testimonials() {
 
             {/* Carousel Slider Track */}
             <div
-              className="flex transition-transform duration-700 ease-out"
-              style={{ transform: `translateX(-${index * 100}%)` }}
-              role="tablist"
+              className="flex transition-transform duration-500 ease-out motion-reduce:transition-none"
+              style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+              aria-roledescription="carousel"
               aria-label="Testimonial carousel"
             >
               {pages.map((page, p) => (
                 <div
                   key={p}
-                  className="w-full shrink-0 grid grid-cols-1 md:grid-cols-3 gap-6 p-4 sm:p-6 lg:p-8"
-                  aria-hidden={p !== index}
+                  className="grid w-full shrink-0 grid-cols-1 gap-3 p-2 sm:grid-cols-2 sm:gap-4 sm:p-4 lg:grid-cols-3 lg:gap-5 lg:p-5"
+                  aria-hidden={p !== activeIndex}
                 >
                   {page.map((t) => (
-                    <figure
-                      key={t.name}
-                      className="relative flex flex-col justify-between rounded-2xl bg-brandBg/60 border border-brandLine/80 p-6 sm:p-8 transition-all duration-300 hover:-translate-y-2 hover:border-brandPrimary/40 hover:bg-white hover:shadow-[0_20px_40px_-15px_rgba(8,145,178,0.15)] group"
-                    >
-                      {/* Top Row: Rating + Project Tag */}
-                      <div className="flex items-center justify-between mb-4">
+                      <figure
+                        key={t.name}
+                        className="group relative flex h-full flex-col rounded-2xl border border-brandLine bg-brandBg/70 dark:bg-slate-900/60 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-brandPrimary/40 hover:bg-brandCard hover:shadow-[0_4px_12px_-8px_rgba(8,145,178,0.08)] dark:hover:shadow-none sm:p-5 lg:p-6"
+                      >
+                      <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
                         <div
                           className="flex items-center gap-1"
                           aria-label={`Rated ${t.rating} out of 5 stars`}
@@ -168,7 +190,7 @@ export default function Testimonials() {
                           {Array.from({ length: t.rating }).map((_, s) => (
                             <svg
                               key={s}
-                              className="w-4 h-4 text-amber-400 drop-shadow-xs"
+                              className="h-3.5 w-3.5 text-amber-400"
                               viewBox="0 0 24 24"
                               fill="currentColor"
                               aria-hidden="true"
@@ -177,26 +199,27 @@ export default function Testimonials() {
                             </svg>
                           ))}
                         </div>
-                        <span className="text-[10px] font-mono tracking-wider uppercase text-brandPrimary bg-brandPrimary/10 px-2.5 py-1 rounded-full border border-brandPrimary/20">
+                        <span className="max-w-full rounded-full border border-brandPrimary/20 bg-brandPrimary/10 px-2.5 py-1 text-[9px] font-mono uppercase leading-relaxed tracking-wide text-brandPrimary sm:text-[10px]">
                           {t.project}
                         </span>
                       </div>
 
-                      {/* Quote Text */}
-                      <blockquote className="text-sm sm:text-[15px] text-brandMuted leading-relaxed font-light mb-8 flex-1">
+                      <div className="mb-3 font-serif text-4xl leading-none text-brandPrimary/40" aria-hidden="true">
+                        &ldquo;
+                      </div>
+                      <blockquote className="mb-7 flex-1 text-sm font-light leading-relaxed text-brandInk/80 dark:text-slate-200 sm:text-[15px]">
                         &ldquo;{t.quote}&rdquo;
                       </blockquote>
 
-                      {/* Author Info */}
-                      <figcaption className="pt-5 border-t border-brandLine flex items-center gap-3.5">
-                        <div className="w-12 h-12 rounded-full bg-brandPrimary/10 border border-brandPrimary/30 flex items-center justify-center text-xs font-bold text-brandPrimary font-mono shrink-0 shadow-xs group-hover:bg-brandPrimary group-hover:text-white transition-all duration-300">
+                      <figcaption className="flex items-center gap-3 border-t border-brandLine pt-4">
+                        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-brandPrimary/30 bg-brandPrimary/10 font-mono text-xs font-bold text-brandPrimary transition-colors duration-300 group-hover:bg-brandPrimary group-hover:text-white">
                           {t.initials}
                         </div>
                         <div className="min-w-0">
-                          <p className="text-sm font-bold text-brandInk tracking-wide truncate group-hover:text-brandPrimary transition-colors duration-200">
+                          <p className="truncate text-sm font-bold tracking-wide text-brandInk transition-colors duration-200 group-hover:text-brandPrimary">
                             {t.name}
                           </p>
-                          <p className="text-[10px] font-mono text-brandMuted/70 tracking-wider uppercase mt-0.5 truncate">
+                          <p className="mt-0.5 truncate text-[10px] font-mono uppercase tracking-wider text-brandMuted/80">
                             {t.role}
                           </p>
                         </div>
@@ -209,16 +232,18 @@ export default function Testimonials() {
           </div>
 
           {/* Controls: Arrows + Dots */}
-          <div className="flex items-center justify-between mt-8 px-2">
-            <p className="font-mono text-xs tracking-widest text-brandMuted uppercase">
-              Page <span className="font-bold text-brandInk">{String(index + 1).padStart(2, "0")}</span> of {String(totalPages).padStart(2, "0")}
+          <div className="mt-5 flex items-center justify-between px-1 sm:mt-6 sm:px-2">
+            <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-brandMuted sm:text-xs">
+              <span className="font-bold text-brandInk">{String(activeIndex + 1).padStart(2, "0")}</span>
+              <span className="mx-1.5 text-brandMuted/50">/</span>
+              {String(totalPages).padStart(2, "0")}
             </p>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               <button
-                onClick={() => goTo(index - 1)}
+                onClick={() => goTo(activeIndex - 1)}
                 aria-label="Previous testimonial page"
-                className="w-11 h-11 rounded-full bg-white border border-brandLine flex items-center justify-center text-brandMuted hover:text-brandPrimary hover:border-brandPrimary/50 transition-all duration-200 cursor-pointer shadow-xs hover:scale-105 active:scale-95"
+                className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-brandLine bg-white text-brandMuted transition-all duration-200 hover:border-brandPrimary/50 hover:text-brandPrimary active:scale-95 dark:bg-brandCard sm:h-10 sm:w-10"
               >
                 <svg
                   className="w-4 h-4"
@@ -240,8 +265,8 @@ export default function Testimonials() {
                     key={page[0].name}
                     onClick={() => goTo(i)}
                     aria-label={`Go to testimonial page ${i + 1}`}
-                    className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-                      i === index
+                    className={`h-2.5 cursor-pointer rounded-full transition-all duration-300 ${
+                      i === activeIndex
                         ? "w-8 bg-brandPrimary"
                         : "w-2.5 bg-brandPrimary/20 hover:bg-brandPrimary/40"
                     }`}
@@ -250,9 +275,9 @@ export default function Testimonials() {
               </div>
 
               <button
-                onClick={() => goTo(index + 1)}
+                onClick={() => goTo(activeIndex + 1)}
                 aria-label="Next testimonial page"
-                className="w-11 h-11 rounded-full bg-white border border-brandLine flex items-center justify-center text-brandMuted hover:text-brandPrimary hover:border-brandPrimary/50 transition-all duration-200 cursor-pointer shadow-xs hover:scale-105 active:scale-95"
+                className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-brandLine bg-white text-brandMuted transition-all duration-200 hover:border-brandPrimary/50 hover:text-brandPrimary active:scale-95 dark:bg-brandCard sm:h-10 sm:w-10"
               >
                 <svg
                   className="w-4 h-4"

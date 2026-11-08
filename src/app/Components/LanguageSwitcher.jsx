@@ -62,7 +62,7 @@ export default function LanguageSwitcher() {
         aria-label="Select language"
         aria-haspopup="true"
         aria-expanded={isOpen}
-        className="flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl border border-brandLine bg-white dark:bg-slate-800 dark:border-slate-600 hover:border-brandPrimary/50 text-xs font-semibold text-brandInk dark:text-slate-200 transition-all cursor-pointer shadow-xs focus:outline-none focus:ring-2 focus:ring-brandPrimary/40"
+        className="flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl border border-brandLine bg-white dark:bg-brandCard hover:border-brandPrimary/50 text-xs font-semibold text-brandInk transition-all cursor-pointer shadow-xs focus:outline-none focus:ring-2 focus:ring-brandPrimary/40"
       >
         <span>{currentLang.flag}</span>
         <span className="hidden sm:inline">{currentLang.label}</span>
@@ -81,14 +81,14 @@ export default function LanguageSwitcher() {
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-brandLine dark:border-slate-600 p-3 z-50 transition-all duration-200 ease-out transform origin-top animate-in fade-in zoom-in-95">
+        <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-brandCard rounded-2xl shadow-xl border border-brandLine p-3 z-50 transition-all duration-200 ease-out transform origin-top animate-in fade-in zoom-in-95">
           <div className="mb-2">
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search language..."
-              className="w-full px-3 py-2 text-xs bg-brandSoft dark:bg-slate-700 border border-brandLine dark:border-slate-600 rounded-xl text-brandInk dark:text-slate-200 focus:outline-none focus:border-brandPrimary"
+              className="w-full px-3 py-2 text-xs bg-brandSoft border border-brandLine rounded-xl text-brandInk focus:outline-none focus:border-brandPrimary"
               autoFocus
             />
           </div>
@@ -106,7 +106,7 @@ export default function LanguageSwitcher() {
                   className={`w-full flex items-center gap-2.5 px-3 py-2 text-xs font-medium rounded-xl text-left hover:bg-brandSoft dark:hover:bg-slate-700 transition-colors cursor-pointer ${
                     currentLang.code === l.code
                       ? "text-brandPrimary font-bold bg-brandPrimary/10"
-                      : "text-brandInk dark:text-slate-200"
+                      : "text-brandInk"
                   }`}
                 >
                   <span className="text-sm">{l.flag}</span>

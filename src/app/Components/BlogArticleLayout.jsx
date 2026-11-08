@@ -1,8 +1,13 @@
 // src/app/Components/BlogArticleLayout.jsx
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { SITE } from "../lib/site";
 import { ARTICLES } from "../lib/blog";
+import Logo from "./Logo";
+import BlogNewsletterSignup from "./BlogNewsletterSignup";
 
 const MONTH_INDEX = {
   January: "01", February: "02", March: "03", April: "04",
@@ -27,6 +32,30 @@ export default function BlogArticleLayout({
   const related = ARTICLES.filter((a) => a.category === category && a.slug !== slug).slice(0, 3);
   // Recent for sidebar
   const recent = ARTICLES.filter((a) => a.slug !== slug).slice(0, 4);
+
+  const [activeId, setActiveId] = useState("");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const headingElements = sections.map((_, i) => document.getElementById(`article-section-${i + 1}`)).filter(Boolean);
+      if (conclusion) {
+        headingElements.push(document.getElementById("article-conclusion"));
+      }
+
+      const scrollPosition = window.scrollY + 180;
+      for (let i = headingElements.length - 1; i >= 0; i--) {
+        const el = headingElements[i];
+        if (el && el.offsetTop <= scrollPosition) {
+          setActiveId(el.id);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [sections, conclusion]);
 
   const articleJsonLd = {
     "@context": "https://schema.org", "@type": "Article",
@@ -81,39 +110,27 @@ export default function BlogArticleLayout({
       </section>
 
       {/* Content + Sidebar */}
-      <main className="relative bg-white pb-16 sm:pb-24">
+      <main className="relative bg-brandBg dark:bg-brandBg pb-16 sm:pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
-          {/* Cover image — reinforces the article topic for readers and image search */}
-          {article && article.image && (
-            <div className="w-full aspect-video rounded-2xl overflow-hidden bg-brandSoft mb-10 border border-brandLine">
-              <Image
-                src={article.image}
-                alt={`${title} — ${category} guide by Malik Kashan, web developer in Pakistan`}
-                fill
-                sizes="(max-width: 1024px) 100vw, 900px"
-                priority
-                className="object-cover"
-              />
-            </div>
-          )}
-          <div className="flex flex-col lg:flex-row gap-12">
+
+          <div className="flex flex-col lg:flex-row gap-12 items-start">
 
             {/* ── ARTICLE CONTENT ── */}
             <article className="flex-1 min-w-0">
               {/* Intro */}
-              <p className="text-base sm:text-lg text-brandInk leading-relaxed font-medium border-l-4 border-brandPrimary pl-4 mb-10">
+              <p className="text-base sm:text-lg text-brandInk dark:text-brandInk leading-relaxed font-medium border-l-4 border-brandPrimary pl-4 mb-10">
                 {intro}
               </p>
 
               <div className="space-y-10">
-                {sections.map((section) => (
-                  <section key={section.heading}>
-                    <h2 className="text-lg sm:text-2xl font-bold text-brandInk tracking-wide mb-4">
+                {sections.map((section, index) => (
+                  <section key={section.heading} id={`article-section-${index + 1}`} className="scroll-mt-28">
+                    <h2 className="text-lg sm:text-2xl font-bold text-brandInk dark:text-brandInk tracking-wide mb-4">
                       {section.heading}
                     </h2>
                     <div className="space-y-4">
                       {section.body.map((paragraph, idx) => (
-                        <p key={idx} className="text-sm sm:text-[15px] text-brandMuted leading-relaxed font-light">
+                        <p key={idx} className="text-sm sm:text-[15px] text-brandMuted dark:text-brandMuted leading-relaxed font-light">
                           {paragraph}
                         </p>
                       ))}
@@ -122,11 +139,11 @@ export default function BlogArticleLayout({
                 ))}
 
                 {conclusion && (
-                  <section>
-                    <h2 className="text-lg sm:text-2xl font-bold text-brandInk tracking-wide mb-4">Conclusion</h2>
+                  <section id="article-conclusion" className="scroll-mt-28">
+                    <h2 className="text-lg sm:text-2xl font-bold text-brandInk dark:text-brandInk tracking-wide mb-4">Conclusion</h2>
                     <div className="space-y-4">
                       {conclusion.map((paragraph, idx) => (
-                        <p key={idx} className="text-sm sm:text-[15px] text-brandMuted leading-relaxed font-light">
+                        <p key={idx} className="text-sm sm:text-[15px] text-brandMuted dark:text-brandMuted leading-relaxed font-light">
                           {paragraph}
                         </p>
                       ))}
@@ -153,8 +170,8 @@ export default function BlogArticleLayout({
 
               {/* Author card */}
               <div className="mt-12 rounded-2xl bg-brandBg border border-brandLine p-6 sm:p-8 flex flex-col sm:flex-row items-start gap-5">
-                <div className="w-14 h-14 rounded-full bg-brandPrimary/10 border border-brandPrimary/20 flex items-center justify-center text-sm font-bold text-brandPrimary font-mono shrink-0">
-                  MK
+                <div className="w-14 h-14 rounded-full bg-brandPrimary/10 border border-brandPrimary/20 flex items-center justify-center shrink-0 p-2">
+                  <Logo size={32} />
                 </div>
                 <div className="flex-1">
                   <p className="text-sm font-bold text-brandInk">Malik Kashan</p>
@@ -199,48 +216,69 @@ export default function BlogArticleLayout({
             </article>
 
             {/* ── RIGHT SIDEBAR ── */}
-            <aside className="lg:w-72 xl:w-80 shrink-0 space-y-7 lg:pt-0">
+            <aside className="lg:w-72 xl:w-80 shrink-0 space-y-6 lg:pt-0">
+              <BlogNewsletterSignup />
 
               {/* Table of contents */}
               {sections.length > 0 && (
-                <div className="rounded-2xl border border-brandLine bg-brandBg p-5 sticky top-28">
+                <div className="rounded-2xl border border-brandLine/80 bg-white dark:bg-slate-900 dark:border-slate-800 p-6 shadow-[0_4px_20px_-4px_rgba(15,23,42,0.05)]">
                   <h3 className="text-[11px] font-mono tracking-widest text-brandPrimary uppercase mb-4 flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-brandPrimary" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-brandPrimary animate-pulse" />
                     Table of Contents
                   </h3>
-                  <ol className="space-y-2">
-                    {sections.map((s, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span className="text-[10px] font-mono text-brandPrimary mt-0.5 shrink-0">{String(i + 1).padStart(2, "0")}.</span>
-                        <span className="text-xs text-brandMuted hover:text-brandPrimary transition-colors leading-snug cursor-default">{s.heading}</span>
-                      </li>
-                    ))}
-                    {conclusion && (
-                      <li className="flex items-start gap-2">
-                        <span className="text-[10px] font-mono text-brandPrimary mt-0.5 shrink-0">{String(sections.length + 1).padStart(2, "0")}.</span>
-                        <span className="text-xs text-brandMuted hover:text-brandPrimary transition-colors leading-snug cursor-default">Conclusion</span>
-                      </li>
-                    )}
+                  <ol className="space-y-3">
+                    {sections.map((s, i) => {
+                      const id = `article-section-${i + 1}`;
+                      const isActive = activeId === id;
+                      return (
+                        <li key={i}>
+                          <a href={`#${id}`} className={`group flex items-start gap-3 rounded-md py-1 px-1.5 transition-colors ${isActive ? "bg-brandPrimary/10 text-brandPrimary font-semibold" : "hover:bg-brandBg dark:hover:bg-slate-800"}`}>
+                            <span className={`w-7 shrink-0 rounded px-1 py-0.5 text-center font-mono text-[10px] font-bold transition-colors ${isActive ? "bg-brandPrimary text-white" : "bg-brandPrimary/10 text-brandPrimary group-hover:bg-brandPrimary group-hover:text-white"}`}>
+                              {String(i + 1).padStart(2, "0")}
+                            </span>
+                            <span className={`min-w-0 text-xs transition-colors leading-snug ${isActive ? "text-brandPrimary font-semibold" : "font-medium text-brandMuted dark:text-slate-300 group-hover:text-brandInk dark:group-hover:text-white"}`}>
+                              {s.heading}
+                            </span>
+                          </a>
+                        </li>
+                      );
+                    })}
+                    {conclusion && (() => {
+                      const id = "article-conclusion";
+                      const isActive = activeId === id;
+                      return (
+                        <li>
+                          <a href={`#${id}`} className={`group flex items-start gap-3 rounded-md py-1 px-1.5 transition-colors ${isActive ? "bg-brandPrimary/10 text-brandPrimary font-semibold" : "hover:bg-brandBg dark:hover:bg-slate-800"}`}>
+                            <span className={`w-7 shrink-0 rounded px-1 py-0.5 text-center font-mono text-[10px] font-bold transition-colors ${isActive ? "bg-brandPrimary text-white" : "bg-brandPrimary/10 text-brandPrimary group-hover:bg-brandPrimary group-hover:text-white"}`}>
+                              {String(sections.length + 1).padStart(2, "0")}
+                            </span>
+                            <span className={`min-w-0 text-xs transition-colors leading-snug ${isActive ? "text-brandPrimary font-semibold" : "font-medium text-brandMuted dark:text-slate-300 group-hover:text-brandInk dark:group-hover:text-white"}`}>
+                              Conclusion
+                            </span>
+                          </a>
+                        </li>
+                      );
+                    })()}
                   </ol>
                 </div>
               )}
 
               {/* Recent posts */}
-              <div className="rounded-2xl border border-brandLine bg-brandBg p-5">
+              <div className="rounded-2xl border border-brandLine/80 bg-white dark:bg-slate-900 dark:border-slate-800 p-6 shadow-[0_4px_20px_-4px_rgba(15,23,42,0.05)]">
                 <h3 className="text-[11px] font-mono tracking-widest text-brandPrimary uppercase mb-4 flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-brandPrimary" />
-                  Recent Posts
+                  Recent Articles
                 </h3>
                 <ul className="space-y-4">
                   {recent.map((a) => (
                     <li key={a.slug}>
-                      <Link href={`/blog/${a.slug}`} className="flex items-start gap-3 group">
-                        <div className="relative w-14 h-14 rounded-lg overflow-hidden shrink-0 bg-brandSoft">
-                          <Image src={a.image} alt={a.title} fill sizes="56px" className="object-cover" />
+                      <Link href={`/blog/${a.slug}`} className="flex items-center gap-3.5 group p-1.5 -mx-1.5 rounded-xl hover:bg-brandBg dark:hover:bg-slate-800 transition-all">
+                        <div className="relative w-14 h-14 rounded-xl overflow-hidden shrink-0 bg-brandSoft border border-brandLine/50 shadow-sm">
+                          <Image src={a.image} alt={a.title} fill sizes="56px" className="object-cover group-hover:scale-105 transition-transform duration-300" />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className="text-xs font-semibold text-brandInk group-hover:text-brandPrimary transition-colors leading-snug line-clamp-2">{a.title}</p>
-                          <p className="text-[10px] font-mono text-brandMuted/70 mt-1 uppercase">{a.date}</p>
+                          <p className="text-xs font-semibold text-brandInk dark:text-white group-hover:text-brandPrimary transition-colors leading-snug line-clamp-2">{a.title}</p>
+                          <p className="text-[10px] font-mono text-brandMuted/70 dark:text-slate-400 mt-1 uppercase">{a.date}</p>
                         </div>
                       </Link>
                     </li>
@@ -249,12 +287,13 @@ export default function BlogArticleLayout({
               </div>
 
               {/* CTA */}
-              <div className="rounded-2xl bg-brandPrimary p-6 text-center">
-                <p className="text-white font-bold text-sm mb-1">Need a Website?</p>
-                <p className="text-white/70 text-xs font-light mb-4 leading-relaxed">Fast, modern and SEO-ready — built for your business goals.</p>
+              <div className="rounded-2xl bg-gradient-to-br from-brandPrimary to-brandSecondary p-6 text-center shadow-xl relative overflow-hidden">
+                <div className="absolute -right-8 -top-8 w-32 h-32 bg-white/10 rounded-full blur-2xl pointer-events-none" />
+                <p className="text-white font-bold text-sm mb-1 uppercase tracking-tight">Need a Custom Website?</p>
+                <p className="text-white/80 text-xs font-light mb-5 leading-relaxed">Fast, modern and SEO-ready — tailored for your growth.</p>
                 <Link
                   href="/#contact"
-                  className="inline-flex items-center justify-center px-5 py-2 bg-white text-brandPrimary text-[11px] font-bold uppercase tracking-widest rounded-xl hover:bg-brandBg transition-colors"
+                  className="inline-flex items-center justify-center px-6 py-2.5 bg-white text-brandPrimary text-[11px] font-bold uppercase tracking-widest rounded-xl hover:bg-brandSoft hover:shadow-lg transition-all"
                 >
                   Get in Touch →
                 </Link>

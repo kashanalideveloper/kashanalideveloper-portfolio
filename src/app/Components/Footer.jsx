@@ -87,6 +87,17 @@ export default function Footer() {
 
             <div className="flex items-center gap-3">
               <a
+                href="https://www.linkedin.com/in/kashan-ali-62401a420/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Malik Kashan LinkedIn profile"
+                className="w-9 h-9 rounded-full border border-brandLine bg-brandSoft dark:bg-slate-800 flex items-center justify-center text-brandMuted hover:border-brandPrimary hover:text-brandPrimary transition-all duration-300"
+              >
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </a>
+              <a
                 href={SITE.github}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -182,56 +193,61 @@ export default function Footer() {
             <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-brandInk dark:text-white mb-5">
               {t("navContact")}
             </h3>
-            <ul className="space-y-3 text-sm">
-              <li>
-                <a
-                  href={`mailto:${SITE.email}`}
-                  className="flex items-start gap-2.5 text-brandMuted dark:text-slate-300 hover:text-brandPrimary transition-colors duration-200"
-                >
-                  <svg className="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <rect x="2" y="4" width="20" height="16" rx="2" />
-                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                  </svg>
-                  {SITE.email}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`tel:${SITE.phoneIntl}`}
-                  className="flex items-start gap-2.5 text-brandMuted dark:text-slate-300 hover:text-brandPrimary transition-colors duration-200"
-                >
-                  <svg className="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
-                  </svg>
-                  {SITE.phoneDisplay}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={SITE.location.mapUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-2.5 text-brandMuted dark:text-slate-300 hover:text-brandPrimary transition-colors duration-200"
-                >
-                  <svg className="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" />
-                    <circle cx="12" cy="10" r="3" />
-                  </svg>
-                  {SITE.location.label}
-                </a>
-              </li>
-            </ul>
+            <div className="grid grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] items-start gap-3 lg:block">
+              <ul className="min-w-0 space-y-3 text-[11px] sm:text-sm">
+                <li>
+                  <a
+                    href={`mailto:${SITE.email}`}
+                    className="flex min-w-0 items-start gap-2.5 text-brandMuted dark:text-brandMuted hover:text-brandPrimary transition-colors duration-200"
+                  >
+                    <svg className="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <rect x="2" y="4" width="20" height="16" rx="2" />
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                    </svg>
+                    <span className="min-w-0 break-all">{SITE.email}</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={`tel:${SITE.phoneIntl}`}
+                    className="flex items-start gap-2.5 text-brandMuted dark:text-brandMuted hover:text-brandPrimary transition-colors duration-200"
+                  >
+                    <svg className="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                    {SITE.phoneDisplay}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={SITE.location.mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-2.5 text-brandMuted dark:text-brandMuted hover:text-brandPrimary transition-colors duration-200"
+                  >
+                    <svg className="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    {SITE.location.label}
+                  </a>
+                </li>
+              </ul>
 
-            <div className="mt-6 pt-5 border-t border-brandLine space-y-2.5">
-              {legalLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className="block text-xs font-mono uppercase tracking-wider text-brandMuted dark:text-slate-400 hover:text-brandPrimary transition-colors duration-200"
-                >
-                  {link.name}
-                </Link>
-              ))}
+              <nav
+                aria-label="Legal links"
+                className="flex flex-col items-start gap-3 border-l border-brandLine pl-3 text-left lg:mt-6 lg:border-l-0 lg:border-t lg:pt-5"
+              >
+                {legalLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className="text-[9px] font-mono uppercase tracking-[0.04em] text-brandMuted transition-colors duration-200 hover:text-brandPrimary sm:text-[10px] lg:text-xs lg:tracking-wider"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </nav>
             </div>
           </motion.div>
         </div>

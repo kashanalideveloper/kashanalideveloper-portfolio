@@ -25,8 +25,38 @@ const CATEGORIES = [...new Set(ARTICLES.map((a) => a.category))];
 
 // Recent 5 articles for sidebar
 const RECENT = ARTICLES.slice(0, 5);
+const PAGE_SIZE = 6;
 
-export default function BlogPage() {
+function blogHref(category, page = 1) {
+  const params = new URLSearchParams();
+  if (category !== "All") params.set("category", category);
+  if (page > 1) params.set("page", String(page));
+  const query = params.toString();
+  return query ? `/blog?${query}` : "/blog";
+}
+
+export default async function BlogPage({ searchParams }) {
+  const query = searchParams ? await searchParams : {};
+  const requestedCategory =
+    typeof query.category === "string" ? query.category : "All";
+  const selectedCategory = CATEGORIES.includes(requestedCategory)
+    ? requestedCategory
+    : "All";
+  const filteredArticles =
+    selectedCategory === "All"
+      ? ARTICLES
+      : ARTICLES.filter((article) => article.category === selectedCategory);
+  const totalPages = Math.max(1, Math.ceil(filteredArticles.length / PAGE_SIZE));
+  const requestedPage =
+    typeof query.page === "string" && /^\d+$/.test(query.page)
+      ? Number(query.page)
+      : 1;
+  const currentPage = Math.min(Math.max(requestedPage, 1), totalPages);
+  const pageArticles = filteredArticles.slice(
+    (currentPage - 1) * PAGE_SIZE,
+    currentPage * PAGE_SIZE,
+  );
+
   return (
     <>
       <PageHeader
@@ -38,9 +68,9 @@ export default function BlogPage() {
 
       <main className="relative bg-white pb-16 sm:pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
-          <div className="flex flex-col lg:flex-row gap-10">
+          <div className="grid grid-cols-1 items-stretch gap-10 lg:grid-cols-[18rem_minmax(0,1fr)]">
             {/* ── LEFT SIDEBAR ── */}
-            <aside className="lg:w-72 xl:w-80 shrink-0 space-y-8">
+            <aside className="flex h-full flex-col gap-8">
               {/* About widget */}
               <div className="rounded-2xl border border-brandLine bg-brandBg p-6">
                 <div className="flex items-center gap-3 mb-3">
@@ -75,18 +105,27 @@ export default function BlogPage() {
                   Categories
                 </h2>
                 <ul className="space-y-2">
-                  {CATEGORIES.map((cat) => {
-                    const count = ARTICLES.filter(
-                      (a) => a.category === cat,
-                    ).length;
+                  {["All", ...CATEGORIES].map((cat) => {
+                    const count =
+                      cat === "All"
+                        ? ARTICLES.length
+                        : ARTICLES.filter((a) => a.category === cat).length;
                     return (
                       <li key={cat}>
-                        <span className="flex items-center justify-between text-xs text-brandMuted hover:text-brandPrimary transition-colors cursor-default py-1 border-b border-brandLine/50 last:border-0">
-                          <span className="font-medium">{cat}</span>
+                        <Link
+                          href={blogHref(cat)}
+                          aria-current={selectedCategory === cat ? "page" : undefined}
+                          className={`flex items-center justify-between text-xs transition-colors py-1 border-b border-brandLine/50 last:border-0 ${
+                            selectedCategory === cat
+                              ? "text-brandPrimary"
+                              : "text-brandMuted hover:text-brandPrimary"
+                          }`}
+                        >
+                          <span className="font-medium">{cat === "All" ? "All Articles" : cat}</span>
                           <span className="text-[10px] font-mono bg-brandPrimary/10 text-brandPrimary px-2 py-0.5 rounded-full">
                             {count}
                           </span>
-                        </span>
+                        </Link>
                       </li>
                     );
                   })}
@@ -130,7 +169,7 @@ export default function BlogPage() {
               </div>
 
               {/* Hire Me CTA */}
-              <div className="rounded-2xl bg-brandPrimary p-6 text-center">
+              <div className="mt-auto rounded-2xl bg-brandPrimary p-6 text-center">
                 <p className="text-white font-bold text-sm mb-1">
                   Need a Website?
                 </p>
@@ -147,9 +186,27 @@ export default function BlogPage() {
             </aside>
 
             {/* ── MAIN ARTICLES GRID ── */}
-            <section className="flex-1 min-w-0">
+            <section className="flex min-w-0 flex-col">
+              <div className="mb-5 flex items-center justify-between gap-3">
+                <p className="text-xs text-brandMuted">
+                  Showing{" "}
+                  <span className="font-semibold text-brandInk">
+                    {filteredArticles.length === 0
+                      ? 0
+                      : (currentPage - 1) * PAGE_SIZE + 1}
+                    –
+                    {Math.min(currentPage * PAGE_SIZE, filteredArticles.length)}
+                  </span>{" "}
+                  of {filteredArticles.length} articles
+                </p>
+                {selectedCategory !== "All" && (
+                  <span className="rounded-full border border-brandPrimary/20 bg-brandPrimary/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-brandPrimary">
+                    {selectedCategory}
+                  </span>
+                )}
+              </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {ARTICLES.map((article) => (
+                {pageArticles.map((article) => (
                   <Link
                     key={article.slug}
                     href={`/blog/${article.slug}`}
@@ -176,7 +233,7 @@ export default function BlogPage() {
                       </p>
                     </div>
                     <div className="px-5 pb-5">
-                      <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest text-brandPrimary bg-brandPrimary/10 border border-brandPrimary/20 transition-all duration-300 group-hover:bg-brandPrimary group-hover:text-white group-hover:border-brandPrimary">
+                      <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest text-[color:var(--color-primary)] bg-brandPrimary/10 border border-brandPrimary/20 transition-all duration-300 group-hover:bg-brandPrimary group-hover:text-white group-hover:border-brandPrimary">
                         View Article
                         <svg
                           className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5"
@@ -195,6 +252,57 @@ export default function BlogPage() {
                   </Link>
                 ))}
               </div>
+
+              {totalPages > 1 && (
+                <nav
+                  aria-label="Blog pagination"
+                  className="mt-8 flex flex-wrap items-center justify-center gap-2"
+                >
+                  <Link
+                    href={blogHref(selectedCategory, currentPage - 1)}
+                    aria-label="Previous page"
+                    aria-disabled={currentPage === 1}
+                    tabIndex={currentPage === 1 ? -1 : undefined}
+                    className={`rounded-lg border border-brandLine px-3 py-2 text-xs font-medium transition-colors ${
+                      currentPage === 1
+                        ? "pointer-events-none opacity-40"
+                        : "text-brandMuted hover:border-brandPrimary/40 hover:text-brandPrimary"
+                    }`}
+                  >
+                    Previous
+                  </Link>
+                  {Array.from({ length: totalPages }, (_, index) => index + 1).map(
+                    (page) => (
+                      <Link
+                        key={page}
+                        href={blogHref(selectedCategory, page)}
+                        aria-label={`Page ${page}`}
+                        aria-current={currentPage === page ? "page" : undefined}
+                        className={`flex h-9 min-w-9 items-center justify-center rounded-lg border px-3 text-xs font-semibold transition-colors ${
+                          currentPage === page
+                            ? "border-brandPrimary bg-brandPrimary text-white"
+                            : "border-brandLine text-brandMuted hover:border-brandPrimary/40 hover:text-brandPrimary"
+                        }`}
+                      >
+                        {page}
+                      </Link>
+                    ),
+                  )}
+                  <Link
+                    href={blogHref(selectedCategory, currentPage + 1)}
+                    aria-label="Next page"
+                    aria-disabled={currentPage === totalPages}
+                    tabIndex={currentPage === totalPages ? -1 : undefined}
+                    className={`rounded-lg border border-brandLine px-3 py-2 text-xs font-medium transition-colors ${
+                      currentPage === totalPages
+                        ? "pointer-events-none opacity-40"
+                        : "text-brandMuted hover:border-brandPrimary/40 hover:text-brandPrimary"
+                    }`}
+                  >
+                    Next
+                  </Link>
+                </nav>
+              )}
 
               {/* Bottom CTA */}
               <div className="mt-14 rounded-2xl bg-brandPrimary/5 border border-brandPrimary/20 p-8 sm:p-10 text-center">

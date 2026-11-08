@@ -10,7 +10,7 @@ const translations = {
     heroIam: "And I'm a",
     heroTitle: "Malik Kashan",
     heroSubtitle: "Build a Faster, Better Website for Your Business",
-    heroDesc: "Specializing in engineering high-performance Web Applications with pixel-perfect responsive layouts. I turn complex design architectures into flawless, scalable, and optimized digital realities.",
+    heroDesc: "Lahore-based frontend web developer building fast, SEO-ready websites and web apps with Next.js, React, WordPress and Shopify for businesses in Pakistan and worldwide.",
     downloadCv: "Download CV",
     getAQuote: "Let's Talk",
     startYourProject: "Start Your Project",
@@ -135,6 +135,26 @@ const translations = {
     sending: "Sending...",
     successMessage: "Thank you! Your message has been sent successfully. I will get back to you shortly.",
     errorMessage: "Oops! Something went wrong. Please try again or email me directly.",
+    aboutSectionHeading: "Working With Precision",
+    aboutSectionDesc: "I am Malik Kashan, a specialist in engineering premium digital interfaces. My approach focuses on bridging the gap between elite design aesthetics and high-performance technical execution.",
+    aboutHireMe: "Hire Me",
+    featureCardsList: [
+      {
+        title: "Website Development",
+        desc: "Modern, responsive and high-performance business websites built for speed and conversions.",
+        details: "Our website development service focuses on creating custom, lightning-fast web applications tailored to your business goals. We utilize cutting-edge technologies like Next.js and Tailwind CSS to ensure top-notch performance, high SEO rankings, and seamless user experiences across all devices."
+      },
+      {
+        title: "React JS Development",
+        desc: "Interactive React applications with reusable components and modern UI/UX.",
+        details: "We build scalable, component-driven React applications with exceptional UI/UX design. From complex single-page apps (SPAs) to dynamic dashboards, our state-management and modern design practices deliver smooth and highly responsive user interfaces."
+      },
+      {
+        title: "WordPress Development",
+        desc: "Custom WordPress, Elementor and WooCommerce solutions tailored to your business.",
+        details: "Get fully customized WordPress websites, Elementor landing pages, and secure WooCommerce online stores. We ensure your WordPress site is fast, easy to manage, secure, and fully optimized to drive sales and business growth."
+      }
+    ],
   },
   ur: {
     availableForNewProjects: "نئے پروجیکٹس کے لیے دستیاب",
@@ -249,6 +269,26 @@ const translations = {
     sending: "بھیجا جا رہا ہے...",
     successMessage: "شکریہ! آپ کا پیغام کامیابی سے بھیج دیا گیا ہے۔ میں جلد ہی آپ سے رابطہ کروں گا۔",
     errorMessage: "کچھ غلط ہو گیا۔ براہ کرم دوبارہ کوشش کریں یا مجھے براہ راست ای میل کریں۔",
+    aboutSectionHeading: "درستگی کے ساتھ کام",
+    aboutSectionDesc: "میں ملک کاشان ہوں، پریمیم ڈیجیٹل انٹرفیس کی انجینئرنگ میں ماہر۔ میرا نقطہ نظر شاندار ڈیزائن جمالیات اور اعلیٰ کارکردگی کے تکنیکی نفاذ کے درمیان فاصلے کو کم کرنے پر مرکوز ہے۔",
+    aboutHireMe: "مجھ سے رابطہ کریں",
+    featureCardsList: [
+      {
+        title: "ویب سائٹ ڈویلپمنٹ",
+        desc: "رفتار اور کنورژن کے لیے بنی جدید، ریسپانسیو اور اعلیٰ کارکردگی والی کاروباری ویب سائٹس۔",
+        details: "ہماری ویب سائٹ ڈویلپمنٹ سروس آپ کے کاروباری مقاصد کے مطابق کسٹم، بجلی جیسی تیز رفتار ویب ایپلیکیشنز بنانے پر توجہ مرکوز کرتی ہے۔"
+      },
+      {
+        title: "ریکٹ جے ایس ڈویلپمنٹ",
+        desc: "ری ایبل کمپوننٹس اور جدید UI/UX کے ساتھ انٹرایکٹو ریکٹ ایپلی کیشنز۔",
+        details: "ہم غیر معمولی UI/UX ڈیزائن کے ساتھ اسکیل ایبل، کمپوننٹ ڈریون ریکٹ ایپلی کیشنز بناتے ہیں۔"
+      },
+      {
+        title: "ورڈپریس ڈویلپمنٹ",
+        desc: "آپ کے کاروبار کے لیے تیار کردہ کسٹم ورڈپریس، ایلیمنٹر اور وو کامرس حل۔",
+        details: "مکمل طور پر حسب ضرورت ورڈپریس ویب سائٹس اور محفوظ وو کامرس آن لائن اسٹورز حاصل کریں۔"
+      }
+    ],
   },
   es: {
     availableForNewProjects: "Disponible para nuevos proyectos",

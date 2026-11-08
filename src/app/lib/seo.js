@@ -4,22 +4,18 @@
 import { SITE } from "./site";
 import { ARTICLES } from "./blog";
 
-// Global keyword pool — every article gets a targeted slice of these plus
-// keywords derived from its own title/category so each page carries
-// distinct, relevant keyword metadata for search engines.
+// Keep article metadata focused on services the portfolio actually offers.
 const GLOBAL_KEYWORDS = [
-  "web developer pakistan",
-  "web development services pakistan",
-  "hire web developer lahore",
-  "freelance web developer pakistan",
-  "custom website development",
-  "next.js developer for hire",
-  "react developer pakistan",
-  "frontend developer for hire",
-  "wordpress development services",
-  "seo friendly web design",
+  "web developer in Lahore Pakistan",
+  "freelance web developer Pakistan",
+  "Next.js and React development",
+  "WordPress and Shopify development",
   "website performance optimization",
-  "responsive web design services",
+  "hire remote frontend developer",
+  "full stack web developer Pakistan",
+  "custom web application development",
+  "affordable web development services",
+  "SEO optimized web design agency",
 ];
 
 // Category-specific keywords — mixed into each article's metadata.

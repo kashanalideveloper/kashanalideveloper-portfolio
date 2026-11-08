@@ -49,6 +49,7 @@ export const metadata = {
 
 const services = [
   {
+    slug: "web-development",
     title: "Custom Web Development",
     desc: "Modern, responsive and high-performance business websites and web apps built with Next.js and React for speed and conversions.",
     features: ["Next.js / React.js", "REST API integration", "SEO-ready architecture", "Responsive layouts"],
@@ -62,6 +63,7 @@ const services = [
     ),
   },
   {
+    slug: "wordpress-development",
     title: "WordPress Development",
     desc: "Custom WordPress websites, Elementor landing pages and secure WooCommerce online stores tailored to your business.",
     features: ["WordPress & WooCommerce", "Elementor Pro", "Speed optimization", "Easy content management"],
@@ -72,6 +74,7 @@ const services = [
     ),
   },
   {
+    slug: "react-development",
     title: "React.js Applications",
     desc: "Interactive React applications with reusable components, modern state management and exceptional UI/UX design.",
     features: ["SPA architecture", "State management", "Component libraries", "Micro-animations"],
@@ -85,6 +88,7 @@ const services = [
     ),
   },
   {
+    slug: "ui-ux-design",
     title: "UI/UX Design",
     desc: "Pixel-perfect interfaces and design systems that turn complex requirements into clean, intuitive user experiences.",
     features: ["Wireframes & mockups", "Design systems", "Figma collaboration", "Prototyping"],
@@ -97,6 +101,7 @@ const services = [
     ),
   },
   {
+    slug: "performance-optimization",
     title: "Performance Optimization",
     desc: "Core Web Vitals tuning, lazy loading and code-splitting to make your website load faster and rank higher on Google.",
     features: ["Core Web Vitals", "Lighthouse 95+ scores", "Image optimization", "Caching strategies"],
@@ -107,6 +112,7 @@ const services = [
     ),
   },
   {
+    slug: "website-maintenance",
     title: "Website Maintenance",
     desc: "Ongoing updates, security hardening, backups and feature additions so your website stays fast, safe and current.",
     features: ["Security patches", "Regular backups", "Content updates", "24/7 monitoring"],
@@ -282,7 +288,7 @@ export default function ServicesPage() {
             <aside className="lg:w-80 xl:w-96 shrink-0 space-y-7">
 
               {/* Quick Contact */}
-              <div className="rounded-2xl bg-brandPrimary p-6 text-center sticky top-28">
+              <div className="rounded-2xl bg-brandPrimary p-6 text-center">
                 <p className="text-white font-bold text-sm mb-1">Ready to Start?</p>
                 <p className="text-white/70 text-xs font-light mb-4 leading-relaxed">
                   Free consultation — I&apos;ll respond within 24 hours.
@@ -312,9 +318,8 @@ export default function ServicesPage() {
                 <ul className="space-y-1">
                   {services.map((s) => (
                     <li key={s.title}>
-                      <span className="flex items-center gap-2 text-xs text-brandMuted py-1.5 border-b border-brandLine/40 last:border-0">
-                        <span className="text-brandPrimary shrink-0">→</span>
-                        <span className="font-medium">{s.title}</span>
+                      <span className="flex items-center gap-2 text-xs text-brandMuted py-1.5 border-b border-brandLine/40 last:border-0 font-medium">
+                        {s.title}
                       </span>
                     </li>
                   ))}

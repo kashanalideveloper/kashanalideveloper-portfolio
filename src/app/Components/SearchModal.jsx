@@ -79,10 +79,10 @@ export default function SearchModal({ isOpen, onClose }) {
       onClick={onClose}
     >
       <div
-        className="w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-brandLine overflow-hidden"
+        className="w-full max-w-2xl bg-white dark:bg-brandCard rounded-2xl shadow-2xl border border-brandLine overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center px-4 py-3 border-b border-brandLine">
+        <div className="flex items-center px-4 py-3 border-b border-brandLine bg-white dark:bg-brandCard">
           <svg
             className="w-5 h-5 text-brandMuted mr-3 shrink-0"
             viewBox="0 0 24 24"

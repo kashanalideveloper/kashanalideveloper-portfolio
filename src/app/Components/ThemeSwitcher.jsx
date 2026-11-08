@@ -1,29 +1,27 @@
 // src/app/Components/ThemeSwitcher.jsx
 "use client";
 
-import { useState, useEffect, useSyncExternalStore } from "react";
+import { useState, useEffect } from "react";
 
 export default function ThemeSwitcher() {
-  const theme = useSyncExternalStore(
-    (onStoreChange) => {
-      if (typeof window === "undefined") return () => {};
-      window.addEventListener("storage", onStoreChange);
-      return () => window.removeEventListener("storage", onStoreChange);
-    },
-    () => (typeof window !== "undefined" ? localStorage.getItem("theme") || "light" : "light"),
-    () => "light"
-  );
+  const [theme, setTheme] = useState("light");
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    if (theme === "dark") {
+    setMounted(true);
+    const stored = localStorage.getItem("theme");
+    if (stored === "dark" || (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+      setTheme("dark");
       document.documentElement.classList.add("dark");
     } else {
+      setTheme("light");
       document.documentElement.classList.remove("dark");
     }
-  }, [theme]);
+  }, []);
 
   const toggleTheme = () => {
     const next = theme === "light" ? "dark" : "light";
+    setTheme(next);
     localStorage.setItem("theme", next);
     if (next === "dark") {
       document.documentElement.classList.add("dark");
@@ -32,11 +30,17 @@ export default function ThemeSwitcher() {
     }
   };
 
+  if (!mounted) {
+    return (
+      <div className="w-9 h-9 rounded-xl border border-brandLine bg-white dark:bg-brandCard" />
+    );
+  }
+
   return (
     <button
       onClick={toggleTheme}
       aria-label="Toggle light and dark theme"
-      className="p-2.5 rounded-xl border border-brandLine bg-white hover:border-brandPrimary/50 text-brandMuted hover:text-brandPrimary transition-all duration-200 cursor-pointer shadow-xs"
+      className="p-2.5 rounded-xl border border-brandLine bg-white dark:bg-brandCard hover:border-brandPrimary/50 text-brandMuted hover:text-brandPrimary transition-all duration-200 cursor-pointer shadow-xs"
     >
       {theme === "light" ? (
         <svg
@@ -50,7 +54,7 @@ export default function ThemeSwitcher() {
         </svg>
       ) : (
         <svg
-          className="w-4 h-4 text-amber-500"
+          className="w-4 h-4 text-brandPrimary"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"

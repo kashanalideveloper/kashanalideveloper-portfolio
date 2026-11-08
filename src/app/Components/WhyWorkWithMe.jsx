@@ -34,7 +34,7 @@ export default function WhyWorkWithMe() {
   ];
 
   return (
-    <section className="py-20 sm:py-24 bg-brandBg text-brandInk border-t border-brandLine font-sans">
+    <section className="py-12 sm:py-16 bg-brandBg text-brandInk border-t border-brandLine font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brandPrimary/10 border border-brandPrimary/20 text-[11px] font-mono tracking-widest text-brandPrimary uppercase mb-3">
@@ -53,8 +53,9 @@ export default function WhyWorkWithMe() {
           {strengths.map((item, idx) => (
             <div
               key={idx}
-              className="p-8 rounded-3xl bg-white border border-brandLine shadow-xs hover:border-brandPrimary/40 transition-all duration-300 group"
+              className="group relative overflow-hidden p-8 rounded-3xl bg-brandCard border border-brandLine shadow-soft hover:border-brandPrimary/30 hover:shadow-soft-hover transition-all duration-300"
             >
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brandPrimary/60 to-transparent opacity-80" />
               <div className="w-12 h-12 rounded-2xl bg-brandPrimary/10 text-brandPrimary flex items-center justify-center font-mono font-bold text-sm mb-6 group-hover:bg-brandPrimary group-hover:text-white transition-all">
                 {`0${idx + 1}`}
               </div>

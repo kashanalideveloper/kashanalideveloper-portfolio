@@ -42,7 +42,7 @@ export default function ProjectResults() {
         </div>
 
         <div className="text-center">
-          <Link href="/projects" className="inline-flex items-center justify-center px-8 py-3.5 bg-brandInk dark:bg-brandPrimary text-white text-xs font-bold uppercase tracking-widest rounded-xl hover:bg-brandPrimary transition-all">
+          <Link href="/projects" className="inline-flex items-center justify-center px-8 py-3.5 bg-brandPrimary text-white text-xs font-bold uppercase tracking-widest rounded-xl shadow-soft hover:bg-brandSecondary transition-all">
             {t("viewAllProjects")}
           </Link>
         </div>

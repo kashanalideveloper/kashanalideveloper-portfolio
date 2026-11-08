@@ -46,7 +46,7 @@ export default function Process() {
       ];
 
   return (
-    <section className="py-20 sm:py-24 bg-white border-t border-brandLine font-sans">
+    <section className="py-12 sm:py-16 bg-white border-t border-brandLine font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brandPrimary/10 border border-brandPrimary/20 text-[11px] font-mono tracking-widest text-brandPrimary uppercase mb-3">

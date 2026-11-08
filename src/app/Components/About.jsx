@@ -5,13 +5,6 @@ import { motion } from "framer-motion";
 import Counter from "./Counter";
 import { useLanguage } from "./LanguageContext";
 
-const stats = [
-  { value: 50, suffix: "+", label: "Projects Delivered" },
-  { value: 5, suffix: "+", label: "Years Experience" },
-  { value: 40, suffix: "+", label: "Happy Clients" },
-  { value: 100, suffix: "%", label: "On-Time Delivery" },
-];
-
 export default function About() {
   const { t } = useLanguage();
   const [selectedCard, setSelectedCard] = useState(null);
@@ -28,78 +21,60 @@ export default function About() {
     };
   }, [selectedCard]);
 
-  const featureCards = [
-    {
-      title: "Website Development",
-      desc: "Modern, responsive and high-performance business websites built for speed and conversions.",
-      details:
-        "Our website development service focuses on creating custom, lightning-fast web applications tailored to your business goals. We utilize cutting-edge technologies like Next.js and Tailwind CSS to ensure top-notch performance, high SEO rankings, and seamless user experiences across all devices.",
-      icon: (
-        <svg
-          className="w-5 h-5 text-brandPrimary transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-          <line x1="8" y1="21" x2="16" y2="21" />
-          <line x1="12" y1="17" x2="12" y2="21" />
-          <path d="M10 7l-3 3 3 3M14 7l3 3-3 3" />
-        </svg>
-      ),
-    },
-    {
-      title: "React JS Development",
-      desc: "Interactive React applications with reusable components and modern UI/UX.",
-      details:
-        "We build scalable, component-driven React applications with exceptional UI/UX design. From complex single-page apps (SPAs) to dynamic dashboards, our state-management and modern design practices deliver smooth and highly responsive user interfaces.",
-      icon: (
-        <svg
-          className="w-6 h-6 text-brandPrimary transition-transform duration-700 group-hover:scale-110 group-hover:rotate-180"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <circle cx="12" cy="12" r="2" fill="currentColor" />
-          <ellipse cx="12" cy="12" rx="10" ry="4" />
-          <ellipse
-            cx="12"
-            cy="12"
-            rx="10"
-            ry="4"
-            transform="rotate(60 12 12)"
-          />
-          <ellipse
-            cx="12"
-            cy="12"
-            rx="10"
-            ry="4"
-            transform="rotate(120 12 12)"
-          />
-        </svg>
-      ),
-    },
-    {
-      title: "WordPress Development",
-      desc: "Custom WordPress, Elementor and WooCommerce solutions tailored to your business.",
-      details:
-        "Get fully customized WordPress websites, Elementor landing pages, and secure WooCommerce online stores. We ensure your WordPress site is fast, easy to manage, secure, and fully optimized to drive sales and business growth.",
-      icon: (
-        <svg
-          className="w-5 h-5 text-brandPrimary transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path d="M12.158 12.786l-2.698 7.83c2.347.606 4.81.258 6.9-.982-.3-.045-.584-.075-.824-.075-1.11 0-2.13.345-3.378.773zm-8.242-4.14c0 4.103 2.502 7.625 6.07 9.123L6.34 7.662c-.255.765-.424 1.41-.424 1.983zm15.112-.66c0-1.125-.405-1.905-.75-2.52-.45-.75-.87-1.395-.87-2.145 0-.84.645-1.62 1.545-1.62.09 0 .165.015.255.015A9.914 9.914 0 0012 2C6.48 2 2 6.48 2 12c0 1.92.54 3.705 1.47 5.235l5.22-15.135c.495-.12.945-.12 1.44-.12.435 0 .84.015 1.23.06L7.811 12.87l3.24 9.09A9.972 9.972 0 0022 12c0-1.485-.33-2.925-.915-4.215-.225.135-.42.24-.555.24-.615 0-1.05-.345-1.65-.9zm.222 4.11c.015.39.03.78.03 1.14 0 1.83-.54 3.885-1.425 5.925l-2.31-6.735c1.02-.27 2.055-.54 3.195-.54.18 0 .345.03.51.21z" />
-        </svg>
-      ),
-    },
+  const stats = [
+    { value: 50, suffix: "+", label: t("projectsDeliveredLabel") || "Projects Delivered" },
+    { value: 5, suffix: "+", label: t("yearsExperienceLabel") || "Years Experience" },
+    { value: 40, suffix: "+", label: "Happy Clients" },
+    { value: 100, suffix: "%", label: "On-Time Delivery" },
   ];
+
+  const defaultIcons = [
+    (
+      <svg
+        className="w-5 h-5 text-brandPrimary transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+        <line x1="8" y1="21" x2="16" y2="21" />
+        <line x1="12" y1="17" x2="12" y2="21" />
+        <path d="M10 7l-3 3 3 3M14 7l3 3-3 3" />
+      </svg>
+    ),
+    (
+      <svg
+        className="w-6 h-6 text-brandPrimary transition-transform duration-700 group-hover:scale-110 group-hover:rotate-180"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <circle cx="12" cy="12" r="2" fill="currentColor" />
+        <ellipse cx="12" cy="12" rx="10" ry="4" />
+        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)" />
+        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)" />
+      </svg>
+    ),
+    (
+      <svg
+        className="w-5 h-5 text-brandPrimary transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path d="M12.158 12.786l-2.698 7.83c2.347.606 4.81.258 6.9-.982-.3-.045-.584-.075-.824-.075-1.11 0-2.13.345-3.378.773zm-8.242-4.14c0 4.103 2.502 7.625 6.07 9.123L6.34 7.662c-.255.765-.424 1.41-.424 1.983zm15.112-.66c0-1.125-.405-1.905-.75-2.52-.45-.75-.87-1.395-.87-2.145 0-.84.645-1.62 1.545-1.62.09 0 .165.015.255.015A9.914 9.914 0 0012 2C6.48 2 2 6.48 2 12c0 1.92.54 3.705 1.47 5.235l5.22-15.135c.495-.12.945-.12 1.44-.12.435 0 .84.015 1.23.06L7.811 12.87l3.24 9.09A9.972 9.972 0 0022 12c0-1.485-.33-2.925-.915-4.215-.225.135-.42.24-.555.24-.615 0-1.05-.345-1.65-.9zm.222 4.11c.015.39.03.78.03 1.14 0 1.83-.54 3.885-1.425 5.925l-2.31-6.735c1.02-.27 2.055-.54 3.195-.54.18 0 .345.03.51.21z" />
+      </svg>
+    ),
+  ];
+
+  const rawCards = t("featureCardsList");
+  const featureCards = Array.isArray(rawCards)
+    ? rawCards.map((c, i) => ({ ...c, icon: defaultIcons[i] || defaultIcons[0] }))
+    : [];
 
   return (
     <section
@@ -123,21 +98,18 @@ export default function About() {
             </span>
 
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brandInk leading-tight mb-5 sm:mb-6 uppercase tracking-tight">
-              Working <br className="hidden lg:block" />
-              <span className="text-brandPrimary">With Precision</span>
+              {t("aboutSectionHeading")}
             </h2>
 
             <p className="text-brandMuted text-sm sm:text-base leading-relaxed mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0">
-              I am Malik Kashan, a specialist in engineering premium digital
-              interfaces. My approach focuses on bridging the gap between elite
-              design aesthetics and high-performance technical execution.
+              {t("aboutSectionDesc")}
             </p>
 
             <Link
               href="/#contact"
               className="inline-flex items-center justify-center px-6 sm:px-8 py-3 bg-brandPrimary text-white text-xs font-bold uppercase tracking-widest rounded-lg shadow-lg shadow-brandPrimary/20 hover:bg-brandSecondary hover:shadow-brandSecondary/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 w-full sm:w-auto"
             >
-              Hire Me
+              {t("aboutHireMe")}
             </Link>
           </header>
 
@@ -274,7 +246,7 @@ export default function About() {
 
               <div className="w-full">
                 {/* Icon Capsule */}
-                <div className="w-12 h-12 rounded-[14px] bg-brandPrimary/5 border border-brandPrimary/15 flex items-center justify-center mb-6 shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:bg-brandPrimary/15 group-hover:border-brandPrimary/30 shadow-md">
+                <div className="w-12 h-12 rounded-[14px] bg-brandPrimary/5 border border-brandPrimary/15 text-brandPrimary flex items-center justify-center mb-6 shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:bg-brandPrimary group-hover:text-white group-hover:border-brandPrimary/30 shadow-md">
                   {card.icon}
                 </div>
 

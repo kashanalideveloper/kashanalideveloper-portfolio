@@ -5,8 +5,6 @@ import TrustBar from "./Components/TrustBar";
 import ServicesPreview from "./Components/ServicesPreview";
 import Contact from "./Components/Contact";
 
-// Below-the-fold sections are code-split: their JS only loads when the
-// browser is idle, so the hero renders with a much smaller initial bundle.
 const WhyWorkWithMe = dynamic(() => import("./Components/WhyWorkWithMe"));
 const Projects = dynamic(() => import("./Components/Projects"));
 const Process = dynamic(() => import("./Components/Process"));
