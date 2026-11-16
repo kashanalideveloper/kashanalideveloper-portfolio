@@ -24,7 +24,7 @@ export const metadata = {
     "web developer portfolio",
   ],
   alternates: {
-    canonical: `${SITE.url}about`,
+    canonical: "/about",
   },
   openGraph: {
     title: "About Malik Kashan | Senior Front-End Developer",

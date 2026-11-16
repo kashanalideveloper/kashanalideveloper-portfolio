@@ -10,7 +10,7 @@ export const metadata = {
   description:
     "Explore the portfolio of Malik Kashan: React.js applications, Next.js platforms, WordPress websites and full-stack dashboards built for startups and enterprises.",
   alternates: {
-    canonical: `${SITE.url}projects`,
+    canonical: "/projects",
   },
   openGraph: {
     title: "Projects & Portfolio | Malik Kashan",

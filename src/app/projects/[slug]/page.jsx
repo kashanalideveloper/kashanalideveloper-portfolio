@@ -21,7 +21,7 @@ export async function generateMetadata({ params }) {
     title: `${project.title} | Malik Kashan Portfolio`,
     description: project.description,
     alternates: {
-      canonical: `${SITE.url}projects/${project.slug}`,
+      canonical: `/projects/${project.slug}`,
     },
     openGraph: {
       title: `${project.title} | Malik Kashan`,

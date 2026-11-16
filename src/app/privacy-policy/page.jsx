@@ -7,7 +7,7 @@ export const metadata = {
   description:
     "Privacy Policy for Malik Kashan's portfolio website. Learn how your personal information is collected, used and protected when you use this site.",
   alternates: {
-    canonical: `${SITE.url}privacy-policy`,
+    canonical: "/privacy-policy",
   },
   openGraph: {
     title: "Privacy Policy | Malik Kashan",

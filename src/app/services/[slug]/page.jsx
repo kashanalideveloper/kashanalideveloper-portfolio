@@ -20,12 +20,20 @@ export async function generateMetadata({ params }) {
 
   const title = `${service.title} | Malik Kashan`;
   const description = service.description;
+  const keywords = [
+    service.title.toLowerCase(),
+    `${service.title.toLowerCase()} pakistan`,
+    `${service.title.toLowerCase()} lahore`,
+    `hire ${service.eyebrow?.toLowerCase() || service.title.toLowerCase()}`,
+    ...(service.technology || []).map((tech) => `${tech.toLowerCase()} developer pakistan`),
+  ];
 
   return {
     title,
     description,
+    keywords,
     alternates: {
-      canonical: `${SITE.url}services/${slug}`,
+      canonical: `/services/${slug}`,
     },
     openGraph: {
       title,

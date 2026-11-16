@@ -71,7 +71,7 @@ export const metadata = {
   },
 
   alternates: {
-    canonical: SITE.url,
+    canonical: "./",
   },
 
   verification: {

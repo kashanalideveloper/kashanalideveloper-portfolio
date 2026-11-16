@@ -15,7 +15,7 @@ export const metadata = {
     "hiring a developer for website",
   ],
   alternates: {
-    canonical: `${SITE.url}contact`,
+    canonical: "/contact",
   },
   openGraph: {
     title: "Contact Malik Kashan | Hire a Frontend Developer",

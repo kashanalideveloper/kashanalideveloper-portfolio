@@ -7,7 +7,7 @@ export const metadata = {
   description:
     "Terms and Conditions for using Malik Kashan's portfolio website and services. Please read these terms carefully before using this site.",
   alternates: {
-    canonical: `${SITE.url}terms-conditions`,
+    canonical: "/terms-conditions",
   },
   openGraph: {
     title: "Terms & Conditions | Malik Kashan",

@@ -6,8 +6,16 @@ export const metadata = {
   title: "FAQ | Frequently Asked Questions - Malik Kashan",
   description:
     "Answers to common questions about hiring Malik Kashan for frontend development, WordPress websites, project timelines, pricing and the development process.",
+  keywords: [
+    "hire web developer FAQ",
+    "web development pricing Pakistan",
+    "freelance developer Lahore FAQ",
+    "Next.js developer questions",
+    "website development timeline",
+    "WordPress development cost Pakistan",
+  ],
   alternates: {
-    canonical: `${SITE.url}faq`,
+    canonical: "/faq",
   },
   openGraph: {
     title: "FAQ | Frequently Asked Questions - Malik Kashan",

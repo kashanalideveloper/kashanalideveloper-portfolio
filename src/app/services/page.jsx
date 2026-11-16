@@ -29,7 +29,7 @@ export const metadata = {
     "front end developer",
   ],
   alternates: {
-    canonical: `${SITE.url}services`,
+    canonical: "/services",
   },
   openGraph: {
     title: "Front-End Development Services in Pakistan | Malik Kashan",

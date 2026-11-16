@@ -10,7 +10,7 @@ export const metadata = {
   title: "Web Development Blog | Malik Kashan — Frontend Developer",
   description:
     "Next.js, React, WordPress and web performance articles by Malik Kashan — frontend developer in Lahore, Pakistan.",
-  alternates: { canonical: `${SITE.url}blog` },
+  alternates: { canonical: "/blog" },
   openGraph: {
     title: "Web Development Blog | Malik Kashan",
     description:
