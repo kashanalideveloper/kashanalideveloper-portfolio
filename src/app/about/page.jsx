@@ -1,6 +1,7 @@
 // src/app/about/page.jsx
 import Link from "next/link";
 import PageHeader from "../Components/PageHeader";
+import CvDownloadButton from "../Components/CvDownloadButton";
 import { SITE } from "../lib/site";
 
 export const metadata = {
@@ -140,13 +141,9 @@ export default function AboutPage() {
                 >
                   Let&apos;s Talk
                 </Link>
-                <a
-                  href={SITE.cvFile}
-                  download="Malik_Kashan_CV.pdf"
-                  className="inline-flex items-center justify-center px-6 sm:px-8 py-3 bg-white text-brandInk text-xs font-bold uppercase tracking-widest rounded-xl border border-brandLine hover:border-brandPrimary/50 hover:text-brandPrimary transition-all duration-300"
-                >
+                <CvDownloadButton className="inline-flex items-center justify-center px-6 sm:px-8 py-3 bg-white text-brandInk text-xs font-bold uppercase tracking-widest rounded-xl border border-brandLine hover:border-brandPrimary/50 hover:text-brandPrimary transition-all duration-300">
                   Download CV
-                </a>
+                </CvDownloadButton>
               </div>
             </div>
 

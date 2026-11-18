@@ -11,7 +11,7 @@ const GUARANTEES = [
 
 export default function FinalCta() {
   return (
-    <section className="py-16 sm:py-24 bg-brandBg dark:bg-slate-950 relative overflow-hidden font-sans">
+    <section className="py-10 sm:py-16 bg-brandBg dark:bg-slate-950 relative overflow-hidden font-sans">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a05_1px,transparent_1px),linear-gradient(to_bottom,#0f172a05_1px,transparent_1px)] bg-size-[40px_40px] pointer-events-none" />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="bg-white dark:bg-slate-900 rounded-3xl border border-brandLine dark:border-slate-800 shadow-[0_20px_60px_rgba(15,23,42,0.08)] p-8 sm:p-12 text-center relative overflow-hidden">

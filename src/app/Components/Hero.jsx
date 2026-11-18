@@ -2,6 +2,7 @@
 import { useState, useEffect, useSyncExternalStore } from "react";
 import { SITE, whatsappLink } from "../lib/site";
 import { useLanguage } from "./LanguageContext";
+import CvDownloadButton from "./CvDownloadButton";
 
 const roles = [
   "Frontend Developer",
@@ -138,13 +139,9 @@ export default function Hero() {
           {/* Actions */}
           <div className="animate-fade-in-up delay-700 flex flex-col sm:flex-row items-center gap-6 w-full sm:w-auto">
             {/* 🔍 SEO: Accessible link name with valid download target routing */}
-            <a
-              href={SITE.cvFile}
-              download="Malik_Kashan_CV.pdf"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 text-xs font-bold tracking-widest text-white dark:text-slate-950 bg-brandPrimary rounded-xl transition-all duration-300 uppercase active:scale-[0.98] shadow-soft hover:-translate-y-0.5"
-            >
+            <CvDownloadButton className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 text-xs font-bold tracking-widest text-white dark:text-slate-950 bg-brandPrimary rounded-xl transition-all duration-300 uppercase active:scale-[0.98] shadow-soft hover:-translate-y-0.5">
               {t("downloadCv")}
-            </a>
+            </CvDownloadButton>
 
             {/* 🔍 SEO: Real profile links for accessibility mapping */}
             <div className="flex items-center gap-4">

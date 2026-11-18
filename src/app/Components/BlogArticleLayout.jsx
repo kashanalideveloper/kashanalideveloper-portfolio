@@ -232,11 +232,11 @@ export default function BlogArticleLayout({
                       const isActive = activeId === id;
                       return (
                         <li key={i}>
-                          <a href={`#${id}`} className={`group flex items-start gap-3 rounded-md py-1 px-1.5 transition-colors ${isActive ? "bg-brandPrimary/10 text-brandPrimary font-semibold" : "hover:bg-brandBg dark:hover:bg-slate-800"}`}>
-                            <span className={`w-7 shrink-0 rounded px-1 py-0.5 text-center font-mono text-[10px] font-bold transition-colors ${isActive ? "bg-brandPrimary text-white" : "bg-brandPrimary/10 text-brandPrimary group-hover:bg-brandPrimary group-hover:text-white"}`}>
+                          <a href={`#${id}`} className={`group flex items-center gap-3.5 rounded-xl py-2 px-3 transition-all ${isActive ? "bg-brandPrimary/15 text-brandPrimary font-semibold shadow-xs border border-brandPrimary/30" : "hover:bg-brandBg dark:hover:bg-slate-800"}`}>
+                            <span className={`w-7 shrink-0 rounded-lg px-1.5 py-1 text-center font-mono text-[10px] font-bold transition-colors ${isActive ? "bg-brandPrimary text-white shadow-xs" : "bg-brandPrimary/10 text-brandPrimary group-hover:bg-brandPrimary group-hover:text-white"}`}>
                               {String(i + 1).padStart(2, "0")}
                             </span>
-                            <span className={`min-w-0 text-xs transition-colors leading-snug ${isActive ? "text-brandPrimary font-semibold" : "font-medium text-brandMuted dark:text-slate-300 group-hover:text-brandInk dark:group-hover:text-white"}`}>
+                            <span className={`min-w-0 text-xs transition-colors leading-snug ${isActive ? "text-brandPrimary font-bold" : "font-medium text-brandMuted dark:text-slate-300 group-hover:text-brandInk dark:group-hover:text-white"}`}>
                               {s.heading}
                             </span>
                           </a>
@@ -248,11 +248,11 @@ export default function BlogArticleLayout({
                       const isActive = activeId === id;
                       return (
                         <li>
-                          <a href={`#${id}`} className={`group flex items-start gap-3 rounded-md py-1 px-1.5 transition-colors ${isActive ? "bg-brandPrimary/10 text-brandPrimary font-semibold" : "hover:bg-brandBg dark:hover:bg-slate-800"}`}>
-                            <span className={`w-7 shrink-0 rounded px-1 py-0.5 text-center font-mono text-[10px] font-bold transition-colors ${isActive ? "bg-brandPrimary text-white" : "bg-brandPrimary/10 text-brandPrimary group-hover:bg-brandPrimary group-hover:text-white"}`}>
+                          <a href={`#${id}`} className={`group flex items-center gap-3.5 rounded-xl py-2 px-3 transition-all ${isActive ? "bg-brandPrimary/15 text-brandPrimary font-semibold shadow-xs border border-brandPrimary/30" : "hover:bg-brandBg dark:hover:bg-slate-800"}`}>
+                            <span className={`w-7 shrink-0 rounded-lg px-1.5 py-1 text-center font-mono text-[10px] font-bold transition-colors ${isActive ? "bg-brandPrimary text-white shadow-xs" : "bg-brandPrimary/10 text-brandPrimary group-hover:bg-brandPrimary group-hover:text-white"}`}>
                               {String(sections.length + 1).padStart(2, "0")}
                             </span>
-                            <span className={`min-w-0 text-xs transition-colors leading-snug ${isActive ? "text-brandPrimary font-semibold" : "font-medium text-brandMuted dark:text-slate-300 group-hover:text-brandInk dark:group-hover:text-white"}`}>
+                            <span className={`min-w-0 text-xs transition-colors leading-snug ${isActive ? "text-brandPrimary font-bold" : "font-medium text-brandMuted dark:text-slate-300 group-hover:text-brandInk dark:group-hover:text-white"}`}>
                               Conclusion
                             </span>
                           </a>

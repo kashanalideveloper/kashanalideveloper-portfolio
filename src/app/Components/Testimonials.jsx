@@ -100,7 +100,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="relative overflow-hidden border-t border-brandLine bg-brandBg py-16 text-brandInk scroll-mt-28 sm:py-20 lg:py-24"
+      className="relative overflow-hidden border-t border-brandLine bg-brandBg pt-16 pb-10 text-brandInk scroll-mt-28 sm:pt-20 sm:pb-12 lg:pt-24 lg:pb-14"
       style={{ contentVisibility: "auto", containIntrinsicSize: "0 800px" }}
       aria-labelledby={`${componentId}-heading`}
     >
