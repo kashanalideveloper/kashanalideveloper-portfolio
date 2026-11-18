@@ -30,11 +30,11 @@ const nextConfig = {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com https://vercel-insights.com",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com https://vercel-insights.com https://analytics.ahrefs.com",
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com",
               "font-src 'self' data:",
-              "connect-src 'self' https://api.emailjs.com https://www.google-analytics.com https://region1.google-analytics.com https://va.vercel-scripts.com",
+              "connect-src 'self' https://api.emailjs.com https://www.google-analytics.com https://region1.google-analytics.com https://va.vercel-scripts.com https://analytics.ahrefs.com",
               "frame-ancestors 'none'",
               "base-uri 'self'",
               "form-action 'self'",

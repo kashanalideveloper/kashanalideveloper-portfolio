@@ -49,8 +49,8 @@ const sections = [
   {
     title: "5. Cookies and Analytics",
     body: [
-      "This website does not currently use cookies or third-party analytics trackers. If analytics or cookies are added in the future, this policy will be updated to explain exactly what is collected and how.",
-      "You can disable cookies in your browser settings at any time without affecting your ability to browse this site.",
+      "This website uses Ahrefs Analytics, a third-party service, to understand how visitors use the site. It may process usage and technical information about visits, such as pages viewed and browser or device details.",
+      "You can manage or disable cookies through your browser settings. Some analytics functionality may be affected.",
     ],
   },
   {

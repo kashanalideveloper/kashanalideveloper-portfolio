@@ -4,6 +4,7 @@ import SiteShell from "./Components/SiteShell";
 import { LanguageProvider } from "./Components/LanguageContext";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
+import Script from "next/script";
 import { SITE } from "./lib/site";
 
 import { Poppins } from "next/font/google";
@@ -240,6 +241,12 @@ export default function RootLayout({ children }) {
           </SiteShell>
         </LanguageProvider>
         <Analytics />
+        <Script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="JRt/iijwZuJNXE1CnFms7A"
+          async
+          strategy="afterInteractive"
+        />
       </body>
       <GoogleAnalytics gaId="G-8WDLQDGS1C" />
     </html>
